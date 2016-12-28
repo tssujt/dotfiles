@@ -1,0 +1,3 @@
+[submodule "vim-for-server"]
+	path = vim-for-server
+	url = https://github.com/xjw0914/vim-for-server
