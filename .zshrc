@@ -51,7 +51,7 @@ ZSH_THEME="steeef"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(arcanist, autopep8, aws, brew, celery, common-aliases, composer, dotenv, docker, emacs, emoji, fabric, git, github, gitignore, go, golang, gulp, httpie, laravel5, man, mosh, npm, osx, pep8, pip, pylint, python, redis-cli, sudo, supervisorm, tmux, virtualenv, xcode)
 
 source $ZSH/oh-my-zsh.sh
 
