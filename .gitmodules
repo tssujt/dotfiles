@@ -1,9 +1,9 @@
-[submodule "vim-for-server"]
-	path = vim-for-server
-	url = https://github.com/xjw0914/vim-for-server
-[submodule ".emacs.d"]
-	path = .emacs.d
-	url = https://github.com/syl20bnr/spacemacs
-[submodule ".oh-my-zsh"]
-	path = .oh-my-zsh
+[submodule "home/oh-my-zsh"]
+	path = home/oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
+[submodule "home/.emacs.d"]
+	path = home/.emacs.d
+	url = https://github.com/syl20bnr/spacemacs
+[submodule "home/vim-for-server"]
+	path = home/vim-for-server
+	url = https://github.com/xjw0914/vim-for-server
