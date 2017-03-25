@@ -1,3 +1,37 @@
 [user]
-	name = ImPerat0R_
-	email = contactxjw@gmail.com
+	name = contactxjw@gmail.com
+	email = ImPerat0R
+[core]
+	excludesfile = ~/.gitignore_global
+	editor = emacs
+[alias]
+	# Show the diff between the latest commit and the current state
+	d	= !"git diff"
+	# `git di $number` shows the diff between the state `$number` revisions ago and the current state
+	di	= !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
+	g	= git
+	cm	= commit
+	cl	= clone
+	br	= branch
+	st	= status
+	co	= checkout
+	sm	= submodule
+	ci	= commit -a -v
+	unst = reset HEAD
+	throw	= reset --hard HEAD
+	throwh	= reset --hard HEAD^
+	clr	= clean -fdx -f
+	last	= log -1
+	glog	= log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	slog	= log --pretty=oneline	
+	accept-ours = "!f() { git checkout --ours -- \"${@:-.}\"; git add -u \"${@:-.}\"; }; f"
+	accept-theirs = "!f() { git checkout --theirs -- \"${@:-.}\"; git add -u \"${@:-.}\"; }; f"
+	tagcommit = !sh -c 'git rev-list $0 | head -n 1'
+	branches = !legit branches
+	publish = !legit publish
+	unpublish = !legit unpublish
+	sync = !legit sync
+	switch = !legit switch
+	resync = !legit resync
+	undo = !legit undo
+

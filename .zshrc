@@ -83,7 +83,20 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias vim="emacs"
 
 export PATH="$HOME/Sources/arcanist/bin:$PATH"
+if [ -f $HOME/bin/arcanist/resources/shell/bash-completion ]; then
+    source $HOME/bin/arcanist/resources/shell/bash-completion
+fi
 
 export PATH="$PATH:$HOME/.composer/vendor/bin"
+
+export PATH="$(brew --prefix homebrew/php/php70)/bin:$PATH"
+
+export ANDROID_HOME=/usr/local/opt/android-sdk
+
+export EDITOR=emacs
+
+eval "$(thefuck --alias)"
+
