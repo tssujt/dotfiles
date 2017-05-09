@@ -107,3 +107,6 @@ export RUST_SRC_PATH=~/.multirust/toolchains/stable-x86_64-apple-darwin/lib/rust
 
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+eval "`pip completion --zsh`"
+
