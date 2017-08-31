@@ -3,6 +3,7 @@
     "editor.fontSize": 15,
     "editor.fontFamily": "Ayuthaya",
     "editor.lineHeight": 20,
+    "extensions.ignoreRecommendations": true,
     "files.associations": {
         "Cargo.lock": "toml",
         "Cargo.toml": "toml"
@@ -40,6 +41,5 @@
     "workbench.activityBar.visible": false,
     "workbench.colorTheme": "One Dark Pro",
     "workbench.iconTheme": "vscode-icons",
-    "workbench.startupEditor": "none",
-    "extensions.ignoreRecommendations": true
+    "workbench.startupEditor": "none"
 }
