@@ -1,29 +1,45 @@
 {
-    "terminal.external.osxExec": "iTerm.app",
     "editor.cursorStyle": "line-thin",
     "editor.fontSize": 15,
     "editor.fontFamily": "Ayuthaya",
     "editor.lineHeight": 20,
-    "git.confirmSync": false,
-    "vsicons.dontShowNewVersionMessage": true,
-    "workbench.activityBar.visible": false,
-    "workbench.colorTheme": "One Dark Pro",
-    "workbench.iconTheme": "vscode-icons",
+    "files.associations": {
+        "Cargo.lock": "toml",
+        "Cargo.toml": "toml"
+    },
     "files.autoSave": "afterDelay",
     "files.autoSaveDelay": 10000,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/__pycache__": true,
+        "**/.idea": true
+    },
+    "git.confirmSync": false,
+    "python.linting.mypyEnabled": true,
     "rust.cargoPath": "/Users/imperat0r/.cargo/bin/cargo",
-    "rust.cargoHomePath": "/Users/imperat0r/.multirust/toolchains/nightly-x86_64-apple-darwin/bin/cargo",
-    "rust.rustLangSrcPath": "/Users/imperat0r/.multirust/toolchains/nightly-x86_64-apple-darwin/lib/rustlib/src/rust/src",
-    "rust.rustfmtPath": "/Users/imperat0r/.cargo/bin/rustfmt",
     "rust.formatOnSave": true,
+    "rust.cargoHomePath": "/Users/imperat0r/.multirust/toolchains/nightly-x86_64-apple-darwin/bin/cargo",
+    "rust.mode": "rls",
     "rust.racerPath": "/Users/imperat0r/.cargo/bin/racer",
+    "rust.rls": {
+        "useRustfmt": true
+    },
+    "rust.rustfmtPath": "/Users/imperat0r/.cargo/bin/rustfmt",
+    "rust.rustLangSrcPath": "/Users/imperat0r/.multirust/toolchains/nightly-x86_64-apple-darwin/lib/rustlib/src/rust/src",
     "rust.rustup": {
         "toolchain": "nightly-x86_64-apple-darwin",
         "nightlyToolchain": "nightly-x86_64-apple-darwin"
     },
-    "rust.mode": "rls",
-    "rust.rls": {
-        "useRustfmt": true
-    },
-    "rust.unstable_features": true
+    "rust.unstable_features": true,
+    "terminal.external.osxExec": "iTerm.app",
+    "vsicons.dontShowNewVersionMessage": true,
+    "workbench.activityBar.visible": false,
+    "workbench.colorTheme": "One Dark Pro",
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.startupEditor": "none",
+    "extensions.ignoreRecommendations": true
 }
