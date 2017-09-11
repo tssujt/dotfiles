@@ -1,7 +1,8 @@
 {
     "editor.cursorStyle": "line-thin",
-    "editor.fontSize": 15,
-    "editor.fontFamily": "Ayuthaya",
+    "editor.fontSize": 17,
+    "editor.fontFamily": "'Operator Mono'",
+    "editor.formatOnSave": true,
     "editor.lineHeight": 20,
     "extensions.ignoreRecommendations": true,
     "files.associations": {
@@ -21,22 +22,25 @@
     },
     "git.confirmSync": false,
     "python.linting.mypyEnabled": true,
-    "rust.cargoPath": "/Users/imperat0r/.cargo/bin/cargo",
-    "rust.formatOnSave": true,
+    "rust.cargoPath": "/Users/imperat0r/.multirust/toolchains/nightly-x86_64-apple-darwin/bin/cargo",
     "rust.cargoHomePath": "/Users/imperat0r/.multirust/toolchains/nightly-x86_64-apple-darwin/bin/cargo",
+    "rust.goto_def_racer_fallback": true,
     "rust.mode": "rls",
     "rust.racerPath": "/Users/imperat0r/.cargo/bin/racer",
     "rust.rls": {
         "useRustfmt": true
     },
     "rust.rustfmtPath": "/Users/imperat0r/.cargo/bin/rustfmt",
-    "rust.rustLangSrcPath": "/Users/imperat0r/.multirust/toolchains/nightly-x86_64-apple-darwin/lib/rustlib/src/rust/src",
+    "rust.rustLangSrcPath": "/Users/imperat0r/.multirust/toolchains/nightly-x86_64-apple-darwin/lib/rustlib/src/",
     "rust.rustup": {
         "toolchain": "nightly-x86_64-apple-darwin",
         "nightlyToolchain": "nightly-x86_64-apple-darwin"
     },
     "rust.unstable_features": true,
+    "rust.workspace_mode": true,
+    "rust-client.updateOnStartup": true,
     "terminal.external.osxExec": "iTerm.app",
+    "terminal.integrated.fontSize": 15,
     "vsicons.dontShowNewVersionMessage": true,
     "workbench.activityBar.visible": false,
     "workbench.colorTheme": "One Dark Pro",
