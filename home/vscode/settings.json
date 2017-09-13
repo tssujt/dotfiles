@@ -38,7 +38,7 @@
     },
     "rust.unstable_features": true,
     "rust.workspace_mode": true,
-    "rust-client.updateOnStartup": true,
+    "rust-client.updateOnStartup": false,
     "terminal.external.osxExec": "iTerm.app",
     "terminal.integrated.fontSize": 15,
     "vsicons.dontShowNewVersionMessage": true,
