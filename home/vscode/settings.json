@@ -1,9 +1,15 @@
 {
+    "docker-explorer.showDockerImages": false,
+    "docker-explorer.showDockerContainers": false,
+    "docker-explorer.showAzureRegistries": false,
+    "docker-explorer.showDockerHubTreeView": false,
+    "docker-explorer.showSuggestedDockerImages": false,
     "editor.cursorStyle": "line-thin",
     "editor.fontSize": 17,
     "editor.fontFamily": "'Operator Mono'",
     "editor.formatOnSave": true,
     "editor.lineHeight": 20,
+    "editor.renderControlCharacters": true,
     "extensions.ignoreRecommendations": true,
     "files.associations": {
         "Cargo.lock": "toml",
@@ -20,6 +26,7 @@
         "**/__pycache__": true,
         "**/.idea": true
     },
+    "files.insertFinalNewline": true,
     "git.confirmSync": false,
     "python.linting.mypyEnabled": true,
     "rust.cargoPath": "/Users/imperat0r/.multirust/toolchains/nightly-x86_64-apple-darwin/bin/cargo",
@@ -42,7 +49,7 @@
     "terminal.external.osxExec": "iTerm.app",
     "terminal.integrated.fontSize": 15,
     "vsicons.dontShowNewVersionMessage": true,
-    "workbench.activityBar.visible": false,
+    "workbench.activityBar.visible": true,
     "workbench.colorTheme": "One Dark Pro",
     "workbench.iconTheme": "vscode-icons",
     "workbench.startupEditor": "none"
