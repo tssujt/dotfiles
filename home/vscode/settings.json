@@ -51,6 +51,7 @@
     "vsicons.dontShowNewVersionMessage": true,
     "workbench.activityBar.visible": true,
     "workbench.colorTheme": "One Dark Pro",
+    "workbench.editor.enablePreview": false,
     "workbench.iconTheme": "vscode-icons",
     "workbench.startupEditor": "none"
 }
