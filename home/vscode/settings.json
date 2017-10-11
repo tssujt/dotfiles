@@ -1,9 +1,4 @@
 {
-    "docker-explorer.showDockerImages": false,
-    "docker-explorer.showDockerContainers": false,
-    "docker-explorer.showAzureRegistries": false,
-    "docker-explorer.showDockerHubTreeView": false,
-    "docker-explorer.showSuggestedDockerImages": false,
     "editor.cursorStyle": "line-thin",
     "editor.fontSize": 17,
     "editor.fontFamily": "'Operator Mono'",
