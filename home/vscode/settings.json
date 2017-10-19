@@ -44,6 +44,8 @@
     "terminal.external.osxExec": "iTerm.app",
     "terminal.integrated.fontSize": 15,
     "vsicons.dontShowNewVersionMessage": true,
+    "window.openFilesInNewWindow": "on",
+    "window.openFoldersInNewWindow": "on",
     "workbench.activityBar.visible": true,
     "workbench.colorTheme": "One Dark Pro",
     "workbench.editor.enablePreview": false,
