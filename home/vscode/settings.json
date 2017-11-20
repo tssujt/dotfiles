@@ -23,6 +23,7 @@
     },
     "files.insertFinalNewline": true,
     "git.confirmSync": false,
+    "go.autocompleteUnimportedPackages": true,
     "python.linting.mypyEnabled": true,
     "rust.cargoPath": "/Users/imperat0r/.multirust/toolchains/nightly-x86_64-apple-darwin/bin/cargo",
     "rust.cargoHomePath": "/Users/imperat0r/.multirust/toolchains/nightly-x86_64-apple-darwin/bin/cargo",
@@ -30,7 +31,7 @@
     "rust.mode": "rls",
     "rust.racerPath": "/Users/imperat0r/.cargo/bin/racer",
     "rust.rls": {
-        "useRustfmt": true
+        "useRustfmt": true,
     },
     "rust.rustfmtPath": "/Users/imperat0r/.cargo/bin/rustfmt",
     "rust.rustLangSrcPath": "/Users/imperat0r/.multirust/toolchains/nightly-x86_64-apple-darwin/lib/rustlib/src/",
@@ -40,6 +41,7 @@
     },
     "rust.unstable_features": true,
     "rust.workspace_mode": true,
+    "rust-client.logToFile": true,
     "rust-client.updateOnStartup": false,
     "terminal.external.osxExec": "iTerm.app",
     "terminal.integrated.fontSize": 15,
@@ -50,5 +52,9 @@
     "workbench.colorTheme": "One Dark Pro",
     "workbench.editor.enablePreview": false,
     "workbench.iconTheme": "vscode-icons",
-    "workbench.startupEditor": "none"
+    "workbench.startupEditor": "none",
+    "window.zoomLevel": 0,
+    "python.disablePromptForFeatures": [
+        "pylint"
+    ]
 }
