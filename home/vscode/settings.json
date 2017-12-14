@@ -25,21 +25,8 @@
     "git.confirmSync": false,
     "go.autocompleteUnimportedPackages": true,
     "python.linting.mypyEnabled": true,
-    "rust.cargoPath": "/Users/imperat0r/.multirust/toolchains/nightly-x86_64-apple-darwin/bin/cargo",
-    "rust.cargoHomePath": "/Users/imperat0r/.multirust/toolchains/nightly-x86_64-apple-darwin/bin/cargo",
-    "rust.goto_def_racer_fallback": true,
-    "rust.mode": "rls",
-    "rust.racerPath": "/Users/imperat0r/.cargo/bin/racer",
-    "rust.rls": {
-        "useRustfmt": true,
-    },
-    "rust.rustfmtPath": "/Users/imperat0r/.cargo/bin/rustfmt",
-    "rust.rustLangSrcPath": "/Users/imperat0r/.multirust/toolchains/nightly-x86_64-apple-darwin/lib/rustlib/src/",
-    "rust.rustup": {
-        "toolchain": "nightly-x86_64-apple-darwin",
-        "nightlyToolchain": "nightly-x86_64-apple-darwin"
-    },
     "rust.unstable_features": true,
+    "rust.all_features": true,
     "rust.workspace_mode": true,
     "rust-client.logToFile": true,
     "rust-client.updateOnStartup": false,
