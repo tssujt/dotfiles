@@ -4,3 +4,6 @@
 [submodule "home/vim-for-server"]
 	path = home/vim-for-server
 	url = https://github.com/xjw0914/vim-for-server
+[submodule "home/oh-my-zsh"]
+	path = home/oh-my-zsh
+	url = https://github.com/robbyrussell/oh-my-zsh.git
