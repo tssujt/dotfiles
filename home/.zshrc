@@ -118,3 +118,11 @@ fi
 # export PYSPARK_DRIVER_PYTHON_OPTS='notebook'
 export PATH="/usr/local/opt/openssl/bin:$PATH"
 export LDFLAGS="-L/usr/local/opt/openssl/lib"
+export LD_LIBRARY_PATH=/Users/imperat0r/.rustup/toolchains/nightly-x86_64-apple-darwin/lib:/Users/imperat0r/.rustup/toolchains/nightly-x86_64-apple-darwin/lib:
+
+export PATH="${HOME}/Library/emsdk-portable:$PATH"
+export EMSDK="${HOME}/Library/emsdk-portable"
+export EM_CONFIG="${HOME}/.emscripten"
+
+eval "$(rbenv init -)"
+export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"

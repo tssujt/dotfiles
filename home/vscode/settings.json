@@ -10,7 +10,7 @@
         "Cargo.lock": "toml",
         "Cargo.toml": "toml"
     },
-    "files.autoSave": "afterDelay",
+    "files.autoSave": "off",
     "files.autoSaveDelay": 10000,
     "files.exclude": {
         "**/.git": true,
@@ -23,11 +23,10 @@
     },
     "files.insertFinalNewline": true,
     "git.confirmSync": false,
-    "go.autocompleteUnimportedPackages": true,
-    "python.linting.mypyEnabled": true,
-    "rust.unstable_features": true,
     "rust.all_features": true,
+    "rust.unstable_features": true,
     "rust.workspace_mode": true,
+    "rust-client.channel": "nightly-2017-12-21",
     "rust-client.logToFile": true,
     "rust-client.updateOnStartup": false,
     "terminal.external.osxExec": "iTerm.app",
@@ -36,12 +35,10 @@
     "window.openFilesInNewWindow": "on",
     "window.openFoldersInNewWindow": "on",
     "workbench.activityBar.visible": true,
-    "workbench.colorTheme": "One Dark Pro",
     "workbench.editor.enablePreview": false,
     "workbench.iconTheme": "vscode-icons",
     "workbench.startupEditor": "none",
-    "window.zoomLevel": 0,
-    "python.disablePromptForFeatures": [
-        "pylint"
-    ]
+    "window.zoomLevel": -1,
+    "workbench.colorTheme": "Solarized Light",
+    "explorer.confirmDelete": false
 }
