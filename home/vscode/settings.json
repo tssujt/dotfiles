@@ -24,11 +24,13 @@
     "files.insertFinalNewline": true,
     "git.confirmSync": false,
     "rust.all_features": true,
+    "rust.build_lib": true,
+    "rust.goto_def_racer_fallback": true,
     "rust.unstable_features": true,
     "rust.workspace_mode": true,
-    "rust-client.channel": "nightly-2017-12-21",
-    "rust-client.logToFile": true,
-    "rust-client.updateOnStartup": false,
+    "rust-client.channel": "nightly",
+    "rust-client.logToFile": false,
+    "rust-client.updateOnStartup": true,
     "terminal.external.osxExec": "iTerm.app",
     "terminal.integrated.fontSize": 15,
     "vsicons.dontShowNewVersionMessage": true,
@@ -39,6 +41,6 @@
     "workbench.iconTheme": "vscode-icons",
     "workbench.startupEditor": "none",
     "window.zoomLevel": -1,
-    "workbench.colorTheme": "Solarized Light",
-    "explorer.confirmDelete": false
+    "explorer.confirmDelete": false,
+    "workbench.colorTheme": "United Ubuntu"
 }
