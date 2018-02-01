@@ -1,5 +1,5 @@
 {
-    "editor.cursorStyle": "line-thin",
+    "editor.cursorStyle": "line",
     "editor.fontSize": 17,
     "editor.fontFamily": "'Operator Mono'",
     "editor.formatOnSave": true,
