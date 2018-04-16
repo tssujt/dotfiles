@@ -92,7 +92,7 @@ fi
 
 export PATH="$PATH:$HOME/.composer/vendor/bin"
 
-export PATH="$(brew --prefix homebrew/php/php70)/bin:$PATH"
+export PATH="$(brew --prefix php@7.0)/bin:$PATH"
 
 export ANDROID_HOME=/usr/local/opt/android-sdk
 
@@ -117,7 +117,10 @@ fi
 # export PYSPARK_DRIVER_PYTHON=jupyter
 # export PYSPARK_DRIVER_PYTHON_OPTS='notebook'
 export PATH="/usr/local/opt/openssl/bin:$PATH"
+export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
+
 export LDFLAGS="-L/usr/local/opt/openssl/lib"
+export CPPFLAGS="-I/usr/local/opt/openssl/include"
 export LD_LIBRARY_PATH=/Users/imperat0r/.rustup/toolchains/nightly-x86_64-apple-darwin/lib:/Users/imperat0r/.rustup/toolchains/nightly-x86_64-apple-darwin/lib:
 
 export PATH="${HOME}/Library/emsdk-portable:$PATH"
@@ -125,4 +128,3 @@ export EMSDK="${HOME}/Library/emsdk-portable"
 export EM_CONFIG="${HOME}/.emscripten"
 
 eval "$(rbenv init -)"
-export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"

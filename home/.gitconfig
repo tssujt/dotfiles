@@ -2,7 +2,7 @@
 	name = xjw0914
 	email = contactxjw@gmail.com
 [core]
-	excludesfile = ~/.gitignore_global
+	excludesfile = /Users/imperat0r/.gitignore_global
 	editor = emacs
 [alias]
 	# Show the diff between the latest commit and the current state
@@ -44,3 +44,11 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[commit]
+	template = /Users/imperat0r/.stCommitMsg

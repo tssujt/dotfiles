@@ -40,7 +40,9 @@
     "workbench.editor.enablePreview": false,
     "workbench.iconTheme": "vscode-icons",
     "workbench.startupEditor": "none",
-    "window.zoomLevel": -1,
+    "window.zoomLevel": 0,
     "explorer.confirmDelete": false,
-    "workbench.colorTheme": "United Ubuntu"
+    "workbench.colorTheme": "Solarized Light",
+    "git.autofetch": true,
+    "python.pythonPath": "/usr/bin/python"
 }
