@@ -44,5 +44,6 @@
     "explorer.confirmDelete": false,
     "workbench.colorTheme": "Solarized Light",
     "git.autofetch": true,
-    "python.pythonPath": "/usr/bin/python"
+    "python.pythonPath": "/usr/bin/python",
+    "editor.renderWhitespace": "all"
 }
