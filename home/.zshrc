@@ -128,3 +128,5 @@ export EMSDK="${HOME}/Library/emsdk-portable"
 export EM_CONFIG="${HOME}/.emscripten"
 
 eval "$(rbenv init -)"
+
+alias jdqiandao="~/Sources/JD-Coin/venv/bin/python ~/Sources/JD-Coin/app/main.py"
