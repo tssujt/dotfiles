@@ -27,7 +27,6 @@
     "rust.build_lib": true,
     "rust.goto_def_racer_fallback": true,
     "rust.unstable_features": true,
-    "rust.workspace_mode": true,
     "rust-client.channel": "nightly",
     "rust-client.logToFile": false,
     "rust-client.updateOnStartup": true,
