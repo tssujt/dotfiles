@@ -41,7 +41,7 @@
     "workbench.startupEditor": "none",
     "window.zoomLevel": 0,
     "explorer.confirmDelete": false,
-    "workbench.colorTheme": "Solarized Light",
+    "workbench.colorTheme": "Nova",
     "git.autofetch": true,
     "python.pythonPath": "/usr/bin/python",
     "editor.renderWhitespace": "all"
