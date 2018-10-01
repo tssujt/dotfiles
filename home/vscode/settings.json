@@ -39,7 +39,7 @@
     "workbench.editor.enablePreview": false,
     "workbench.iconTheme": "vscode-icons",
     "workbench.startupEditor": "none",
-    "window.zoomLevel": 0,
+    "window.zoomLevel": -1,
     "explorer.confirmDelete": false,
     "workbench.colorTheme": "Nova",
     "git.autofetch": true,
