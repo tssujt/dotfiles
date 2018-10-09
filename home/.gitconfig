@@ -3,7 +3,7 @@
 	email = contactxjw@gmail.com
 [core]
 	excludesfile = /Users/imperat0r/.gitignore_global
-	editor = emacs
+	editor = code --wait
 [alias]
 	# Show the diff between the latest commit and the current state
 	d	= !"git diff"
