@@ -51,7 +51,7 @@ ZSH_THEME="steeef"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(arcanist, autopep8, aws, brew, celery, common-aliases, composer, dotenv, docker, emacs, emoji, fabric, git, github, gitignore, go, golang, gulp, httpie, laravel5, man, mosh, npm, osx, pep8, pip, pylint, python, redis-cli, sudo, supervisorm, tmux, virtualenv, xcode)
+plugins=(arcanist, autopep8, aws, brew, celery, common-aliases, composer, dotenv, docker, emacs, emoji, fabric, git, github, gitignore, go, golang, gulp, httpie, laravel5, man, mosh, npm, osx, pep8, pip, pylint, python, redis-cli, sudo, supervisorm, tmux, virtualenv, xcode, zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -105,7 +105,6 @@ export LANG=en_US.UTF-8
 
 export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 
-
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 eval "`pip completion --zsh`"
@@ -116,11 +115,13 @@ fi
 
 # export PYSPARK_DRIVER_PYTHON=jupyter
 # export PYSPARK_DRIVER_PYTHON_OPTS='notebook'
-export PATH="/usr/local/opt/openssl/bin:$PATH"
 export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
 
-export LDFLAGS="-L/usr/local/opt/openssl/lib"
-export CPPFLAGS="-I/usr/local/opt/openssl/include"
+export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
+export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
+export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"
+
 export LD_LIBRARY_PATH=/Users/imperat0r/.rustup/toolchains/nightly-x86_64-apple-darwin/lib:/Users/imperat0r/.rustup/toolchains/nightly-x86_64-apple-darwin/lib:
 
 export PATH="${HOME}/Library/emsdk-portable:$PATH"
