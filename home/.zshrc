@@ -83,7 +83,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias vim="emacs"
 
 export PATH="$HOME/Sources/arcanist/bin:$PATH"
 if [ -f $HOME/bin/arcanist/resources/shell/bash-completion ]; then
@@ -92,11 +91,11 @@ fi
 
 export PATH="$PATH:$HOME/.composer/vendor/bin"
 
-export PATH="$(brew --prefix php@7.0)/bin:$PATH"
+export PATH="$(brew --prefix php)/bin:$PATH"
 
 export ANDROID_HOME=/usr/local/opt/android-sdk
 
-export EDITOR=emacs
+export EDITOR=vim
 
 eval "$(thefuck --alias)"
 
@@ -117,6 +116,7 @@ fi
 # export PYSPARK_DRIVER_PYTHON_OPTS='notebook'
 export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
 
+export PATH="/usr/local/opt/gettext/bin:$PATH"
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
 export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
