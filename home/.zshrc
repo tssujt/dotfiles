@@ -106,7 +106,7 @@ export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-eval "`pip completion --zsh`"
+eval "`pip3 completion --zsh`"
 
 if [ -f ~/.config/exercism/exercism_completion.zsh ]; then
     . ~/.config/exercism/exercism_completion.zsh

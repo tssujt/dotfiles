@@ -5,6 +5,8 @@
     "editor.formatOnSave": true,
     "editor.lineHeight": 20,
     "editor.renderControlCharacters": true,
+    "editor.renderWhitespace": "all",
+    "explorer.confirmDelete": false,
     "extensions.ignoreRecommendations": true,
     "files.associations": {
         "Cargo.lock": "toml",
@@ -22,7 +24,12 @@
         "**/.idea": true
     },
     "files.insertFinalNewline": true,
+    "git.autofetch": true,
     "git.confirmSync": false,
+    "leetcode.defaultLanguage": "rust",
+    "leetcode.endpoint": "leetcode",
+    "python.formatting.provider": "black",
+    "python.pythonPath": "/usr/local/bin/python3",
     "rust.all_features": true,
     "rust.build_lib": true,
     "rust.goto_def_racer_fallback": true,
@@ -35,14 +42,10 @@
     "vsicons.dontShowNewVersionMessage": true,
     "window.openFilesInNewWindow": "on",
     "window.openFoldersInNewWindow": "on",
+    "window.zoomLevel": 0,
     "workbench.activityBar.visible": true,
+    "workbench.colorTheme": "Nova",
     "workbench.editor.enablePreview": false,
     "workbench.iconTheme": "vscode-icons",
-    "workbench.startupEditor": "none",
-    "window.zoomLevel": -1,
-    "explorer.confirmDelete": false,
-    "workbench.colorTheme": "Nova",
-    "git.autofetch": true,
-    "python.pythonPath": "/usr/bin/python",
-    "editor.renderWhitespace": "all"
+    "workbench.startupEditor": "none"
 }

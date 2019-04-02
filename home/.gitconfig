@@ -4,6 +4,7 @@
 [core]
 	excludesfile = /Users/imperat0r/.gitignore_global
 	editor = code --wait
+	autocrlf = input
 [alias]
 	# Show the diff between the latest commit and the current state
 	d	= !"git diff"
