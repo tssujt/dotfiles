@@ -1,3 +1,0 @@
-[alias]
-br = "build --release"
-rr = "run --release"

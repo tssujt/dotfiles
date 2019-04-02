@@ -90,7 +90,6 @@ if [ -f $HOME/bin/arcanist/resources/shell/bash-completion ]; then
 fi
 
 export PATH="$PATH:$HOME/.composer/vendor/bin"
-
 export PATH="$(brew --prefix php)/bin:$PATH"
 
 export ANDROID_HOME=/usr/local/opt/android-sdk
@@ -102,6 +101,7 @@ eval "$(thefuck --alias)"
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
+source "$HOME/.cargo/env"
 export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
