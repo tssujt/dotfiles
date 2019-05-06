@@ -3,6 +3,7 @@
     "editor.fontSize": 17,
     "editor.fontFamily": "'Operator Mono'",
     "editor.formatOnSave": true,
+    "editor.largeFileOptimizations": true,
     "editor.lineHeight": 20,
     "editor.renderControlCharacters": true,
     "editor.renderWhitespace": "all",
