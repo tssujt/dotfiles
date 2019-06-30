@@ -27,7 +27,7 @@
     "files.insertFinalNewline": true,
     "git.autofetch": true,
     "git.confirmSync": false,
-    "leetcode.defaultLanguage": "rust",
+    "leetcode.defaultLanguage": "python3",
     "leetcode.endpoint": "leetcode",
     "python.formatting.provider": "black",
     "python.pythonPath": "/usr/local/bin/python3",
@@ -40,13 +40,12 @@
     "rust-client.updateOnStartup": true,
     "terminal.external.osxExec": "iTerm.app",
     "terminal.integrated.fontSize": 15,
-    "vsicons.dontShowNewVersionMessage": true,
     "window.openFilesInNewWindow": "on",
     "window.openFoldersInNewWindow": "on",
     "window.zoomLevel": 0,
     "workbench.activityBar.visible": true,
     "workbench.colorTheme": "Nova",
     "workbench.editor.enablePreview": false,
-    "workbench.iconTheme": "vscode-icons",
-    "workbench.startupEditor": "none"
+    "workbench.startupEditor": "none",
+    "vsicons.dontShowNewVersionMessage": true
 }

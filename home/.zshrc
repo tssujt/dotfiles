@@ -1,17 +1,9 @@
 # Aditional PATHs
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-# export PYSPARK_DRIVER_PYTHON=jupyter
-# export PYSPARK_DRIVER_PYTHON_OPTS='notebook'
 export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
-
 export PATH="/usr/local/opt/gettext/bin:$PATH"
-
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
-
 export PATH="${HOME}/Library/emsdk-portable:$PATH"
-
 export PATH="${HOME}/Sources/arcanist/bin:$PATH"
-
 export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
@@ -67,7 +59,6 @@ plugins=(
     composer
     dotenv
     docker
-    emacs
     emoji
     fabric
     git
@@ -144,5 +135,19 @@ export EMSDK="${HOME}/Library/emsdk-portable"
 export EM_CONFIG="${HOME}/.emscripten"
 
 eval "$(thefuck --alias)"
+fpath=(/usr/local/share/zsh-completions $fpath)
 
-alias jdqiandao="${HOME}/Sources/JD-Coin/venv/bin/python ${HOME}/Sources/JD-Coin/app/main.py"
+if [[ -x $(which exa) ]]; then
+  alias l="exa"
+  alias ls="exa -a --group-directories-first --color-scale"
+  alias la="exa -alF --group-directories-first --color-scale"
+  alias ll="exa -aFG --group-directories-first --color-scale"
+  alias lg="exa -alFG --group-directories-first --color-scale"
+  alias lr="exa -alr --group-directories-first --color-scale"
+  alias lt="exa -alFs time --color-scale"
+  alias lk="exa -als extension --group-directories-first --color-scale"
+  alias lS="exa -alFs size --group-directories-first --color-scale"
+  alias lR="exa -alFR --group-directories-first --color-scale"
+  alias lT="exa -alFT --color-scale"
+  alias ldot="exa -adl .* --color-scale"
+fi
