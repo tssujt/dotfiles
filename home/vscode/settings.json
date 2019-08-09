@@ -1,12 +1,14 @@
 {
     "editor.cursorStyle": "line",
-    "editor.fontSize": 17,
+    "editor.fontSize": 19,
     "editor.fontFamily": "'Operator Mono'",
-    "editor.formatOnSave": true,
     "editor.largeFileOptimizations": true,
     "editor.lineHeight": 20,
     "editor.renderControlCharacters": true,
     "editor.renderWhitespace": "all",
+    "editor.rulers": [80, 120],
+    "editor.suggestSelection": "first",
+    "editor.wordWrap": "bounded",
     "explorer.confirmDelete": false,
     "extensions.ignoreRecommendations": true,
     "files.associations": {
@@ -24,28 +26,74 @@
         "**/__pycache__": true,
         "**/.idea": true
     },
+    "eslint.autoFixOnSave": true,
+    "eslint.trace.server": "messages",
     "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
     "git.autofetch": true,
     "git.confirmSync": false,
     "leetcode.defaultLanguage": "python3",
     "leetcode.endpoint": "leetcode",
-    "python.formatting.provider": "black",
-    "python.pythonPath": "/usr/local/bin/python3",
-    "rust.all_features": true,
-    "rust.build_lib": true,
-    "rust.goto_def_racer_fallback": true,
-    "rust.unstable_features": true,
-    "rust-client.channel": "nightly",
-    "rust-client.logToFile": false,
-    "rust-client.updateOnStartup": true,
+    "prettier.disableLanguages": [],
+    "prettier.eslintIntegration": false,
+    "prettier.stylelintIntegration": true,
+    "python.analysis.logLevel": "Trace",
+    "python.analysis.openFilesOnly": false,
+    "python.autoComplete.addBrackets": true,
+    "python.formatting.provider": "autopep8",
+    "python.formatting.autopep8Args": [
+        "--max-line-length",
+        "80"
+    ],
+    "python.jediEnabled": false,
+    "python.linting.enabled": true,
+    "python.linting.flake8Args": [
+        "--format=pylint",
+        "--count",
+        "--verbose"
+    ],
+    "python.linting.flake8Enabled": true,
+    "python.linting.ignorePatterns": [
+        ".vscode/*.py",
+        "**/site-packages/**/*.py"
+    ],
+    "python.linting.lintOnSave": true,
+    "python.linting.pylintArgs": [
+        "--load-plugins",
+        "pylint_django"
+    ],
+    "python.pipenvPath": "/usr/local/bin/pipenv",
+    "python.pythonPath": "${env:HOME}/.pyenv/shims/python",
+    "python.sortImports.path": "${env:HOME}/.pyenv/shims/isort",
+    "python.sortImports.args": [],
+    "python.terminal.activateEnvironment": true,
+    "python.testing.cwd": "tests",
+    "python.testing.pytestEnabled": true,
+    "python.venvPath": "${workspaceFolder}",
+    "python.venvFolders": [
+        "${workspaceFolder}/venv"
+    ],
+    "pythonTestExplorer.testFramework": "pytest",
+    "rust-analyzer.enableCargoWatchOnStartup": "enabled",
+    "rust-analyzer.highlightingOn": true,
+    "rust-analyzer.lruCapacity": 1000,
     "terminal.external.osxExec": "iTerm.app",
     "terminal.integrated.fontSize": 15,
+    "terminal.integrated.macOptionIsMeta": true,
     "window.openFilesInNewWindow": "on",
     "window.openFoldersInNewWindow": "on",
-    "window.zoomLevel": 0,
+    "window.zoomLevel": 2,
     "workbench.activityBar.visible": true,
-    "workbench.colorTheme": "Nova",
+    "workbench.colorTheme": "Darcula",
     "workbench.editor.enablePreview": false,
     "workbench.startupEditor": "none",
-    "vsicons.dontShowNewVersionMessage": true
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    // Enable per-language
+    "[javascript]": {
+        "editor.formatOnSave": false,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[python]": {
+        "editor.formatOnSave": true
+    },
 }

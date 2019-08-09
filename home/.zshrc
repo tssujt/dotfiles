@@ -1,7 +1,7 @@
 # Aditional PATHs
 export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
 export PATH="/usr/local/opt/gettext/bin:$PATH"
-export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+export PATH="/usr/local/opt/openssl/bin:$PATH"
 export PATH="${HOME}/Library/emsdk-portable:$PATH"
 export PATH="${HOME}/Sources/arcanist/bin:$PATH"
 export ZSH=$HOME/.oh-my-zsh
@@ -74,6 +74,7 @@ plugins=(
     npm
     pep8
     pip
+    pyenv
     pylint
     python
     redis-cli
@@ -82,6 +83,7 @@ plugins=(
     tmux
     virtualenv
     xcode
+    zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -118,6 +120,7 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 # Python
 eval "`pip3 completion --zsh`"
+eval "$(pyenv init -)"
 
 # Ruby
 eval "$(rbenv init -)"
@@ -127,9 +130,9 @@ if [ -f ~/.config/exercism/exercism_completion.zsh ]; then
 fi
 
 # OpenSSL
-export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
-export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
-export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"
+export LDFLAGS="-L/usr/local/opt/openssl/lib"
+export CPPFLAGS="-I/usr/local/opt/opensslinclude"
+export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig"
 
 export EMSDK="${HOME}/Library/emsdk-portable"
 export EM_CONFIG="${HOME}/.emscripten"
@@ -151,3 +154,30 @@ if [[ -x $(which exa) ]]; then
   alias lT="exa -alFT --color-scale"
   alias ldot="exa -adl .* --color-scale"
 fi
+
+# fix for navigation keys in JetBrains terminal
+if [[ "$TERMINAL_EMULATOR" == "JetBrains-JediTerm" ]]; then
+    bindkey "∫" backward-word # Option-b
+    bindkey "ƒ" forward-word  # Option-f
+    bindkey "∂" delete-word   # Option-d
+fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+function proxy_off() {
+    unset http_proxy;
+    unset https_proxy;
+    unset all_proxy;
+    echo -e "Proxy OFF!";
+}
+function proxy_on() {
+    export https_proxy=http://127.0.0.1:1081;export http_proxy=http://127.0.0.1:1081;export all_proxy=socks5://127.0.0.1:1088;
+
+    echo -e "Proxy On!";
+}
+
+proxy_on

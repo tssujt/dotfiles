@@ -1,17 +1,5 @@
 [
     {
-        "key": "ctrl+r",
-        "command": "workbench.action.tasks.runTask"
-    },
-    {
-        "key": "cmd+r",
-        "command": "workbench.action.openRecent"
-    },
-    {
-        "key": "ctrl+r",
-        "command": "-workbench.action.openRecent"
-    },
-    {
         "key": "cmd+[",
         "command": "workbench.action.navigateBack"
     },
@@ -26,5 +14,9 @@
     {
         "key": "ctrl+shift+-",
         "command": "-workbench.action.navigateForward"
+    },
+    {
+        "key": "cmd+o",
+        "command": "-workbench.action.showAllSymbols"
     }
 ]
