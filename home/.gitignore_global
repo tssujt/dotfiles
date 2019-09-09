@@ -4,3 +4,5 @@
 .mypy_cache/
 venv/
 *.iml
+zsh-cache
+
