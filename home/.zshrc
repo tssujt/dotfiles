@@ -50,28 +50,37 @@ ZSH_THEME="steeef"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 plugins=(
+    adb
     arcanist
+    autojump
     autopep8
     aws
+    battery
     brew
+    cargo
     celery
     common-aliases
     composer
-    dotenv
+    dash
+    django
     docker
+    dotenv
     emoji
+    extract
     fabric
     git
+    git-extras
     github
     gitignore
     go
     golang
     gulp
+    history
     httpie
-    laravel5
     man
     mosh
     npm
+    osx
     pep8
     pip
     pyenv
@@ -82,7 +91,11 @@ plugins=(
     supervisor
     tmux
     virtualenv
+    vscode
+    web-search
     xcode
+    yarn
+    zsh-256color
     zsh-autosuggestions
 )
 
@@ -96,7 +109,11 @@ export LANG=en_US.UTF-8
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-export EDITOR=vim
+export EDITOR=nvim
+
+alias vi='nvim'
+alias vim='nvim'
+
 
 if [ -f $HOME/bin/arcanist/resources/shell/bash-completion ]; then
     source $HOME/bin/arcanist/resources/shell/bash-completion
@@ -130,8 +147,8 @@ if [ -f ~/.config/exercism/exercism_completion.zsh ]; then
 fi
 
 # OpenSSL
-export LDFLAGS="-L/usr/local/opt/openssl/lib"
-export CPPFLAGS="-I/usr/local/opt/opensslinclude"
+export LDFLAGS="-I/usr/local/opt/openssl/include -L/usr/local/opt/openssl/lib"
+export CPPFLAGS="-I/usr/local/opt/openssl/include"
 export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig"
 
 export EMSDK="${HOME}/Library/emsdk-portable"
@@ -141,7 +158,8 @@ eval "$(thefuck --alias)"
 fpath=(/usr/local/share/zsh-completions $fpath)
 
 if [[ -x $(which exa) ]]; then
-  alias l="exa"
+  export EXA_COLORS="da=32"
+  alias l="exa -lbF"
   alias ls="exa -a --group-directories-first --color-scale"
   alias la="exa -alF --group-directories-first --color-scale"
   alias ll="exa -aFG --group-directories-first --color-scale"

@@ -3,7 +3,7 @@
 	email = contactxjw@gmail.com
 [core]
 	excludesfile = /Users/imperat0r/.gitignore_global
-	editor = code --wait
+	editor = nvim
 	autocrlf = input
 [alias]
 	# Show the diff between the latest commit and the current state
