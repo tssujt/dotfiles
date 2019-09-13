@@ -37,9 +37,9 @@
 	undo = !legit undo
 
 [http]
-	proxy = socks5h://127.0.0.1:1088
+	proxy = socks5h://127.0.0.1:8235
 [https]
-	proxy = socks5h://127.0.0.1:1088
+	proxy = socks5h://127.0.0.1:8235
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f

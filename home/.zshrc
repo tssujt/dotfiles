@@ -102,68 +102,24 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# export MANPATH="/usr/local/man:$MANPATH"
-
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-export EDITOR=nvim
-
 alias vi='nvim'
 alias vim='nvim'
-
-# PHP
-# export PATH="$PATH:$HOME/.composer/vendor/bin"
-# export PATH="$(brew --prefix php)/bin:$PATH"
-
-# Android
-export ANDROID_HOME=/usr/local/opt/android-sdk
-
-# Rust
-source "$HOME/.cargo/env"
-export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
-
-export LD_LIBRARY_PATH="${HOME}/.rustup/toolchains/nightly-x86_64-apple-darwin/lib:${HOME}/.rustup/toolchains/nightly-x86_64-apple-darwin/lib:"
-
-# iTerm2
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-# Python
-eval "`pip3 completion --zsh`"
-eval "$(pyenv init -)"
-export VIRTUAL_ENV='venv'
-
-# Ruby
-# eval "$(rbenv init -)"
 
 # if [ -f ~/.config/exercism/exercism_completion.zsh ]; then
 #     . ~/.config/exercism/exercism_completion.zsh
 # fi
 
-# OpenSSL
-export LDFLAGS="-I/usr/local/opt/openssl/include -L/usr/local/opt/openssl/lib"
-export CPPFLAGS="-I/usr/local/opt/openssl/include"
-export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig"
-export PATH="/usr/local/opt/openssl/bin:$PATH"
-
-# Aditional PATHs
-export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
-export PATH="/usr/local/opt/gettext/bin:$PATH"
-
-# Arcanist
-if [ -f $HOME/bin/arcanist/resources/shell/bash-completion ]; then
-    source $HOME/bin/arcanist/resources/shell/bash-completion
-fi
-export PATH="${HOME}/Sources/arcanist/bin:$PATH"
-
-export PATH="${HOME}/Library/emsdk-portable:$PATH"
-export EMSDK="${HOME}/Library/emsdk-portable"
-export EM_CONFIG="${HOME}/.emscripten"
-
 # eval "$(thefuck --alias)"
+
+# iTerm2
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# Ruby
+# eval "$(rbenv init -)"
+
+# Python
+eval "`pip3 completion --zsh`"
+eval "$(pyenv init -)"
 
 fpath=(/usr/local/share/zsh-completions $fpath)
 
@@ -196,6 +152,10 @@ fi
 
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+# unsetopt XTRACE
+# exec 2>&3 3>&-
+
+# Proxy
 function proxy_off() {
     unset http_proxy;
     unset https_proxy;
@@ -203,13 +163,11 @@ function proxy_off() {
     echo -e "Proxy OFF!";
 }
 function proxy_on() {
-    export https_proxy=http://127.0.0.1:1081;export http_proxy=http://127.0.0.1:1081;export all_proxy=socks5://127.0.0.1:1088;
+    export https_proxy=http://127.0.0.1:8234;
+    export http_proxy=http://127.0.0.1:8234;
+    export all_proxy=socks5://127.0.0.1:8235;
 
     echo -e "Proxy On!";
 }
 
 proxy_on
-
-# unsetopt XTRACE
-# exec 2>&3 3>&-
-
