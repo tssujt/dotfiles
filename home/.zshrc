@@ -60,15 +60,19 @@ plugins=(
     brew
     cargo
     celery
+    colored-man-pages
     common-aliases
     # composer
+    cp
     dash
     django
     docker
+    docker-compose
     dotenv
     emoji
     extract
     fabric
+    fzf
     git
     git-extras
     github
@@ -78,20 +82,26 @@ plugins=(
     gulp
     history
     httpie
+    iterm2
     man
     mosh
     npm
     osx
     pep8
     pip
+    pipenv
     pyenv
     pylint
     python
     redis-cli
+    ripgrep
+    rust
+    rsync
     sudo
     supervisor
     tmux
     virtualenv
+    # virtualenvwrapper
     vscode
     web-search
     xcode
@@ -104,6 +114,9 @@ source $ZSH/oh-my-zsh.sh
 
 alias vi='nvim'
 alias vim='nvim'
+
+alias aws='/usr/local/bin/aws'
+alias pip-compile='$(pyenv prefix)/bin/pip-compile'
 
 # if [ -f ~/.config/exercism/exercism_completion.zsh ]; then
 #     . ~/.config/exercism/exercism_completion.zsh
