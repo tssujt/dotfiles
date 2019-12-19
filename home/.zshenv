@@ -42,3 +42,5 @@ export PATH="${HOME}/Sources/arcanist/bin:$PATH"
 export PATH="${HOME}/Library/emsdk-portable:$PATH"
 export EMSDK="${HOME}/Library/emsdk-portable"
 export EM_CONFIG="${HOME}/.emscripten"
+
+export PATH="${HOME}/.emacs.d/bin:$PATH"
