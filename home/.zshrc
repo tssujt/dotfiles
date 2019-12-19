@@ -99,6 +99,7 @@ plugins=(
     rsync
     sudo
     supervisor
+    thefuck
     tmux
     virtualenv
     # virtualenvwrapper
@@ -117,6 +118,7 @@ alias vim='nvim'
 
 alias aws='/usr/local/bin/aws'
 alias pip-compile='$(pyenv prefix)/bin/pip-compile'
+alias ssh="TERM=xterm ssh"
 
 # if [ -f ~/.config/exercism/exercism_completion.zsh ]; then
 #     . ~/.config/exercism/exercism_completion.zsh
@@ -131,8 +133,8 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 # eval "$(rbenv init -)"
 
 # Python
-eval "`pip3 completion --zsh`"
-eval "$(pyenv init -)"
+# eval "`pip3 completion --zsh`"
+eval "$(pyenv init -)" && pyenv virtualenvwrapper
 
 fpath=(/usr/local/share/zsh-completions $fpath)
 
@@ -176,9 +178,9 @@ function proxy_off() {
     echo -e "Proxy OFF!";
 }
 function proxy_on() {
-    export https_proxy=http://127.0.0.1:8234;
-    export http_proxy=http://127.0.0.1:8234;
-    export all_proxy=socks5://127.0.0.1:8235;
+    export https_proxy=http://127.0.0.1:6152;
+    export http_proxy=http://127.0.0.1:6152;
+    export all_proxy=socks5://127.0.0.1:6153;
 
     echo -e "Proxy On!";
 }
