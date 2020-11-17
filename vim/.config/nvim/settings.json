@@ -1,0 +1,24 @@
+{
+    "pyls": {
+        "plugins": {
+            "jedi_completion": {
+                "enabled": true,
+                "include_params": false
+            },
+            "jedi_definition": {
+                "enabled": true,
+                "follow_builtin_imports": true,
+                "follow_imports": true
+            }
+        }
+    },
+    "yaml": {
+        "format": {
+            "enable": true
+        },
+        "validate": true
+    },
+    "http": {
+        "proxyStrictSSL": true
+    }
+}

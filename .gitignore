@@ -1,3 +1,11 @@
 *~
 *.elc
+bundle
+*.pyc
+*.bak
+*.bk
 
+# temporary
+.netrwhist
+sessions
+black

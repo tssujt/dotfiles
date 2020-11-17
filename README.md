@@ -1,2 +1,3 @@
 # dotfiles
-Dotfiles
+
+Dot files managed by GNU stow
