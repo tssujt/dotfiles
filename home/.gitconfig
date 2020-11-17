@@ -37,9 +37,9 @@
 	undo = !legit undo
 
 [http]
-	proxy = socks5h://127.0.0.1:6153
+	proxy = http://127.0.0.1:6152
 [https]
-	proxy = socks5h://127.0.0.1:6153
+	proxy = http://127.0.0.1:6152
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f
@@ -53,3 +53,5 @@
 	trustExitCode = true
 [commit]
 	template = /Users/imperat0r/.stCommitMsg
+[credential]
+	helper = store

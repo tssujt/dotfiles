@@ -91,6 +91,7 @@ plugins=(
     pip
     pipenv
     pyenv
+    pyenv-lazy
     pylint
     python
     redis-cli
@@ -116,7 +117,7 @@ source $ZSH/oh-my-zsh.sh
 alias vi='nvim'
 alias vim='nvim'
 
-alias aws='/usr/local/bin/aws'
+alias aws='/usr/local/opt/awscli@1/bin/aws'
 alias pip-compile='$(pyenv prefix)/bin/pip-compile'
 alias ssh="TERM=xterm ssh"
 
@@ -135,6 +136,9 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 # Python
 # eval "`pip3 completion --zsh`"
 eval "$(pyenv init -)" && pyenv virtualenvwrapper
+
+# Node
+eval "$(nodenv init -)"
 
 fpath=(/usr/local/share/zsh-completions $fpath)
 
@@ -167,6 +171,8 @@ fi
 
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+fpath+=~/.zfunc
+
 # unsetopt XTRACE
 # exec 2>&3 3>&-
 
@@ -185,4 +191,25 @@ function proxy_on() {
     echo -e "Proxy On!";
 }
 
-proxy_on
+# proxy_on
+
+alias lain="~/.local/share/virtualenvs/subot-next/bin/lain"
+alias rm='trash'
+alias k='kubectl'
+
+# alias leetcode='docker run -it --rm -v /Users/imperat0r/Sources/leetcode-data:/root skygragon/leetcode-cli'
+
+kx () {
+	local cmd=${2:-"bash"}
+
+	echo kubectl exec -it $1 -- $cmd
+	kubectl exec -it $1 -- $cmd
+}
+
+klogs () {
+    echo kubectl logs -f --tail 100 $1
+    kubectl logs -f --tail 100 $1
+}
+
+[[ -s "/Users/imperat0r/.gvm/scripts/gvm" ]] && source "/Users/imperat0r/.gvm/scripts/gvm"
+source <(stern --completion=zsh)

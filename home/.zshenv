@@ -12,8 +12,15 @@ export EDITOR=nvim
 # export PATH="$PATH:$HOME/.composer/vendor/bin"
 # export PATH="$(brew --prefix php)/bin:$PATH"
 
+# MySQL
+export PATH="/usr/local/opt/mysql-client@5.7/bin:$PATH"
+export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+
 # Android
 export ANDROID_HOME=/usr/local/opt/android-sdk
+
+# Node
+export PATH="${HOME}/.nodenv/shims:$PATH"
 
 # Rust
 source "$HOME/.cargo/env"
@@ -27,10 +34,10 @@ if [[ -n $VIRTUAL_ENV && -e "${VIRTUAL_ENV}/bin/activate" ]]; then
 fi
 
 # OpenSSL
-export LDFLAGS="-I/usr/local/opt/openssl/include -L/usr/local/opt/openssl/lib"
-export CPPFLAGS="-I/usr/local/opt/openssl/include"
-export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig"
-export PATH="/usr/local/opt/openssl/bin:$PATH"
+export LDFLAGS="-I/usr/local/opt/openssl@1.1/include -L/usr/local/opt/openssl@1.1/lib"
+export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
+export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"
+export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 
 # Aditional PATHs
 export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
