@@ -77,7 +77,6 @@ plugins=(
     git-extras
     github
     gitignore
-    go
     golang
     gulp
     history
@@ -91,7 +90,6 @@ plugins=(
     pip
     pipenv
     pyenv
-    pyenv-lazy
     pylint
     python
     redis-cli
@@ -108,8 +106,6 @@ plugins=(
     web-search
     xcode
     yarn
-    zsh-256color
-    zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -118,7 +114,6 @@ alias vi='nvim'
 alias vim='nvim'
 
 alias aws='/usr/local/opt/awscli@1/bin/aws'
-alias pip-compile='$(pyenv prefix)/bin/pip-compile'
 alias ssh="TERM=xterm ssh"
 
 # if [ -f ~/.config/exercism/exercism_completion.zsh ]; then
@@ -197,7 +192,9 @@ alias lain="~/.local/share/virtualenvs/subot-next/bin/lain"
 alias rm='trash'
 alias k='kubectl'
 
-# alias leetcode='docker run -it --rm -v /Users/imperat0r/Sources/leetcode-data:/root skygragon/leetcode-cli'
+# alias leetcode='docker run -it --rm -v ~/Sources/leetcode-data:/root skygragon/leetcode-cli'
+
+source <(stern --completion=zsh)
 
 kx () {
 	local cmd=${2:-"bash"}
@@ -211,5 +208,4 @@ klogs () {
     kubectl logs -f --tail 100 $1
 }
 
-[[ -s "/Users/imperat0r/.gvm/scripts/gvm" ]] && source "/Users/imperat0r/.gvm/scripts/gvm"
-source <(stern --completion=zsh)
+[[ -s "~/.gvm/scripts/gvm" ]] && source "~/.gvm/scripts/gvm"
