@@ -365,7 +365,7 @@ nnoremap <silent> <C-c>rr <cmd>lua vim.lsp.buf.rename()<CR>
 " https://github.com/neovim/nvim-lsp#pyls
 " https://www.xgithub.com/2019/11/14/neovim-nvim-lsp-common-configurations-for-neovim-language-servers/
 lua << EOF
-local nvim_lsp = require'nvim_lsp'
+local nvim_lsp = require'lspconfig'
 nvim_lsp.pyls.setup{
   settings = {
     pyls = {
@@ -395,68 +395,6 @@ nvim_lsp.gopls.setup{
 }
 EOF
 " }
-
-" LanguageClient {{{
-    " let g:LanguageClient_rootMarkers = {
-        " \ 'rust': ['Cargo.toml', '.git'],
-        " \ 'python': ['lain.yaml', '.git'],
-        " \ }
-
-    " let g:LanguageClient_serverCommands = {
-        " \ 'css': ['css-languageserver', '--stdio'],
-        " \ 'lisp': ['cl-lsp', 'stdio'],
-        " \ 'dockerfile': ['docker-langserver', '--stdio'],
-        " \ 'html': ['html-languageserver', '--stdio'],
-        " \ 'python': ['pyls', '-v',  '-v', '--log-file=/tmp/pyls.log'],
-        " \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
-        " \ 'scheme': [expand('~/Sources/guile-language-server/wrapper')],
-        " \ 'sh': ['bash-language-server', 'start'],
-        " \ 'vim': [expand('~/.yarn/bin/vim-language-server'), '--stdio'],
-        " \ 'vue': ['vls'],
-        " \ 'yaml': ['yaml-language-server', '--stdio'],
-        " \ }
-
-    " let $RUST_BACKTRACE = 'full'
-    " let g:LanguageClient_loadSettings = 1 " Use an absolute configuration path if you want system-wide settings
-    " let g:LanguageClient_settingsPath = expand('~/.config/nvim/settings.json')
-    " let g:LanguageClient_hasSnippetSupport = 0
-    " let g:LanguageClient_serverStderr = '/tmp/langserver.log'
-    " let g:LanguageClient_loggingFile = '/tmp/langclient.log'
-    " let g:LanguageClient_setLoggingLevel = 'DEBUG'
-    " let g:LanguageClient_useVirtualText = "No"
-
-    " let g:LanguageClient_selectionUI = "quickfix"
-    " let g:LanguageClient_diagnosticsEnable = 0
-    " let g:LanguageClient_diagnosticsList = "Disabled"
-    " let g:LanguageClient_completionPreferTextEdit = 0
-
-    " " 把Server的补全API提交给Vim
-    " " 一般有deoplete就可以用了，加上一条以防万一。
-    " set completefunc=LanguageClient#complete
-    " " 把Server的格式化API提交给Vim
-    " set formatexpr=LanguageClient_textDocument_rangeFormatting()
-
-    " inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-    " inoremap <expr><S-tab> pumvisible() ? "\<c-p>" : "\<tab>"
-
-    " function SetLSPShortcuts()
-        " nnoremap <leader>ld :call LanguageClient#textDocument_definition({'gotoCmd': 'vsplit'})<CR>
-        " nnoremap <leader>lr :call LanguageClient#textDocument_rename()<CR>
-        " nnoremap <leader>lf :call LanguageClient#textDocument_formatting()<CR>
-        " nnoremap <leader>lt :call LanguageClient#textDocument_typeDefinition()<CR>
-        " nnoremap <leader>lx :call LanguageClient#textDocument_references()<CR>
-        " nnoremap <leader>la :call LanguageClient_workspace_applyEdit()<CR>
-        " nnoremap <leader>lc :call LanguageClient#textDocument_completion()<CR>
-        " nnoremap <leader>lh :call LanguageClient#textDocument_hover()<CR>
-        " nnoremap <leader>ls :call LanguageClient_textDocument_documentSymbol()<CR>
-        " nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
-    " endfunction()
-
-    " augroup LSP
-      " autocmd!
-      " autocmd FileType css,dockerfile,html,lisp,python,rust,sh,vim,vue,yaml call SetLSPShortcuts()
-    " augroup END
-" }}}
 
 " deoplete {{{
     let g:deoplete#enable_at_startup = 1
