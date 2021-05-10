@@ -188,7 +188,6 @@ function proxy_on() {
 
 # proxy_on
 
-alias lain="~/.local/share/virtualenvs/subot-next/bin/lain"
 alias rm='trash'
 alias k='kubectl'
 
