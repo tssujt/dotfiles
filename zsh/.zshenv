@@ -51,3 +51,5 @@ export EMSDK="${HOME}/Library/emsdk-portable"
 export EM_CONFIG="${HOME}/.emscripten"
 
 export PATH="${HOME}/.emacs.d/bin:$PATH"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"

@@ -207,4 +207,6 @@ klogs () {
     kubectl logs -f --tail 100 $1
 }
 
+alias wip='git add . && git commit --no-verify -m "wip"'
+
 [[ -s "~/.gvm/scripts/gvm" ]] && source "~/.gvm/scripts/gvm"
