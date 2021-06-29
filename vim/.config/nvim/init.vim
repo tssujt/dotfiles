@@ -239,7 +239,7 @@ function! NumberToggle()
     set relativenumber
   endif
 endfunc
-nnoremap <C-n> :call NumberToggle()<cr>
+" nnoremap <C-n> :call NumberToggle()<cr>
 
 " 防止tmux下vim的背景色显示异常
 " Refer: http://sunaku.github.io/vim-256color-bce.html
@@ -381,9 +381,7 @@ function! XTermPasteBegin()
 endfunction
 inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
 
-set clipboard=unnamedplus
-
-
+set clipboard+=unnamedplus
 
 " 分屏窗口移动, Smart way to move between windows
 map <C-j> <C-W>j
@@ -496,8 +494,8 @@ nnoremap <silent> <leader>tt :execute 'tabnext ' . g:last_active_tab<cr>
 autocmd TabLeave * let g:last_active_tab = tabpagenr()
 
 " 新建tab  Ctrl+t
-nnoremap <C-t>     :tabnew<CR>
-inoremap <C-t>     <Esc>:tabnew<CR>
+nnoremap <C-t> :tabnew<CR>
+inoremap <C-t> <Esc>:tabnew<CR>
 
 let g:loaded_python_provider = 0
 let g:python_host_prog = expand('~/.pyenv/versions/2.7.16/bin/python')
@@ -557,6 +555,8 @@ nnoremap ` '
 
 " remap U to <C-r> for easier redo
 nnoremap U <C-r>
+
+nnoremap <leader>sv :source $MYVIMRC<CR>
 
 " Quickly edit/reload the vimrc file
 " nmap <silent> <leader>ev :e $MYVIMRC<CR>

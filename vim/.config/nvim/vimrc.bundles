@@ -2,42 +2,24 @@
 " bundle 插件管理和配置项
 " ==========================================
 
-"------------------------------------------- begin of configs --------------------------------------------
-
-" ################### 包依赖 #####################
-" package dependence:  ctags, ag(the_silver_searcher)
-" python dependence:   pep8, pyflake
-
 " 非兼容vi模式。去掉讨厌的有关vi一致性模式，避免以前版本的一些bug和局限
 set nocompatible
 filetype off " required! turn off
 
-" ################### 插件管理 ###################
-
-" inspired by spf13, 自定义需要的插件集合
-if !exists('g:bundle_groups')
-    let g:bundle_groups=['python', 'javascript', 'markdown', 'html', 'css', 'tmux', 'beta']
-endif
-
-" ----------------------------------------------------------------------------
-" 使用 vim-plug 管理插件
-" vim plugin bundle control, command model
-" ----------------------------------------------------------------------------
-
-call plug#begin('~/.vim/bundle')
+call plug#begin('~/.config/nvim/bundle')
 
 " 移动光标到插件名上, 使用'#'快速跳转到每个插件的配置处
 
-" ale
-Plug 'w0rp/ale'
-
 " Vim HardTime
-Plug 'takac/vim-hardtime'
+" Plug 'takac/vim-hardtime'
 
 " Group dependencies, vim-snippets depends on ultisnips
 " 代码片段快速插入 (snippets中,是代码片段资源,需要学习)
 " Snippets are separated from the engine. Add this if you want them:
 " Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+
+" rooter
+Plug 'airblade/vim-rooter'
 
 " auto complete
 " 代码自动补全
@@ -70,7 +52,7 @@ Plug 'Lokaltog/vim-easymotion'
 " quickscope
 Plug 'unblevable/quick-scope'
 
-Plug 'vim-scripts/matchit.zip'
+" Plug 'vim-scripts/matchit.zip'
 " signature
 " 显示marks - 方便自己进行标记和跳转
 " m[a-zA-Z] add mark
@@ -110,21 +92,13 @@ Plug 'dyng/ctrlsf.vim'
 " ag
 Plug 'mileszs/ack.vim'
 
-" Plug 'autozimu/LanguageClient-neovim', {
-    " \ 'branch': 'next',
-    " \ 'do': 'bash install.sh',
-    " \ }
-
 Plug 'neovim/nvim-lspconfig'
+Plug 'glepnir/lspsaga.nvim'
 Plug 'Shougo/deoplete-lsp'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-
-" quick run
-" quickrun
-Plug 'thinca/vim-quickrun'
 
 " git
 " fugitive
@@ -159,13 +133,14 @@ let g:neodark#use_256color = 1
 let g:neodark#solid_vertsplit = 1
 
 " nav
-" nerdtree nerdtreetabs
-Plug 'scrooloose/nerdtree' | Plug 'jistr/vim-nerdtree-tabs'
-Plug 'Xuyuanp/nerdtree-git-plugin'
 " ctrlspace
 Plug 'vim-ctrlspace/vim-ctrlspace'
 " tagbar
 Plug 'majutsushi/tagbar'
+
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'kyazdani42/nvim-tree.lua'
+Plug 'romgrk/barbar.nvim'
 
 " text object
 " 支持自定义文本对象
@@ -177,136 +152,76 @@ Plug 'kana/vim-textobj-entire'
 " 增加缩进文本对象: i   dai yai cii - 相同缩进属于同一块
 Plug 'kana/vim-textobj-indent'
 
-if count(g:bundle_groups, 'python')
-    " python
-    Plug 'hynek/vim-python-pep8-indent'
-    Plug 'darrikonn/vim-isort'
-    Plug 'psf/black', { 'tag': '19.10b0' }
-endif
-
-" Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 Plug 'sheerun/vim-polyglot'
 
-if count(g:bundle_groups, 'tmux')
-    " tmux
-    " For tmux navigator Ctrl-hjkl
-    Plug 'christoomey/vim-tmux-navigator'
-endif
+" tmux
+" For tmux navigator Ctrl-hjkl
+Plug 'christoomey/vim-tmux-navigator'
 
-if count(g:bundle_groups, 'shell')
-    Plug 'Shougo/vimshell.vim'
-endif
+Plug 'Shougo/vimshell.vim'
 
-if count(g:bundle_groups, 'json')
-    " json
-    Plug 'elzr/vim-json', {'for': 'json'}
-endif
+" json
+Plug 'elzr/vim-json', {'for': 'json'}
 
-if count(g:bundle_groups, 'css')
-    " css
-    " not work in iterm2 which termianl selection is not xterm-256, and it slow
-    " Plug 'ap/vim-css-color'
+" css
+" not work in iterm2 which termianl selection is not xterm-256, and it slow
+" Plug 'ap/vim-css-color'
 
-    " 这个有坑, see issue https://github.com/wklken/k-vim/issues/49
-    " Plug 'gorodinskiy/vim-coloresque'
-    " Plug 'lilydjwg/colorizer'
-endif
+" ###### vim.less : less 自动更新##########
+" Plug 'groenewege/vim-less'
+" autocmd BufWritePost *.less :!lessc % > %:p:r.css
 
-if count(g:bundle_groups, 'less')
-    " ###### vim.less : less 自动更新##########
-    Plug 'groenewege/vim-less'
-    " autocmd BufWritePost *.less :!lessc % > %:p:r.css
-endif
-
-if count(g:bundle_groups, 'html')
-    " ###### emmet HTML complete #########
-    " Plug 'mattn/emmet-vim'
-endif
+" ###### emmet HTML complete #########
+" Plug 'mattn/emmet-vim'
 
 " this is just for beta version
-if count(g:bundle_groups, 'beta')
-    " indent
-    Plug 'nathanaelkane/vim-indent-guides'
-    " <leader>ig to trigger
-    let g:indent_guides_start_level = 2
-    let g:indent_guides_guide_size = 1
-    let g:indent_guides_auto_colors = 1
-    " autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=black
-    " autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=black
+" indent
+Plug 'nathanaelkane/vim-indent-guides'
+" <leader>ig to trigger
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
+let g:indent_guides_auto_colors = 1
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=black
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=black
 
-    " Plug 'robbles/logstash.vim'
-    Plug 'ryanoasis/vim-devicons'
-    " Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-    Plug 'ekalinin/dockerfile.vim'
+Plug 'ekalinin/dockerfile.vim'
 
-    Plug 'ConradIrwin/vim-bracketed-paste'
-    Plug 'roxma/vim-paste-easy'
-endif
+Plug 'ConradIrwin/vim-bracketed-paste'
+Plug 'roxma/vim-paste-easy'
+
+Plug 'Xuyuanp/scrollbar.nvim'
+
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'romgrk/nvim-treesitter-context'
+
+Plug 'sbdchd/neoformat'
 
 " Add plugins to &runtimepath
 call plug#end()
 
-
 " ################### 基础 ######################
 
-" ale {{{
-    let g:ale_linters = {
-        \   'python': ['flake8'],
-        \   'javascript': ['eslint'],
-        \   'sh': ['language_server'],
-        \}
-    let g:ale_linters_explicit = 1
+lua << EOF
+    require'nvim-web-devicons'.setup {
+        default = true;
+    }
+EOF
 
-    let g:ale_fixers = {
-        \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-        \   'python': ['autopep8', 'flake']
-        \}
-
-    let g:ale_python_flake8_use_global = 1
-    " E501 -> 120 chars
-    let g:ale_python_flake8_args="--ignore=E203,E266,E501,W503 --max-line-length=120"
-    " --ignore=E225,E124,E712,E116
-
-    let g:ale_sign_error = '>>'
-    let g:ale_sign_warning = '>'
-
-    let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
-    let g:ale_echo_msg_error_str = 'E'
-    let g:ale_echo_msg_warning_str = 'W'
-    let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-
-    nmap <silent> <Leader>ep <Plug>(ale_previous_wrap)
-    nmap <silent> <Leader>en <Plug>(ale_next_wrap)
-
-    nnoremap <silent> <Leader>ec :ALEToggle<CR>
-
-    " toggle quickfix list
-    function! ToggleErrors()
-        let old_last_winnr = winnr('$')
-        lclose
-        if old_last_winnr == winnr('$')
-            " Nothing was closed, open syntastic_error location panel
-            lopen
-        endif
-    endfunction
-    nnoremap <Leader>s :call ToggleErrors()<cr>
-
-    let g:ale_set_highlights = 1
-    highlight clear ALEErrorSign
-    highlight clear ALEWarningSign
+" rooter {{{
+    let g:rooter_patterns = ['.git', 'Makefile']
 " }}}
 
 " hardtime {{{
-    let g:hardtime_default_on = 1
+    " let g:hardtime_default_on = 1
 
-    let g:hardtime_timeout = 2000
+    " let g:hardtime_timeout = 2000
 
-    let g:hardtime_showmsg = 1
+    " let g:hardtime_showmsg = 1
 
-    let g:hardtime_ignore_buffer_patterns = [ "NERD.*", "Tagbar.*" ]
-    let g:hardtime_ignore_quickfix = 1
-    let g:hardtime_allow_different_key = 1
-    let g:hardtime_maxcount = 10
+    " let g:hardtime_ignore_buffer_patterns = [ "NERD.*", "Tagbar.*" ]
+    " let g:hardtime_ignore_quickfix = 1
+    " let g:hardtime_allow_different_key = 1
+    " let g:hardtime_maxcount = 10
 " }}}
 
 " fzf {{{
@@ -317,38 +232,26 @@ call plug#end()
         \ }
 " }}}
 
-" semshi {{{
-    " let g:semshi#active = 1
+" neoformat {{{
+    let g:neoformat_only_msg_on_error = 1
+    let g:neoformat_enabled_python = ['black', 'isort']
 
-    " hi semshiLocal           ctermfg=209 guifg=#ff875f
-    " hi semshiGlobal          ctermfg=214 guifg=#ffaf00
-    " hi semshiImported        ctermfg=214 guifg=#ffaf00 cterm=bold gui=bold
-    " hi semshiParameter       ctermfg=75  guifg=#5fafff
-    " hi semshiParameterUnused ctermfg=117 guifg=#87d7ff cterm=underline gui=underline
-    " hi semshiFree            ctermfg=218 guifg=#ffafd7
-    " hi semshiBuiltin         ctermfg=207 guifg=#8888C6
-    " hi semshiAttribute       ctermfg=49  guifg=#00ffaf
-    " hi semshiSelf            ctermfg=249 guifg=#94558D
-    " hi semshiUnresolved      ctermfg=226 guifg=#ffff00 cterm=underline gui=underline
-    " hi semshiSelected        ctermfg=231 guifg=#ffffff ctermbg=161 guibg=#d7005f
+    let g:neoformat_python_black = {
+        \ 'exe': 'black',
+        \ 'replace': 1,
+        \ 'stdin': 1,
+        \ 'valid_exit_codes': [0, 23],
+        \ 'no_append': 1,
+        \ }
+    let g:neoformat_python_isort = {
+        \ 'exe': 'isort',
+        \ 'replace': 1,
+        \ 'stdin': 1,
+        \ 'valid_exit_codes': [0, 23],
+        \ 'no_append': 1,
+        \ }
 
-    " hi semshiErrorSign       ctermfg=231 guifg=#ffffff ctermbg=160 guibg=#d70000
-    " hi semshiErrorChar       ctermfg=231 guifg=#ffffff ctermbg=160 guibg=#d70000
-    " sign define semshiError text=E> texthl=semshiErrorSign
-" }}}
-
-" black {{{
-    let g:black_skip_string_normalization = 1
-    autocmd BufWritePre *.py execute ':silent Black'
-    autocmd BufWritePost *.go !gofmt -w %
-" }}}
-
-" isort {{{
-    " CWD to the root of git repo when opening file inside repo
-    let g:gitroot=system("git rev-parse --show-toplevel")
-    let g:is_gitrepo = v:shell_error == 0
-    silent! cd `=gitroot`
-    autocmd BufWritePre *.py execute ':Isort'
+    " autocmd BufWritePre *.py execute ':Neoformat'
 " }}}
 
 " ################### 自动补全 ###################
@@ -364,6 +267,7 @@ nnoremap <silent> <C-c>rr <cmd>lua vim.lsp.buf.rename()<CR>
 
 " https://github.com/neovim/nvim-lsp#pyls
 " https://www.xgithub.com/2019/11/14/neovim-nvim-lsp-common-configurations-for-neovim-language-servers/
+          " args = {'--disable=bare-except,wildcard-import,too-many-public-methods,redefined-outer-name,expression-not-assigned,redefined-builtin,subprocess-run-check,too-many-instance-attributes,import-outside-toplevel,broad-except,logging-not-lazy,too-many-return-statements,C0111,R0903,too-many-arguments,multiple-statements,too-many-statements,too-many-locals,invalid-name,fixme,logging-fstring-interpolation,line-too-long,no-member,inconsistent-return-statements,too-many-lines,unused-argument,no-self-use'},
 lua << EOF
 local nvim_lsp = require'lspconfig'
 nvim_lsp.pyls.setup{
@@ -372,13 +276,12 @@ nvim_lsp.pyls.setup{
       plugins = {
         pylint = {
           enabled = false,
-          args = {'--disable=bare-except,wildcard-import,too-many-public-methods,redefined-outer-name,expression-not-assigned,redefined-builtin,subprocess-run-check,too-many-instance-attributes,import-outside-toplevel,broad-except,logging-not-lazy,too-many-return-statements,C0111,R0903,too-many-arguments,multiple-statements,too-many-statements,too-many-locals,invalid-name,fixme,logging-fstring-interpolation,line-too-long,no-member,inconsistent-return-statements,too-many-lines,unused-argument,no-self-use'},
         },
         pycodestyle = {
           enabled = true,
           ignore = {'E402', 'E501', 'E722', 'E731', 'E225', 'E203', 'E702', 'F811', 'F405', 'F403', 'W391', 'F401', 'W503', 'W504', 'W291'},
           addIgnore = {'E402', 'E501', 'E722', 'E731', 'E225', 'E203', 'E702', 'F811', 'F405', 'F403', 'W391', 'F401', 'W503', 'W504', 'W291'},
-          maxLineLength = 200,
+          maxLineLength = 88,
         },
         pyflakes = {
           enabled = false,
@@ -390,11 +293,23 @@ nvim_lsp.pyls.setup{
     }
   }
 }
-nvim_lsp.gopls.setup{
-  root_dir = nvim_lsp.util.root_pattern('.git');
-}
 EOF
 " }
+
+" treesitter {{{
+lua << EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained",
+  highlight = {
+    enable = true,
+    disable = { "c", "rust" }
+  },
+}
+require'treesitter-context.config'.setup{
+    enable = true
+}
+EOF
+" }}}
 
 " deoplete {{{
     let g:deoplete#enable_at_startup = 1
@@ -418,7 +333,8 @@ EOF
                 \ 'min_pattern_length': 1,
                 \ 'profile': v:true,
                 \ })
-
+    let g:deoplete#lsp#use_icons_for_candidates = v:true
+    let g:deoplete#lsp#handler_enabled = v:false
     call deoplete#enable_logging('DEBUG', '/tmp/deoplete.log')
     " call deoplete#custom#source('LanguageClient', 'is_debug_enabled', v:true)
 
@@ -495,7 +411,7 @@ EOF
     vmap <Leader>a <Plug>(EasyAlign)
     nmap <Leader>a <Plug>(EasyAlign)
     if !exists('g:easy_align_delimiters')
-    let g:easy_align_delimiters = {}
+        let g:easy_align_delimiters = {}
     endif
     let g:easy_align_delimiters['#'] = { 'pattern': '#', 'ignore_groups': ['String'] }
     " Default:
@@ -569,6 +485,7 @@ EOF
         \ 'dir':  '\v[\/]\.(git|hg|svn|rvm)$',
         \ 'file': '\v\.(exe|so|dll|zip|tar|tar.gz|pyc)$',
         \ }
+    let g:ctrlp_show_hidden = 1
     let g:ctrlp_working_path_mode=0
     let g:ctrlp_match_window_bottom=1
     let g:ctrlp_max_height=15
@@ -580,7 +497,7 @@ EOF
     noremap <Leader>a :Ack <cword><cr>
     if executable('ag')
     " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-      let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+      let g:ctrlp_user_command = 'rg %s --files --hidden --color=never --glob ""'
     " ag is fast enough that CtrlP doesn't need to cache
     " let g:ctrlp_use_caching = 0
       let g:ackprg = 'rg --vimgrep --color never --column'
@@ -641,8 +558,6 @@ EOF
         \ }
 " }}}
 
-" git.  git操作还是习惯命令行,vim里面处理简单diff编辑操作
-
 " fugitive {{{
     " :Gdiff  :Gstatus :Gvsplit
     nnoremap <leader>gb :Gblame<CR>
@@ -689,9 +604,6 @@ EOF
     let g:airline#extensions#tabline#show_buffers = 0
     " let g:airline#extensions#tabline#show_tab_count = 1
     " let g:airline#extensions#tabline#switch_buffers_and_tabs = 1
-
-    let g:airline#extensions#ale#enabled = 1
-    " let g:airline#extensions#languageclient#enabled = 1
 " }}}
 
 
@@ -742,83 +654,219 @@ EOF
 
 " ################### 快速导航 ###################
 
-" nerdtree nerdtreetabs {{{
-    " map <leader>n :NERDTreeToggle<CR>
-    let NERDTreeHighlightCursorline=1
-    let NERDTreeIgnore=[
-        \ '\.pyc$',
-        \ '\.pyo$',
-        \ '\.obj$',
-        \ '\.o$',
-        \ '\.so$',
-        \ '\.egg$',
-        \ '\.DS_Store$',
-        \ '^\.git$[[dir]]',
-        \ '^\.vscode$[[dir]]',
-        \ '^\.svn$[[dir]]',
-        \ '^\.hg$[[dir]]',
-        \ '^__pycache__$[[dir]]',
-        \ '\.idea$[[dir]]',
-        \ '^\.cache$[[dir]]',
-        \ '_cache$[[dir]]',
-        \ '\.egg-info$[[dir]]',
-    \ ]
-    "close vim if the only window left open is a NERDTree
-    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | end
-    " s/v 分屏打开文件
-    let g:NERDTreeMapOpenSplit = 's'
-    let g:NERDTreeMapOpenVSplit = 'v'
-    " fix Nerdtree ^G before folder and file names OSX terminal vim
-    let g:NERDTreeNodeDelimiter = "\u00a0"
+" barbar {{{
+    function! s:CloseBufferOrPane() abort
+        if &bufhidden == 'unload' || &bufhidden == 'delete' || &bufhidden == 'wipe'
+            quit
+            return
+        endif
+        " if we're in a non-normal or floating window: quit
+        if win_gettype(0) != '' || nvim_win_get_config(0)['relative'] != ''
+            quit
+            return
+        endif
 
-    " nerdtreetabs
-    map <Leader>n <plug>NERDTreeTabsToggle<CR>
-    map <Leader>f :NERDTreeFind<CR>
-    " 关闭同步
-    " let g:nerdtree_tabs_synchronize_view=1
-    " let g:nerdtree_tabs_synchronize_focus=1
-    " 是否自动开启nerdtree
-    " thank to @ListenerRi, see https://github.com/wklken/k-vim/issues/165
-    let g:nerdtree_tabs_open_on_console_startup=0
-    let g:nerdtree_tabs_open_on_gui_startup=0
+        let i = 1
+        let last_window = winnr('$')
+        let count = 0
+        let in_main_window = v:false
+        while i <= last_window
+        " Ignore non-normal (e.g. popup/preview) windows
+            if empty(win_gettype(i)) && !getwinvar(i, 'treesitter_context')
+                let bufnr = winbufnr(i)
+                let ft = getbufvar(bufnr, '&filetype')
+                let bt = getbufvar(bufnr, '&buftype')
+                " Ignore prompt & quickfix buffer windows
+                if bt != 'quickfix' && bt != 'prompt' && bt != 'help' && ft != 'aerial'
+                    let count += 1
+                    if i == winnr()
+                        let in_main_window = v:true
+                    endif
+                endif
+            endif
+            let i += 1
+        endwhile
 
-    let g:NERDTreeShowHidden = 1
+        if count > 1 || !in_main_window
+            quit
+        else
+            " Close other windows (e.g. treesitter-context floating window) so we don't get the 'only floating window would remain' error
+            silent wincmd o
+            BufferClose
+        endif
+    endfunction
 
-    " NERDTREE-GIT
-    " Special characters
-    let g:NERDTreeGitStatusIndicatorMapCustom = {
-        \ "Modified"  : "✹",
-        \ "Staged"    : "✚",
-        \ "Untracked" : "✭",
-        \ "Renamed"   : "➜",
-        \ "Unmerged"  : "═",
-        \ "Deleted"   : "✖",
-        \ "Dirty"     : "✗",
-        \ "Clean"     : "✔︎",
-        \ 'Ignored'   : '☒',
-        \ "Unknown"   : "?"
-    \ }
+    let bufferline = get(g:, 'bufferline', {})
+    let bufferline.closable = v:true
+    let bufferline.animation = v:true
+    let bufferline.icons = 'both'
 
-    let g:webdevicons_enable = 1
-    let g:webdevicons_enable_vimfiler = 0
-    let g:webdevicons_enable_airline_tabline = 1
-    let g:webdevicons_enable_airline_statusline = 1
-    let g:webdevicons_enable_ctrlp = 1
-    let g:webdevicons_enable_startify = 1
-    let g:webdevicons_enable_flagship_statusline = 1
-    let g:webdevicons_conceal_nerdtree_brackets = 1
-    let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
-    let g:WebDevIconsNerdTreeGitPluginForceVAlign = 0
-    let g:WebDevIconsTabAirLineAfterGlyphPadding = ' '
-    let g:WebDevIconsTabAirLineBeforeGlyphPadding = ' '
-    let g:WebDevIconsUnicodeDecorateFolderNodes = 1
-    autocmd FileType nerdtree setlocal signcolumn=no
+    " Enable/disable auto-hiding the tab bar when there is a single buffer
+    let bufferline.auto_hide = v:false
+
+    " Enable/disable current/total tabpages indicator (top right corner)
+    let bufferline.tabpages = v:true
+
+    " Enables/disable clickable tabs
+    "  - left-click: go to buffer
+    "  - middle-click: delete buffer
+    let bufferline.clickable = v:true
+
+    " Sets the icon's highlight group.
+    " If false, will use nvim-web-devicons colors
+    let bufferline.icon_custom_colors = v:false
+
+    " Configure icons on the bufferline.
+    let bufferline.icon_separator_active = '▎'
+    let bufferline.icon_separator_inactive = '▎'
+    let bufferline.icon_close_tab = ''
+    let bufferline.icon_close_tab_modified = '●'
+
+    " Sets the maximum padding width with which to surround each tab.
+    let bufferline.maximum_padding = 4
+
+    " Sets the maximum buffer name length.
+    let bufferline.maximum_length = 30
+
+    " If set, the letters for each buffer in buffer-pick mode will be
+    " assigned based on their name. Otherwise or in case all letters are
+    " already assigned, the behavior is to assign letters in order of
+    " usability (see order below)
+    let bufferline.semantic_letters = v:true
+
+    " New buffer letters are assigned in this order. This order is
+    " optimal for the qwerty keyboard layout but might need adjustement
+    " for other layouts.
+    let bufferline.letters =
+    \ 'asdfjkl;ghnmxcvbziowerutyqpASDFJKLGHNMXCVBZIOWERUTYQP'
+
+    " Sets the name of unnamed buffers. By default format is "[Buffer X]"
+    " where X is the buffer number. But only a static string is accepted here.
+    let bufferline.no_name_title = v:null
+
+    nnoremap <leader>bm :BufferMove
+    nnoremap <silent> <leader>bi <cmd>BufferPin<CR>
+    nnoremap <silent> <leader>bo <cmd>BufferOrderByTime<CR>
+    nnoremap <silent> <leader>1 <cmd>BufferGoto 1<CR>
+    nnoremap <silent> <leader>2 <cmd>BufferGoto 2<CR>
+    nnoremap <silent> <leader>3 <cmd>BufferGoto 3<CR>
+    nnoremap <silent> <leader>4 <cmd>BufferGoto 4<CR>
+    nnoremap <silent> <leader>5 <cmd>BufferGoto 5<CR>
+    nnoremap <silent> <leader>6 <cmd>BufferGoto 6<CR>
+    nnoremap <silent> <leader>7 <cmd>BufferGoto 7<CR>
+    nnoremap <silent> <leader>8 <cmd>BufferGoto 8<CR>
+    nnoremap <silent> <leader>9 <cmd>BufferGoto 9<CR>
+    nnoremap <silent> <leader>` <cmd>BufferLast<CR>
+    nnoremap <silent> <leader>o <cmd>BufferCloseAllButCurrent<CR>
+    " nnoremap <silent> <leader>c <cmd>call <sid>CloseBufferOrPane()<CR>
+    nnoremap <silent> <leader>C <cmd>BufferClose<CR>
+" }}}
+
+" tree {{{
+    let g:nvim_tree_side = 'left' "left by default
+    let g:nvim_tree_width = 30 "30 by default
+    let g:nvim_tree_ignore = [
+        \ '.git',
+        \ 'node_modules',
+        \ '.cache',
+        \ '.vscode',
+        \ '.idea',
+        \ '__pycache__',
+        \ ] "empty by default
+    let g:nvim_tree_gitignore = 1 "0 by default
+    let g:nvim_tree_auto_open = 1 "0 by default, opens the tree when typing `vim $DIR` or `vim`
+    let g:nvim_tree_auto_close = 0 "0 by default, closes the tree when it's the last window
+    let g:nvim_tree_auto_ignore_ft = [ 'startify', 'dashboard' ] "empty by default, don't auto open tree on specific filetypes.
+    let g:nvim_tree_quit_on_open = 1 "0 by default, closes the tree when you open a file
+    let g:nvim_tree_follow = 1 "0 by default, this option allows the cursor to be updated when entering a buffer
+    let g:nvim_tree_indent_markers = 1 "0 by default, this option shows indent markers when folders are open
+    let g:nvim_tree_hide_dotfiles = 0 "0 by default, this option hides files and folders starting with a dot `.`
+    let g:nvim_tree_git_hl = 1 "0 by default, will enable file highlight for git attributes (can be used without the icons).
+    let g:nvim_tree_highlight_opened_files = 1 "0 by default, will enable folder and file icon highlight for opened files/directories.
+    let g:nvim_tree_root_folder_modifier = ':~' "This is the default. See :help filename-modifiers for more options
+    let g:nvim_tree_tab_open = 1 "0 by default, will open the tree when entering a new tab and the tree was previously open
+    let g:nvim_tree_width_allow_resize  = 1 "0 by default, will not resize the tree when opening a file
+    let g:nvim_tree_disable_netrw = 1 "1 by default, disables netrw
+    let g:nvim_tree_hijack_netrw = 1 "1 by default, prevents netrw from automatically opening when opening directories (but lets you keep its other utilities)
+    let g:nvim_tree_add_trailing = 1 "0 by default, append a trailing slash to folder names
+    let g:nvim_tree_group_empty = 1 " 0 by default, compact folders that only contain a single folder into one node in the file tree
+    let g:nvim_tree_lsp_diagnostics = 1 "0 by default, will show lsp diagnostics in the signcolumn. See :help nvim_tree_lsp_diagnostics
+    let g:nvim_tree_disable_window_picker = 0 "0 by default, will disable the window picker.
+    let g:nvim_tree_hijack_cursor = 0 "1 by default, when moving cursor in the tree, will position the cursor at the start of the file on the current line
+    let g:nvim_tree_icon_padding = '  ' "one space by default, used for rendering the space between the icon and the filename. Use with caution, it could break rendering if you set an empty string depending on your font.
+    let g:nvim_tree_update_cwd = 1 "0 by default, will update the tree cwd when changing nvim's directory (DirChanged event). Behaves strangely with autochdir set.
+    let g:nvim_tree_window_picker_exclude = {
+        \   'filetype': [
+        \     'packer',
+        \     'qf'
+        \   ],
+        \   'buftype': [
+        \     'terminal'
+        \   ]
+        \ }
+    " Dictionary of buffer option names mapped to a list of option values that
+    " indicates to the window picker that the buffer's window should not be
+    " selectable.
+    let g:nvim_tree_special_files = { 'README.md': 1, 'Makefile': 1, 'MAKEFILE': 1 } " List of filenames that gets highlighted with NvimTreeSpecialFile
+    let g:nvim_tree_show_icons = {
+        \ 'git': 1,
+        \ 'folders': 1,
+        \ 'files': 1,
+        \ 'folder_arrows': 1,
+        \ }
+    "If 0, do not show the icons for one of 'git' 'folder' and 'files'
+    "1 by default, notice that if 'files' is 1, it will only display
+    "if nvim-web-devicons is installed and on your runtimepath.
+    "if folder is 1, you can also tell folder_arrows 1 to show small arrows next to the folder icons.
+    "but this will not work when you set indent_markers (because of UI conflict)
+
+    " default will show icon by default if no icon is provided
+    " default shows no icon by default
+    let g:nvim_tree_icons = {
+        \ 'default': '',
+        \ 'symlink': '',
+        \ 'git': {
+        \   'unstaged': "✗",
+        \   'staged': "✓",
+        \   'unmerged': "",
+        \   'renamed': "➜",
+        \   'untracked': "★",
+        \   'deleted': "",
+        \   'ignored': "◌"
+        \   },
+        \ 'folder': {
+        \   'arrow_open': "",
+        \   'arrow_closed': "",
+        \   'default': "",
+        \   'open': "",
+        \   'empty': "",
+        \   'empty_open': "",
+        \   'symlink': "",
+        \   'symlink_open': "",
+        \   },
+        \   'lsp': {
+        \     'hint': "",
+        \     'info': "",
+        \     'warning': "",
+        \     'error': "",
+        \   }
+        \ }
+
+    nnoremap <C-n> :NvimTreeToggle<CR>
+    nnoremap <leader>r :NvimTreeRefresh<CR>
+    nnoremap <leader>n :NvimTreeFindFile<CR>
+    " NvimTreeOpen and NvimTreeClose are also available if you need them
+
+    set termguicolors " this variable must be enabled for colors to be applied properly
+
+    " a list of groups can be found at `:help nvim_tree_highlight`
+    highlight NvimTreeFolderIcon guibg=blue
 " }}}
 
 
 " Vim Workspace Controller
 " ctrlspace {{{
-    let g:airline_exclude_preview = 1
+    " let g:airline_exclude_preview = 1
     let g:CtrlSpaceDefaultMappingKey = "<C-space> "
     hi CtrlSpaceSelected guifg=#586e75 guibg=#eee8d5 guisp=#839496 gui=reverse,bold ctermfg=10 ctermbg=7 cterm=reverse,bold
     hi CtrlSpaceNormal   guifg=#839496 guibg=#021B25 guisp=#839496 gui=NONE ctermfg=12 ctermbg=0 cterm=NONE
@@ -845,22 +893,6 @@ EOF
         \ ]
     \ }
 " }}}
-
-
-" ################### 语言相关 ###################
-
-" quickrun {{{
-    let g:quickrun_config = {
-    \   "_" : {
-    \       "outputter" : "message",
-    \   },
-    \}
-
-    let g:quickrun_no_default_key_mappings = 1
-    nmap <Leader>r <Plug>(quickrun)
-    map <F10> :QuickRun<CR>
-" }}}
-
 
 " pythonsyntax {{{
     let python_highlight_all = 1
@@ -899,5 +931,3 @@ EOF
     " vnoremap <silent> <leader>es :EsformatterVisual<CR>
 
 " }}}
-
-"------------------------------------------- end of configs --------------------------------------------
