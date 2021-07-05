@@ -2,7 +2,7 @@
 	name = tssujt
 	email = contactxjw@gmail.com
 [core]
-	excludesfile = /Users/imperat0r/.gitignore_global
+	excludesfile = ~/.gitignore_global
 	editor = nvim
 	autocrlf = input
 [alias]
@@ -46,6 +46,8 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 [commit]
-	template = /Users/imperat0r/.stCommitMsg
+	template = ~/.stCommitMsg
 [credential]
 	helper = store
+[includeIf "gitdir:~/Workspace/"]
+    path = .gitconfig_work

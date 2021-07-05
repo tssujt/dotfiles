@@ -4,6 +4,7 @@ bundle
 *.pyc
 *.bak
 *.bk
+git/.gitconfig_work
 
 # temporary
 .netrwhist
