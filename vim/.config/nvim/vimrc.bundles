@@ -134,6 +134,7 @@ let g:neodark#solid_vertsplit = 1
 
 " nav
 " ctrlspace
+Plug 'mhinz/vim-startify'
 Plug 'vim-ctrlspace/vim-ctrlspace'
 " tagbar
 Plug 'majutsushi/tagbar'
@@ -252,6 +253,7 @@ EOF
         \ }
 
     " autocmd BufWritePre *.py execute ':Neoformat'
+    nmap <leader>nf :Neoformat<cr>
 " }}}
 
 " ################### 自动补全 ###################
@@ -263,7 +265,7 @@ nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap <silent> gD <cmd>lua vim.lsp.buf.implementation()<CR>
 nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
 nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>
-nnoremap <silent> <C-c>rr <cmd>lua vim.lsp.buf.rename()<CR>
+nnoremap <silent> gR <cmd>lua vim.lsp.buf.rename()<CR>
 
 " https://github.com/neovim/nvim-lsp#pyls
 " https://www.xgithub.com/2019/11/14/neovim-nvim-lsp-common-configurations-for-neovim-language-servers/
@@ -743,6 +745,9 @@ EOF
     " Sets the name of unnamed buffers. By default format is "[Buffer X]"
     " where X is the buffer number. But only a static string is accepted here.
     let bufferline.no_name_title = v:null
+
+    nnoremap <silent>    <A-,> :BufferPrevious<CR>
+    nnoremap <silent>    <A-.> :BufferNext<CR>
 
     nnoremap <leader>bm :BufferMove
     nnoremap <silent> <leader>bi <cmd>BufferPin<CR>
