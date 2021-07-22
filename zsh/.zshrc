@@ -132,9 +132,6 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 # eval "`pip3 completion --zsh`"
 eval "$(pyenv init -)" && pyenv virtualenvwrapper
 
-# Node
-eval "$(nodenv init -)"
-
 fpath=(/usr/local/share/zsh-completions $fpath)
 
 if [[ -x $(which exa) ]]; then
