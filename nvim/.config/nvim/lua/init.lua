@@ -2,8 +2,10 @@ require('color')
 require('complete')
 require('icon')
 require('lsp')
+require('qf')
+require('statusline')
 require('tree')
 require('treesitter')
-
--- https://github.com/hrsh7th/nvim-compe
-vim.o.completeopt = "menuone,noselect"
+require('tele')
+require('visual_multi')
+require('which_key')

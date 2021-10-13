@@ -1,26 +1,20 @@
 set exrc
 
 call plug#begin()
-" 移动光标到插件名上, 使用'#'快速跳转到每个插件的配置处
-
-" Group dependencies, vim-snippets depends on ultisnips
-" 代码片段快速插入 (snippets中,是代码片段资源,需要学习)
-" Snippets are separated from the engine. Add this if you want them:
-" Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
 " rooter
 Plug 'airblade/vim-rooter'
-Plug 'hrsh7th/nvim-compe'
 
 " auto complete
 " 代码自动补全
 " 自动补全单引号，双引号等
 Plug 'Raimondi/delimitMate'
+Plug 'hrsh7th/nvim-compe'
+Plug 'andersevenrud/compe-tmux'
 
 " quick edit
 " 快速注释
 Plug 'scrooloose/nerdcommenter'
-
 
 " 快速加入修改环绕字符
 " for repeat -> enhance surround.vim, . to repeat command
@@ -51,7 +45,7 @@ Plug 'kshenoy/vim-signature'
 " quick selection and edit
 " 多光标选中编辑
 " multiplecursors
-Plug 'terryma/vim-multiple-cursors'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
 " quick locate file or function
 " 文件搜索
@@ -75,12 +69,21 @@ Plug 'dyng/ctrlsf.vim'
 " ag
 Plug 'mileszs/ack.vim'
 
+" qf
+Plug 'kevinhwang91/nvim-bqf'
+
+Plug 'folke/which-key.nvim'
+
 Plug 'neovim/nvim-lspconfig'
 Plug 'kabouzeid/nvim-lspinstall'
 Plug 'glepnir/lspsaga.nvim'
+Plug 'simrat39/rust-tools.nvim'
 
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+" Plug 'junegunn/fzf.vim'
+
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
 " git
 " fugitive
@@ -92,8 +95,11 @@ Plug 'airblade/vim-gitgutter'
 " edit history, 可以查看回到某个历史状态
 Plug 'sjl/gundo.vim'
 
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
+Plug 'hoob3rt/lualine.nvim'
+Plug 'navarasu/onedark.nvim'
+Plug 'nvim-lua/lsp-status.nvim'
 
 " nav
 " ctrlspace
@@ -103,6 +109,7 @@ Plug 'majutsushi/tagbar'
 
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'kyazdani42/nvim-tree.lua'
+Plug 'folke/trouble.nvim'
 
 " tmux
 " For tmux navigator Ctrl-hjkl
@@ -111,7 +118,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'ConradIrwin/vim-bracketed-paste'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'romgrk/nvim-treesitter-context'
+" Plug 'romgrk/nvim-treesitter-context'
 
 Plug 'sbdchd/neoformat'
 
@@ -665,11 +672,15 @@ set lazyredraw          " redraw only when we need to.
 " theme主题
 " set background=dark
 set t_Co=256
+let g:onedark_style = 'cool'
+colorscheme onedark
 
 " 设置标记一列的背景颜色和数字一行颜色一致
 hi! link SignColumn   LineNr
 hi! link ShowMarksHLl DiffAdd
 hi! link ShowMarksHLu DiffChange
+
+set termguicolors " this variable must be enabled for colors to be applied properly
 
 " for error highlight，防止错误整行标红导致看不清
 highlight clear SpellBad
@@ -683,5 +694,7 @@ highlight SpellLocal term=underline cterm=underline
 
 highlight Comment term=italic cterm=italic
 highlight Todo term=italic cterm=italic
+
+highlight NvimTreeFolderIcon guibg=blue
 
 lua require('init')

@@ -5,4 +5,4 @@ require'nvim-treesitter.configs'.setup {
         -- disable = { "c", "rust" }
     }
 }
-require'treesitter-context.config'.setup {enable = true}
+-- require'treesitter-context.config'.setup {enable = true}
