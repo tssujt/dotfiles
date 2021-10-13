@@ -65,7 +65,6 @@ plugins=(
     # composer
     cp
     dash
-    django
     docker
     docker-compose
     dotenv
