@@ -75,7 +75,7 @@ Plug 'kevinhwang91/nvim-bqf'
 Plug 'folke/which-key.nvim'
 
 Plug 'neovim/nvim-lspconfig'
-Plug 'kabouzeid/nvim-lspinstall'
+Plug 'williamboman/nvim-lsp-installer'
 Plug 'glepnir/lspsaga.nvim'
 Plug 'simrat39/rust-tools.nvim'
 

@@ -92,64 +92,60 @@ local misspell = {
     lintSource = "misspell"
 }
 
--- lsp-install
-local function setup_servers()
-    require'lspinstall'.setup()
 
-    local servers = require'lspinstall'.installed_servers()
-    table.insert(servers, "clangd")
-    table.insert(servers, "sourcekit")
+local lsp_installer = require("nvim-lsp-installer")
 
-    for _, server in pairs(servers) do
-        local config = make_config()
+-- Provide settings first!
+lsp_installer.settings {
+    ui = {
+        icons = {
+            server_installed = "✓",
+            server_pending = "➜",
+            server_uninstalled = "✗"
+        }
+    }
+}
 
-        if server == "sourcekit" then
-            config.filetypes = {"swift", "objective-c", "objective-cpp"}; -- we don't want c and cpp!
-        end
-        if server == "pyright" then
-            config.handlers = lsp_status.extensions.pyright.setup()
-            config.settings = {
-                cmd = {"pyright-langserver", "--stdio"},
-                filetypes = {"python"},
-                root_dir = function(filename)
-                    return util.root_pattern(unpack(root_files))(filename) or
-                               util.path.dirname(filename)
-                end,
-                settings = {
-                    python = {
-                        analysis = {
-                            autoSearchPaths = true,
-                            diagnosticMode = "workspace",
-                            useLibraryCodeForTypes = true
-                        }
-                    }
-                }
-            }
-        end
-        if server == "clangd" then
-            config.filetypes = {"c", "cpp"}; -- we don't want objective-c and objective-cpp!
-        end
-        if server == "efm" then
-            config.filetypes = {"c", "cpp", "rust", "python", "lua"}
-            config.init_options = {documentFormatting = true};
-            config.root_dir = vim.loop.cwd;
-            config.settings = {
-                rootMarkers = {".git/"},
-                languages = {["="] = {misspell}, python = {flake8}}
-            }
-        end
+local servers = {
+    "rust_analyzer", "clangd", "html", "jsonls", "sumneko_lua", "pyright"
+}
 
-        require'lspconfig'[server].setup(config)
+for _, lang in pairs(servers) do
+    local ok, server = lsp_installer.get_server(lang)
+    if ok then
+        if not server:is_installed() then
+            print("Installing " .. lang)
+            server:install()
+        end
     end
 end
 
-setup_servers()
+lsp_installer.on_server_ready(function(server)
+    local config = {
+      on_attach = on_attach,
+      capabilities = updated_capabilities,
+    }
 
--- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
-require'lspinstall'.post_install_hook = function()
-    setup_servers() -- reload installed servers
-    vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
-end
+    if server.name == "sourcekit" then
+        config.filetypes = {"swift", "objective-c", "objective-cpp"}; -- we don't want c and cpp!
+    end
+    if server.name == "clangd" then
+        config.filetypes = {"c", "cpp"}; -- we don't want objective-c and objective-cpp!
+    end
+    if server.name == "efm" then
+        config.filetypes = {"c", "cpp", "rust", "python", "lua"}
+        config.init_options = {documentFormatting = true};
+        config.root_dir = vim.loop.cwd;
+        config.settings = {
+            rootMarkers = {".git/"},
+            languages = {["="] = {misspell}, python = {flake8}}
+        }
+    end
+
+    server:setup(config)
+    vim.cmd [[ do User LspAttachBuffers ]]
+end)
+
 
 local saga = require 'lspsaga'
 saga.init_lsp_saga()
