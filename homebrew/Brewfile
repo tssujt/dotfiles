@@ -1,7 +1,6 @@
 tap "buo/cask-upgrade"
 tap "cantino/mcfly", "https://github.com/cantino/mcfly"
 tap "charmbracelet/tap"
-tap "d12frosted/emacs-plus"
 tap "domt4/autoupdate"
 tap "github/gh"
 tap "gphotosuploader/tap"
@@ -11,8 +10,6 @@ tap "homebrew/cask-fonts"
 tap "homebrew/core"
 tap "homebrew/services"
 tap "khanhas/tap"
-tap "minio/stable"
-tap "railwaycat/emacsmacport"
 tap "samuelmeuli/tap"
 tap "zaquestion/tap"
 brew "openssl@1.1"
@@ -29,6 +26,9 @@ brew "pkg-config"
 brew "clisp"
 brew "cmake"
 brew "code-minimap"
+brew "freetds"
+brew "libsodium"
+brew "php"
 brew "composer"
 brew "coreutils"
 brew "corkscrew"
@@ -48,13 +48,11 @@ brew "exercism"
 brew "fd"
 brew "guile"
 brew "gnutls"
-brew "libsodium"
 brew "sdl2"
 brew "snappy"
 brew "zeromq"
 brew "ffmpeg"
 brew "fontforge"
-brew "freetds"
 brew "frpc", restart_service: true
 brew "fzf"
 brew "gawk"
@@ -81,6 +79,7 @@ brew "launchctl-completion"
 brew "libmagic"
 brew "libsecret"
 brew "libxml2"
+brew "llvm"
 brew "lsd"
 brew "luajit", args: ["HEAD"]
 brew "magic-wormhole"
@@ -96,13 +95,11 @@ brew "tree-sitter"
 brew "neovim"
 brew "netcat"
 brew "nginx"
-brew "nodenv"
 brew "numpy"
 brew "open-completion"
 brew "opencc"
 brew "pandoc"
 brew "pdm"
-brew "php"
 brew "pip-completion"
 brew "pipx"
 brew "plantuml"
@@ -147,22 +144,38 @@ brew "youtube-dl"
 brew "zsh-autosuggestions"
 brew "zsh-completions"
 brew "cantino/mcfly/mcfly"
-brew "minio/stable/mc"
 brew "samuelmeuli/tap/tmignore"
 brew "zaquestion/tap/lab"
 cask "aerial"
+cask "alacritty"
 cask "android-platform-tools"
 cask "background-music"
 cask "bleunlock"
 cask "cakebrew"
 cask "docker"
 cask "mysql-connector-python"
-cask "qlcolorcode"
-cask "qlmarkdown"
-cask "qlstephen"
-cask "quicklook-json"
 cask "soundflower"
 cask "soundflowerbed"
 cask "squirrel"
 cask "timemachineeditor"
 cask "wireshark"
+mas "1Password 7", id: 1333542190
+mas "iMazing HEIC Converter", id: 1292198261
+mas "Keynote", id: 409183694
+mas "Kindle", id: 405399194
+mas "LastPass", id: 926036361
+mas "Medis", id: 1579200037
+mas "Microsoft Excel", id: 462058435
+mas "Microsoft Outlook", id: 985367838
+mas "Microsoft PowerPoint", id: 462062816
+mas "Microsoft Remote Desktop", id: 1295203466
+mas "Microsoft To Do", id: 1274495053
+mas "Microsoft Word", id: 462054704
+mas "Numbers", id: 409203825
+mas "OneDrive", id: 823766827
+mas "Pages", id: 409201541
+mas "QQ", id: 451108668
+mas "The Unarchiver", id: 425424353
+mas "Tweetbot", id: 1384080005
+mas "WeChat", id: 836500024
+mas "Xcode", id: 497799835
