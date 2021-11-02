@@ -19,9 +19,6 @@ export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 # Android
 export ANDROID_HOME=/usr/local/opt/android-sdk
 
-# Node
-export PATH="${HOME}/.nodenv/shims:$PATH"
-
 # Rust
 source "$HOME/.cargo/env"
 export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
@@ -55,3 +52,4 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 
 export PATH="/usr/local/sbin:$PATH"
+if [ -e /Users/imperat0r/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/imperat0r/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
