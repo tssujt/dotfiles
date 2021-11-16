@@ -91,6 +91,7 @@ brew "mtr"
 brew "mycli"
 brew "mysql", restart_service: true
 brew "mysql-client"
+brew "neofetch"
 brew "tree-sitter"
 brew "neovim"
 brew "netcat"
@@ -175,6 +176,7 @@ mas "Numbers", id: 409203825
 mas "OneDrive", id: 823766827
 mas "Pages", id: 409201541
 mas "QQ", id: 451108668
+mas "Tailscale", id: 1475387142
 mas "The Unarchiver", id: 425424353
 mas "Tweetbot", id: 1384080005
 mas "WeChat", id: 836500024
