@@ -40,9 +40,6 @@ export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
 export PATH="/usr/local/opt/gettext/bin:$PATH"
 
-# Arcanist
-export PATH="${HOME}/Sources/arcanist/bin:$PATH"
-
 export PATH="${HOME}/Library/emsdk-portable:$PATH"
 export EMSDK="${HOME}/Library/emsdk-portable"
 export EM_CONFIG="${HOME}/.emscripten"

@@ -1,12 +1,4 @@
-# zmodload zsh/datetime
-# setopt PROMPT_SUBST
-# PS4='+$EPOCHREALTIME %N:%i> '
-
-# logfile=$(mktemp zsh_profile.XXXXXXXX)
-# echo "Logging to $logfile"
-# exec 3>&2 2>$logfile
-
-# setopt XTRACE
+# zmodload zsh/zprof
 
 export ZSH=$HOME/.oh-my-zsh
 
@@ -15,54 +7,14 @@ export ZSH=$HOME/.oh-my-zsh
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="steeef"
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
 plugins=(
     adb
     autojump
     autopep8
     brew
     cargo
-    celery
     colored-man-pages
     common-aliases
-    # composer
     cp
     dash
     docker
@@ -70,7 +22,6 @@ plugins=(
     dotenv
     emoji
     extract
-    fabric
     fzf
     git
     git-extras
@@ -80,14 +31,12 @@ plugins=(
     gulp
     history
     httpie
-    iterm2
+    macos
     man
     mosh
     npm
-    osx
     pep8
     pip
-    pipenv
     pyenv
     pylint
     python
@@ -99,8 +48,6 @@ plugins=(
     supervisor
     thefuck
     tmux
-    virtualenv
-    # virtualenvwrapper
     vscode
     web-search
     xcode
@@ -121,15 +68,38 @@ alias ssh="TERM=xterm ssh"
 
 # eval "$(thefuck --alias)"
 
-# iTerm2
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
 # Ruby
 # eval "$(rbenv init -)"
 
 # Python
 # eval "`pip3 completion --zsh`"
-eval "$(pyenv init -)" && pyenv virtualenvwrapper
+
+# Try to find pyenv, if it's not on the path
+export PYENV_ROOT="${PYENV_ROOT:=${HOME}/.pyenv}"
+if ! type pyenv > /dev/null && [ -f "${PYENV_ROOT}/bin/pyenv" ]; then
+    export PATH="${PYENV_ROOT}/bin:${PATH}"
+fi
+
+# Lazy load pyenv
+if type pyenv > /dev/null; then
+    export PATH="${PYENV_ROOT}/bin:${PYENV_ROOT}/shims:${PATH}"
+    function pyenv() {
+        unset -f pyenv
+        eval "$(command pyenv init -)"
+        pyenv virtualenvwrapper_lazy
+        if [[ -n "${ZSH_PYENV_LAZY_VIRTUALENV}" ]]; then
+            eval "$(command pyenv virtualenv-init -)"
+        fi
+        pyenv $@
+    }
+fi
+
+workon () {
+    pyenv virtualenvwrapper_lazy
+    virtualenvwrapper_load
+    workon "$@"
+}
+# eval "$(pyenv init -)" && pyenv virtualenvwrapper_lazy
 
 fpath=(/usr/local/share/zsh-completions $fpath)
 
@@ -164,9 +134,6 @@ source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 fpath+=~/.zfunc
 
-# unsetopt XTRACE
-# exec 2>&3 3>&-
-
 # Proxy
 function proxy_off() {
     unset http_proxy;
@@ -192,10 +159,10 @@ alias k='kubectl'
 source <(stern --completion=zsh)
 
 kx () {
-	local cmd=${2:-"bash"}
+    local cmd=${2:-"bash"}
 
-	echo kubectl exec -it $1 -- $cmd
-	kubectl exec -it $1 -- $cmd
+    echo kubectl exec -it $1 -- $cmd
+    kubectl exec -it $1 -- $cmd
 }
 
 klogs () {
@@ -206,3 +173,5 @@ klogs () {
 alias wip='git add . && git commit --no-verify -m "wip"'
 
 [[ -s "~/.gvm/scripts/gvm" ]] && source "~/.gvm/scripts/gvm"
+
+# zprof
