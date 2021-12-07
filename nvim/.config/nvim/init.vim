@@ -51,28 +51,6 @@ Plug 'kshenoy/vim-signature'
 " multiplecursors
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
-" quick locate file or function
-" 文件搜索
-" change to https://github.com/ctrlpvim/ctrlp.vim
-" ctrlp ctrlpfunky
-Plug 'ctrlpvim/ctrlp.vim' | Plug 'tacahiroy/ctrlp-funky'
-" ctrlsf
-" 类似sublimetext的搜索
-" In CtrlSF window:
-" 回车/o, 打开
-" t       在tab中打开(建议)
-" T - Lkie t but focus CtrlSF window instead of opened new tab.
-" q - Quit CtrlSF window.
-Plug 'dyng/ctrlsf.vim'
-" incsearch
-" Plug 'haya14busa/incsearch.vim'
-" map /  <Plug>(incsearch-forward)
-" map ?  <Plug>(incsearch-backward)
-" map g/ <Plug>(incsearch-stay)
-"
-" ag
-Plug 'mileszs/ack.vim'
-
 " qf
 Plug 'kevinhwang91/nvim-bqf'
 
@@ -83,11 +61,9 @@ Plug 'williamboman/nvim-lsp-installer'
 Plug 'glepnir/lspsaga.nvim'
 Plug 'simrat39/rust-tools.nvim'
 
-" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-" Plug 'junegunn/fzf.vim'
-
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 
 " git
 " fugitive
@@ -110,6 +86,7 @@ Plug 'nvim-lua/lsp-status.nvim'
 Plug 'mhinz/vim-startify'
 " tagbar
 Plug 'majutsushi/tagbar'
+Plug 'dstein64/nvim-scrollview', { 'branch': 'main' }
 
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'kyazdani42/nvim-tree.lua'
@@ -659,7 +636,6 @@ function! AutoSetFileHead()
     normal o
     normal o
 endfunc
-
 
 " 设置可以高亮的关键字
 if has("autocmd")
