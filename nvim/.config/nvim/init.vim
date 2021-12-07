@@ -9,8 +9,12 @@ Plug 'airblade/vim-rooter'
 " 代码自动补全
 " 自动补全单引号，双引号等
 Plug 'Raimondi/delimitMate'
-Plug 'hrsh7th/nvim-compe'
-Plug 'andersevenrud/compe-tmux'
+Plug 'andersevenrud/cmp-tmux'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
 
 " quick edit
 " 快速注释
@@ -118,6 +122,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'ConradIrwin/vim-bracketed-paste'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter-refactor' " this provides "go to def" etc
 " Plug 'romgrk/nvim-treesitter-context'
 
 Plug 'sbdchd/neoformat'
