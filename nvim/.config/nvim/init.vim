@@ -100,6 +100,7 @@ Plug 'ConradIrwin/vim-bracketed-paste'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-refactor' " this provides "go to def" etc
+Plug 'folke/twilight.nvim'
 " Plug 'romgrk/nvim-treesitter-context'
 
 Plug 'sbdchd/neoformat'
