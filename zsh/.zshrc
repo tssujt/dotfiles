@@ -74,6 +74,8 @@ alias ssh="TERM=xterm ssh"
 # Python
 # eval "`pip3 completion --zsh`"
 
+eval "$(mcfly init zsh)"
+
 # https://github.com/davidparsson/zsh-pyenv-lazy
 # Try to find pyenv, if it's not on the path
 export PYENV_ROOT="${PYENV_ROOT:=${HOME}/.pyenv}"
@@ -176,3 +178,5 @@ alias wip='git add . && git commit --no-verify -m "wip"'
 [[ -s "~/.gvm/scripts/gvm" ]] && source "~/.gvm/scripts/gvm"
 
 # zprof
+
+neofetch

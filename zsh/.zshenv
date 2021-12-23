@@ -47,6 +47,7 @@ export EM_CONFIG="${HOME}/.emscripten"
 export PATH="${HOME}/.emacs.d/bin:$PATH"
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
+export PATH="$PATH:${HOME}/.local/bin"
 
 export PATH="/usr/local/sbin:$PATH"
 if [ -e /Users/imperat0r/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/imperat0r/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
