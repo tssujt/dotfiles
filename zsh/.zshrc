@@ -12,7 +12,6 @@ plugins=(
     autojump
     autopep8
     brew
-    cargo
     colored-man-pages
     common-aliases
     cp
@@ -97,12 +96,10 @@ if type pyenv > /dev/null; then
     }
 fi
 
-workon () {
-    pyenv virtualenvwrapper_lazy
-    virtualenvwrapper_load
-    workon "$@"
-}
-# eval "$(pyenv init -)" && pyenv virtualenvwrapper_lazy
+for virtualenvwrapper_cmd in workon mkvirtualenv rmvirtualenv
+do
+    eval '${virtualenvwrapper_cmd} () { pyenv virtualenvwrapper_lazy; virtualenvwrapper_load; ${virtualenvwrapper_cmd} "$@"}'
+done
 
 fpath=(/usr/local/share/zsh-completions $fpath)
 
