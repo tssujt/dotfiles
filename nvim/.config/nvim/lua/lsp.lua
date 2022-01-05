@@ -53,7 +53,7 @@ updated_capabilities.textDocument.codeLens = {dynamicRegistration = false}
 updated_capabilities = vim.tbl_deep_extend("keep", updated_capabilities,
                                            nvim_status.capabilities)
 updated_capabilities.textDocument.completion.completionItem.snippetSupport =
-    true
+    false
 updated_capabilities.textDocument.completion.completionItem.resolveSupport = {
     properties = {"documentation", "detail", "additionalTextEdits"}
 }
@@ -172,7 +172,7 @@ lsp_installer.on_server_ready(function(server)
         config.filetypes = {"c", "cpp"}; -- we don't want objective-c and objective-cpp!
     end
     if server.name == "efm" then
-        config.filetypes = {"c", "cpp", "rust", "python", "lua"}
+        config.filetypes = {"c", "cpp", "python", "lua"}
         config.init_options = {documentFormatting = true};
         config.root_dir = vim.loop.cwd;
         config.settings = {
