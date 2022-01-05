@@ -44,7 +44,7 @@ cmp.setup {
 
 local nvim_status = require "lsp-status"
 
-require("statusline").activate()
+require("user.statusline").activate()
 
 local updated_capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp
                                                                              .protocol
@@ -178,6 +178,21 @@ lsp_installer.on_server_ready(function(server)
         config.settings = {
             rootMarkers = {".git/"},
             languages = {["="] = {misspell}, python = {flake8}}
+        }
+    end
+    if server.name == "sumneko_lua" then
+        config.settings = {
+            Lua = {
+                diagnostics = {
+                    globals = { "vim" },
+                },
+                workspace = {
+                    library = {
+                        [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+                        [vim.fn.stdpath("config") .. "/lua"] = true,
+                    },
+                },
+            },
         }
     end
 

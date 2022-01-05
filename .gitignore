@@ -10,3 +10,4 @@ git/.gitconfig_work
 .netrwhist
 sessions
 black
+nvim/.config/nvim/plugin/packer_compiled.lua
