@@ -24,7 +24,6 @@ local options = {
     laststatus = 2, -- Always show the status line - use 2 lines for the status bar
     magic = true, -- For regular expressions turn magic on
     matchtime = 2, -- How many tenths of a second to blink when matching brackets
-    mouse = "a", -- allow the mouse to be used in neovim
     number = true, -- set numbered lines
     numberwidth = 4, -- set number column width to 2 {default 4}
     pumheight = 10, -- pop up menu height
@@ -71,6 +70,7 @@ vim.opt.formatoptions:append "B" -- 合并两行中文时，不在中间加空�
 
 for k, v in pairs(options) do vim.opt[k] = v end
 
+vim.cmd "set mouse="
 vim.cmd "set nrformats=" -- 00x增减数字时使用十进制
 vim.cmd "set t_ut=" -- 防止 tmux 下 vim 的背景色显示异常 http://sunaku.github.io/vim-256color-bce.html
 vim.cmd "set t_vb=" -- 去掉输入错误的提示声音

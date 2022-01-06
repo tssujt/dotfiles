@@ -36,11 +36,7 @@ packer.init {
     }
 }
 
--- Install your plugins here
 return packer.startup(function(use)
-    -- Automatically set up your configuration after cloning packer.nvim
-    -- Put this at the end after all plugins
-
     -- auto complete
     -- 代码自动补全
     -- 自动补全单引号，双引号等
@@ -52,9 +48,7 @@ return packer.startup(function(use)
     use 'hrsh7th/cmp-cmdline'
     use 'hrsh7th/nvim-cmp'
 
-    -- quick edit
-    -- 快速注释
-    use 'scrooloose/nerdcommenter'
+    use 'numToStr/Comment.nvim'
 
     -- 快速加入修改环绕字符
     -- for repeat -> enhance surround.vim, . to repeat command
@@ -99,12 +93,13 @@ return packer.startup(function(use)
     use 'nvim-lua/plenary.nvim'
     use 'nvim-telescope/telescope.nvim'
     use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+    use 'nvim-telescope/telescope-project.nvim'
 
     -- git
-    -- fugitive
-    use 'tpope/vim-fugitive'
-    -- gitgutter
-    use 'airblade/vim-gitgutter'
+    use {
+        'lewis6991/gitsigns.nvim',
+        tag = 'release' -- To use the latest release
+    }
 
     -- gundo
     -- edit history, 可以查看回到某个历史状态
@@ -114,11 +109,9 @@ return packer.startup(function(use)
         'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
-    use 'navarasu/onedark.nvim'
     use 'nvim-lua/lsp-status.nvim'
 
     -- nav
-    -- ctrlspace
     use 'mhinz/vim-startify'
     -- tagbar
     use 'majutsushi/tagbar'
@@ -135,10 +128,12 @@ return packer.startup(function(use)
     use 'ConradIrwin/vim-bracketed-paste'
 
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+    use 'JoosepAlviste/nvim-ts-context-commentstring'
     use 'nvim-treesitter/nvim-treesitter-refactor' -- this provides "go to def--etc
     use 'folke/twilight.nvim'
     -- use 'romgrk/nvim-treesitter-context'
 
+    use 'navarasu/onedark.nvim'
     use 'tjdevries/colorbuddy.vim'
     use 'tjdevries/gruvbuddy.nvim'
 

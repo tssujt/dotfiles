@@ -103,5 +103,3 @@ vim.g.nvim_tree_icons = {
     lsp = {hint = "", info = "", warning = "", error = ""}
 }
 vim.api.nvim_set_keymap('n', '<C-n>', ':NvimTreeToggle<CR>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<leader>n', ':NvimTreeFindFile<CR>',
-                        {noremap = true})

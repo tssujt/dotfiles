@@ -51,14 +51,10 @@ require('telescope').setup {
             override_generic_sorter = true, -- override the generic sorter
             override_file_sorter = true, -- override the file sorter
             case_mode = "smart_case" -- or "ignore_case" or "respect_case"
-        }
+        },
+        project = {},
     }
 }
 
 require('telescope').load_extension('fzf')
-
-vim.api.nvim_set_keymap('n', '<leader>ff', "<cmd>lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '-g', '!.git' }})<cr>", {noremap = true})
-vim.api.nvim_set_keymap('n', '<leader>fg', '<cmd>Telescope live_grep<CR>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<leader>fa', '<cmd>Telescope grep_string<CR>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<leader>fb', '<cmd>Telescope buffers<CR>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<leader>fh', '<cmd>Telescope help_tags<CR>', {noremap = true})
+require('telescope').load_extension('project')
