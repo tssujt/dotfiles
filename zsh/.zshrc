@@ -96,10 +96,21 @@ if type pyenv > /dev/null; then
     }
 fi
 
-for virtualenvwrapper_cmd in workon mkvirtualenv rmvirtualenv
-do
-    eval '${virtualenvwrapper_cmd} () { pyenv virtualenvwrapper_lazy; virtualenvwrapper_load; ${virtualenvwrapper_cmd} "$@"}'
-done
+workon () {
+    pyenv virtualenvwrapper_lazy;
+    virtualenvwrapper_load;
+    workon "$@"
+}
+mkvirtualenv () {
+    pyenv virtualenvwrapper_lazy;
+    virtualenvwrapper_load;
+    mkvirtualenv "$@"
+}
+rmvirtualenv () {
+    pyenv virtualenvwrapper_lazy;
+    virtualenvwrapper_load;
+    rmvirtualenv "$@"
+}
 
 fpath=(/usr/local/share/zsh-completions $fpath)
 

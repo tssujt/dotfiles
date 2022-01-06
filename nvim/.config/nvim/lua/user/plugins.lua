@@ -47,6 +47,8 @@ return packer.startup(function(use)
     use 'hrsh7th/cmp-path'
     use 'hrsh7th/cmp-cmdline'
     use 'hrsh7th/nvim-cmp'
+    use 'L3MON4D3/LuaSnip'
+    use 'saadparwaiz1/cmp_luasnip'
 
     use 'numToStr/Comment.nvim'
 
@@ -87,7 +89,7 @@ return packer.startup(function(use)
 
     use 'neovim/nvim-lspconfig'
     use 'williamboman/nvim-lsp-installer'
-    use 'glepnir/lspsaga.nvim'
+    use 'tami5/lspsaga.nvim'
     use 'simrat39/rust-tools.nvim'
 
     use 'nvim-lua/plenary.nvim'
@@ -101,9 +103,8 @@ return packer.startup(function(use)
         tag = 'release' -- To use the latest release
     }
 
-    -- gundo
-    -- edit history, 可以查看回到某个历史状态
-    use 'sjl/gundo.vim'
+    -- undo tree visualizer
+    use "simnalamburt/vim-mundo"
 
     use {
         'nvim-lualine/lualine.nvim',
@@ -133,9 +134,9 @@ return packer.startup(function(use)
     use 'folke/twilight.nvim'
     -- use 'romgrk/nvim-treesitter-context'
 
+    use 'bluz71/vim-moonfly-colors'
     use 'navarasu/onedark.nvim'
-    use 'tjdevries/colorbuddy.vim'
-    use 'tjdevries/gruvbuddy.nvim'
+    use 'folke/tokyonight.nvim'
 
     if PACKER_BOOTSTRAP then require("packer").sync() end
 end)

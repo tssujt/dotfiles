@@ -1,8 +1,8 @@
--- https://github.com/hrsh7th/nvim-cmp
-vim.o.completeopt = "menu,menuone,noselect"
-
-local cmp = require'cmp'
+local cmp = require 'cmp'
 cmp.setup {
+    snippet = {
+        expand = function(args) require('luasnip').lsp_expand(args.body) end
+    },
     mapping = {
         ['<C-n>'] = cmp.mapping.select_next_item({
             behavior = cmp.SelectBehavior.Insert
@@ -38,9 +38,16 @@ cmp.setup {
                 trigger_characters = {'.'},
                 trigger_characters_ft = {} -- { filetype = { '.' } }
             }
-        }, {name = 'nvim_lsp'}, {name = 'buffer'}
+        }, {name = 'luasnip'}, {name = 'nvim_lsp'}, {name = 'buffer'}
     }
 }
+-- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline('/', {sources = {{name = 'buffer'}}})
+
+-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline(':', {
+    sources = cmp.config.sources({{name = 'path'}}, {{name = 'cmdline'}})
+})
 
 local nvim_status = require "lsp-status"
 
@@ -183,16 +190,14 @@ lsp_installer.on_server_ready(function(server)
     if server.name == "sumneko_lua" then
         config.settings = {
             Lua = {
-                diagnostics = {
-                    globals = { "vim" },
-                },
+                diagnostics = {globals = {"vim"}},
                 workspace = {
                     library = {
                         [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-                        [vim.fn.stdpath("config") .. "/lua"] = true,
-                    },
-                },
-            },
+                        [vim.fn.stdpath("config") .. "/lua"] = true
+                    }
+                }
+            }
         }
     end
 
@@ -202,6 +207,19 @@ end)
 
 local saga = require 'lspsaga'
 saga.init_lsp_saga()
+saga.setup {
+    finder_action_keys = {
+        open = "o",
+        vsplit = "s",
+        split = "i",
+        quit = "q",
+        scroll_down = "<C-f>",
+        scroll_up = "<C-b>"
+    },
+    code_action_keys = {quit = "q", exec = "<CR>"},
+    rename_action_keys = {quit = "<C-c>", exec = "<CR>"},
+    rename_prompt_prefix = "➤"
+}
 
 require("trouble").setup {}
 

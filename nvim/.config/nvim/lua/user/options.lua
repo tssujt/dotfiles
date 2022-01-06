@@ -5,7 +5,7 @@ local options = {
     backup = false, -- creates a backup file
     clipboard = "unnamedplus", -- allows neovim to access the system clipboard
     cmdheight = 2, -- more space in the neovim command line for displaying messages
-    completeopt = {"menuone", "noselect"}, -- mostly just for cmp
+    completeopt = {"menu", "menuone", "noselect"}, -- https://github.com/hrsh7th/nvim-cmp
     conceallevel = 0, -- so that `` is visible in markdown files
     cursorcolumn = true,
     cursorline = true, -- highlight the current line
@@ -54,6 +54,7 @@ local options = {
     title = true, -- change the terminal's title
     tm = 500,
     ttyfast = true,
+    undodir = vim.fn.expand('~/.nvim_undo'),
     undofile = true, -- enable persistent undo
     updatetime = 300, -- faster completion (4000ms default)
     wildignore = "*.o,*.swp,*.bak,*.pyc,*.class,.svn",
@@ -65,7 +66,7 @@ local options = {
 
 -- https://github.com/nvim-lua/completion-nvim#recommended-setting
 vim.opt.shortmess:append "c"
-vim.opt.formatoptions:append "m" -- 如遇 Unicode 值大于255的文本，不必等到空格再折行
+vim.opt.formatoptions:append "m" -- 如遇 Unicode 值大于 255 的文本，不必等到空格再折行
 vim.opt.formatoptions:append "B" -- 合并两行中文时，不在中间加空格
 
 for k, v in pairs(options) do vim.opt[k] = v end
@@ -77,6 +78,8 @@ vim.cmd "set t_vb=" -- 去掉输入错误的提示声音
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd "set viminfo^=%" -- Remember info about open buffers on closeRemember info about open buffers on close
 vim.cmd [[set iskeyword+=-]]
+
+vim.cmd [[colorscheme moonfly]]
 
 vim.g.loaded_python_provider = 0
 vim.g.python3_host_prog = vim.fn.expand('~/.pyenv/shims/python')
