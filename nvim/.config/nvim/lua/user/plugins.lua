@@ -16,12 +16,12 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
-vim.cmd [[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
-]]
+-- vim.cmd [[
+--   augroup packer_user_config
+--     autocmd!
+--     autocmd BufWritePost plugins.lua source <afile> | PackerSync
+--   augroup end
+-- ]]
 
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
@@ -38,9 +38,6 @@ packer.init {
 
 return packer.startup(function(use)
     -- auto complete
-    -- 代码自动补全
-    -- 自动补全单引号，双引号等
-    use 'Raimondi/delimitMate'
     use 'andersevenrud/cmp-tmux'
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-buffer'
@@ -49,6 +46,9 @@ return packer.startup(function(use)
     use 'hrsh7th/nvim-cmp'
     use 'L3MON4D3/LuaSnip'
     use 'saadparwaiz1/cmp_luasnip'
+
+    -- 自动补全单引号，双引号等
+    use 'Raimondi/delimitMate'
 
     use 'numToStr/Comment.nvim'
 
@@ -78,7 +78,6 @@ return packer.startup(function(use)
     use 'kshenoy/vim-signature'
 
     -- quick selection and edit
-    -- 多光标选中编辑
     -- multiplecursors
     use 'mg979/vim-visual-multi'
 
