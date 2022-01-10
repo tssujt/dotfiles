@@ -80,6 +80,8 @@ vim.cmd "set viminfo^=%" -- Remember info about open buffers on closeRemember in
 vim.cmd [[set iskeyword+=-]]
 
 vim.cmd [[colorscheme moonfly]]
+vim.cmd [[syntax on]]
+vim.cmd [[filetype plugin indent on]]
 
 vim.g.loaded_python_provider = 0
 vim.g.python3_host_prog = vim.fn.expand('~/.pyenv/shims/python')

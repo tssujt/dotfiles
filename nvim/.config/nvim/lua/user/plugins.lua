@@ -16,12 +16,12 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
--- vim.cmd [[
---   augroup packer_user_config
---     autocmd!
---     autocmd BufWritePost plugins.lua source <afile> | PackerSync
---   augroup end
--- ]]
+vim.cmd [[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerSync
+  augroup end
+]]
 
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
@@ -37,6 +37,7 @@ packer.init {
 }
 
 return packer.startup(function(use)
+    use 'wbthomason/packer.nvim'
     -- auto complete
     use 'andersevenrud/cmp-tmux'
     use 'hrsh7th/cmp-nvim-lsp'
@@ -92,7 +93,12 @@ return packer.startup(function(use)
     use 'simrat39/rust-tools.nvim'
 
     use 'nvim-lua/plenary.nvim'
-    use 'nvim-telescope/telescope.nvim'
+    use {
+        'nvim-telescope/telescope.nvim',
+        requires = {
+            { 'nvim-telescope/telescope-live-grep-raw.nvim' }
+        }
+    }
     use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
     use 'ahmedkhalf/project.nvim'
 
