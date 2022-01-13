@@ -102,6 +102,7 @@ local mappings = {
       "Find files",
     },
     r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
+    u = { "<cmd>MundoToggle<CR>", "Toggle Undo Tree" },
   },
 
   p = {
