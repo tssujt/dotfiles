@@ -108,11 +108,6 @@ vim.fn.sign_define("LspDiagnosticsSignInformation",
 vim.fn.sign_define("LspDiagnosticsSignHint",
                    {text = "", numhl = "LspDiagnosticsDefaultHint"})
 
--- config that activates keymaps and enables snippet support
-local function make_config()
-    return {on_attach = on_attach, capabilities = updated_capabilities}
-end
-
 local flake8 = {
     lintCommand = "flake8 --max-line-length 160 --format '%(path)s:%(row)d:%(col)d: %(code)s %(code)s %(text)s' --stdin-display-name ${INPUT} -",
     lintStdin = true,
