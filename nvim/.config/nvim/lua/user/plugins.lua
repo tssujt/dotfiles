@@ -38,8 +38,9 @@ return packer.startup(function(use)
     use 'andersevenrud/cmp-tmux'
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-buffer'
-    use 'hrsh7th/cmp-path'
     use 'hrsh7th/cmp-cmdline'
+    use 'hrsh7th/cmp-path'
+    use "lukas-reineke/cmp-rg"
     use {'hrsh7th/nvim-cmp', requires = {'onsails/lspkind-nvim'}}
     use 'L3MON4D3/LuaSnip'
     use 'saadparwaiz1/cmp_luasnip'
@@ -69,6 +70,8 @@ return packer.startup(function(use)
     -- 更高效的行内移动, f/F/t/T, 才触发
     -- quickscope
     use 'unblevable/quick-scope'
+    -- Switch between single-line and multiline forms of code
+    use 'AndrewRadev/splitjoin.vim'
 
     -- signature
     -- 显示marks - 方便自己进行标记和跳转

@@ -96,7 +96,7 @@ local mappings = {
         d = {"<cmd>bdelete<cr>", "Buffer Delete"},
         l = {
             "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-            "Buffers"
+            "Buffer List"
         },
         p = {"<cmd>BufferLinePick<cr>", "Buffer Pick"}
     },
