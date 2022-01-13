@@ -80,7 +80,7 @@ local mappings = {
     ["a"] = {"<cmd>Alpha<cr>", "Alpha"},
     ["e"] = {"<cmd>NvimTreeToggle<cr>", "Explorer"},
     ["w"] = {"<cmd>w!<CR>", "Save"},
-    ["q"] = {"<cmd>q!<CR>", "Quit"},
+    ["q"] = {"<cmd>lua require('close_buffers').wipe({ type = 'all', force = true })<CR><bar><cmd>q!<CR>", "Quit"},
     ["h"] = {"<cmd>nohlsearch<CR>", "No Highlight"},
     ["F"] = {
         "<cmd>lua require('telescope').extensions.live_grep_raw.live_grep_raw() theme=ivy<cr>",
@@ -94,12 +94,23 @@ local mappings = {
     b = {
         name = "Buffers",
         -- Cannot close last window https://github.com/dstein64/nvim-scrollview/issues/10
-        d = {"<cmd>silent! ScrollViewDisable | bdelete | silent! ScrollViewEnable<cr>", "Buffer Delete"},
+        d = {
+            "<cmd>silent! ScrollViewDisable | bdelete | silent! ScrollViewEnable<cr>",
+            "Delete Current Buffer"
+        },
         l = {
             "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
             "Buffer List"
         },
-        p = {"<cmd>BufferLinePick<cr>", "Buffer Pick"}
+        o = {
+            "<cmd>lua require('close_buffers').wipe({ type = 'other' })<cr>",
+            "Wipe Other Buffers"
+        },
+        p = {"<cmd>BufferLinePick<cr>", "Pick Buffer"},
+        w = {
+            "<cmd>lua require('close_buffers').wipe({ type = 'all', force = true })<cr>",
+            "Wipe All Buffers"
+        }
     },
 
     f = {

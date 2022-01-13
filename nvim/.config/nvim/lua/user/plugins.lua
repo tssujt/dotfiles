@@ -128,6 +128,7 @@ return packer.startup(function(use)
 
     use 'kyazdani42/nvim-web-devicons'
     use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
+    use 'kazhala/close-buffers.nvim'
     use 'kyazdani42/nvim-tree.lua'
     use 'folke/trouble.nvim'
     use {
