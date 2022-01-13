@@ -13,28 +13,17 @@
 	g	= git
 	cm	= commit
 	cl	= clone
+    done = !"f() { default_branch=`git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'`; git checkout $default_branch && git branch -D @{-1} && git pull origin $default_branch; }; f"
 	br	= branch
 	st	= status
 	co	= checkout
 	sm	= submodule
 	ci	= commit -a -v
 	unst = reset HEAD
-	throw	= reset --hard HEAD
-	throwh	= reset --hard HEAD^
 	clr	= clean -fdx -f
 	last	= log -1
 	glog	= log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	slog	= log --pretty=oneline
-	accept-ours = "!f() { git checkout --ours -- \"${@:-.}\"; git add -u \"${@:-.}\"; }; f"
-	accept-theirs = "!f() { git checkout --theirs -- \"${@:-.}\"; git add -u \"${@:-.}\"; }; f"
-	tagcommit = !sh -c 'git rev-list $0 | head -n 1'
-	branches = !legit branches
-	publish = !legit publish
-	unpublish = !legit unpublish
-	sync = !legit sync
-	switch = !legit switch
-	resync = !legit resync
-	undo = !legit undo
 
 [http]
 	proxy = http://127.0.0.1:6152
