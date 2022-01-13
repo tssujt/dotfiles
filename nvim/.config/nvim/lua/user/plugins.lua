@@ -48,6 +48,11 @@ return packer.startup(function(use)
     use 'L3MON4D3/LuaSnip'
     use 'saadparwaiz1/cmp_luasnip'
 
+    -- speed up neovim!
+    use 'nathom/filetype.nvim'
+
+    use 'antoinemadec/FixCursorHold.nvim'
+
     -- 自动补全单引号，双引号等
     use 'Raimondi/delimitMate'
 
@@ -116,6 +121,7 @@ return packer.startup(function(use)
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
     use 'nvim-lua/lsp-status.nvim'
+    use 'danymat/neogen'
 
     -- nav
     use 'mhinz/vim-startify'
@@ -124,8 +130,10 @@ return packer.startup(function(use)
     use 'dstein64/nvim-scrollview'
 
     use 'kyazdani42/nvim-web-devicons'
+    use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
     use 'kyazdani42/nvim-tree.lua'
     use 'folke/trouble.nvim'
+    use { "beauwilliams/focus.nvim", config = function() require("focus").setup() end }
 
     -- tmux
     -- For tmux navigator Ctrl-hjkl
@@ -139,9 +147,8 @@ return packer.startup(function(use)
     use 'folke/twilight.nvim'
     -- use 'romgrk/nvim-treesitter-context'
 
-    use 'bluz71/vim-moonfly-colors'
-    use 'navarasu/onedark.nvim'
-    use 'folke/tokyonight.nvim'
+    use "rebelot/kanagawa.nvim"
+    use 'dstein64/vim-startuptime'
 
     if PACKER_BOOTSTRAP then require("packer").sync() end
 end)
