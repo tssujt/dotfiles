@@ -51,9 +51,7 @@ require'nvim-tree'.setup {
             '.git', 'node_modules', '.cache', '.vscode', '.idea', '__pycache__'
         }
     },
-    git = {
-        ignore = true,
-    },
+    git = {ignore = true}
 }
 
 vim.g.nvim_tree_auto_ignore_ft = {'startify', 'dashboard'}

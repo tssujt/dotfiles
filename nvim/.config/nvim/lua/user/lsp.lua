@@ -3,6 +3,19 @@ cmp.setup {
     snippet = {
         expand = function(args) require('luasnip').lsp_expand(args.body) end
     },
+    formatting = {
+        format = require("lspkind").cmp_format({
+            with_text = true,
+            menu = ({
+                buffer = "[﬘ Buf]",
+                nvim_lsp = "[ LSP]",
+                luasnip = "[ LSnip]",
+                nvim_lua = "[ NvimLua]",
+                latex_symbols = "[ Latex]",
+                rg = "[ RG]"
+            })
+        })
+    },
     mapping = {
         ['<C-n>'] = cmp.mapping.select_next_item({
             behavior = cmp.SelectBehavior.Insert
@@ -30,7 +43,7 @@ cmp.setup {
         })
     },
     sources = {
-        {
+        {name = 'nvim_lsp'}, {
             name = 'tmux',
             option = {
                 all_panes = false,
@@ -38,8 +51,9 @@ cmp.setup {
                 trigger_characters = {'.'},
                 trigger_characters_ft = {} -- { filetype = { '.' } }
             }
-        }, {name = 'luasnip'}, {name = 'nvim_lsp'}, {name = 'buffer'}
-    }
+        }, {name = 'luasnip'}, {name = 'buffer'}, {name = 'path'}, {name = 'rg'}
+    },
+    experimental = {ghost_text = true}
 }
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline('/', {sources = {{name = 'buffer'}}})
@@ -157,7 +171,11 @@ lsp_installer.on_server_ready(function(server)
         config.root_dir = vim.loop.cwd;
         config.settings = {
             rootMarkers = {".git/"},
-            languages = {["="] = {misspell}, python = {flake8}}
+            languages = {
+                ["="] = {misspell},
+                python = {flake8},
+                lua = {{formatCommand = "lua-format -i", formatStdin = true}}
+            }
         }
     end
     if server.name == "sumneko_lua" then

@@ -60,7 +60,7 @@ local options = {
     wildmenu = true, -- 增强模式中的命令行自动完成操作
     wildmode = "list:longest",
     wrap = true, -- display lines as one long line
-    writebackup = false, -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
+    writebackup = false -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
 }
 
 -- Changed home directory here

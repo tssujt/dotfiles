@@ -6,11 +6,7 @@ vim.g.tagbar_show_visibility = 1
 -- for ruby
 vim.g.tagbar_type_ruby = {
     kinds = {
-        'm:modules',
-        'c:classes',
-        'd:describes',
-        'C:contexts',
-        'f:methods',
-        'F:singleton methods',
+        'm:modules', 'c:classes', 'd:describes', 'C:contexts', 'f:methods',
+        'F:singleton methods'
     }
 }

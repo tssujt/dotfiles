@@ -5,12 +5,12 @@ require('telescope').setup {
             '--line-number', '--column', '--smart-case', '--hidden'
         },
         mappings = {
-          i = {
-            -- map actions.which_key to <C-h> (default: <C-/>)
-            -- actions.which_key shows the mappings for your picker,
-            -- e.g. git_{create, delete, ...}_branch for the git_branches picker
-            ["<C-h>"] = "which_key"
-          },
+            i = {
+                -- map actions.which_key to <C-h> (default: <C-/>)
+                -- actions.which_key shows the mappings for your picker,
+                -- e.g. git_{create, delete, ...}_branch for the git_branches picker
+                ["<C-h>"] = "which_key"
+            }
         },
         prompt_prefix = "> ",
         selection_caret = "> ",
@@ -40,18 +40,14 @@ require('telescope').setup {
         -- Developer configurations: Not meant for general override
         buffer_previewer_maker = require'telescope.previewers'.buffer_previewer_maker
     },
-    pickers = {
-      find_files = {
-        theme = "dropdown",
-      }
-    },
+    pickers = {find_files = {theme = "dropdown"}},
     extensions = {
         fzf = {
             fuzzy = true, -- false will only do exact matching
             override_generic_sorter = true, -- override the generic sorter
             override_file_sorter = true, -- override the file sorter
             case_mode = "smart_case" -- or "ignore_case" or "respect_case"
-        },
+        }
     }
 }
 
