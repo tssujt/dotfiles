@@ -93,7 +93,8 @@ local mappings = {
 
     b = {
         name = "Buffers",
-        d = {"<cmd>bdelete<cr>", "Buffer Delete"},
+        -- Cannot close last window https://github.com/dstein64/nvim-scrollview/issues/10
+        d = {"<cmd>silent! ScrollViewDisable | bdelete | silent! ScrollViewEnable<cr>", "Buffer Delete"},
         l = {
             "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
             "Buffer List"
