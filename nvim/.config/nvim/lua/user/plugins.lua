@@ -109,6 +109,7 @@ return packer.startup(function(use)
         'lewis6991/gitsigns.nvim',
         tag = 'release' -- To use the latest release
     }
+    use {'TimUntersberger/neogit'}
 
     -- undo tree visualizer
     use "simnalamburt/vim-mundo"
