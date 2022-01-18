@@ -104,6 +104,8 @@ return packer.startup(function(use)
     use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'}
     use 'ahmedkhalf/project.nvim'
 
+    use 'lambdalisue/suda.vim'
+
     -- git
     use {
         'lewis6991/gitsigns.nvim',

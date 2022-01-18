@@ -88,5 +88,3 @@ keymap("c", "<C-j>", "<t_kd>", opts)
 keymap("c", "<C-k>", "<t_ku>", opts)
 keymap("c", "<C-a>", "<Home>", opts)
 keymap("c", "<C-e>", "<End>", opts)
-
-vim.cmd [[cmap w!! w !sudo tee % >/dev/null]]
