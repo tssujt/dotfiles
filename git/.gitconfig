@@ -40,3 +40,6 @@
 	helper = store
 [includeIf "gitdir:~/Workspace/"]
     path = .gitconfig_work
+[pager]
+	branch = false
+	diff = false
