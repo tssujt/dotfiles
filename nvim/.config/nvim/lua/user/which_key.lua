@@ -178,7 +178,7 @@ local mappings = {
         f = {"<cmd>lua vim.lsp.buf.formatting()<cr>", "Format"},
         i = {"<cmd>LspInfo<cr>", "Info"},
         I = {"<cmd>LspInstallInfo<cr>", "Installer Info"},
-        k = {
+        h = {
             "<cmd>lua require('lspsaga.hover').render_hover_doc()<cr>",
             "Hover Doc"
         },

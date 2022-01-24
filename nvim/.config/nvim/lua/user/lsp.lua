@@ -73,26 +73,6 @@ updated_capabilities.textDocument.completion.completionItem.resolveSupport = {
     properties = {"documentation", "detail", "additionalTextEdits"}
 }
 
-local on_attach = function(client)
-    local function buf_set_keymap(...)
-        vim.api.nvim_buf_set_keymap(bufnr, ...)
-    end
-    local function buf_set_option(...)
-        vim.api.nvim_buf_set_option(bufnr, ...)
-    end
-
-    -- Enable completion triggered by <c-x><c-o>
-    buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-    -- Mappings.
-    local opts = {noremap = true, silent = true}
-
-    -- See `:help vim.lsp.*` for documentation on any of the below functions
-    buf_set_keymap('n', 'gD', ':Lspsaga preview_definition<CR>', opts)
-    buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-    buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
-end
-
 vim.fn.sign_define("LspDiagnosticsSignError",
                    {text = "", numhl = "LspDiagnosticsDefaultError"})
 vim.fn.sign_define("LspDiagnosticsSignWarning",
@@ -146,7 +126,7 @@ for _, lang in pairs(servers) do
 end
 
 lsp_installer.on_server_ready(function(server)
-    local config = {on_attach = on_attach, capabilities = updated_capabilities}
+    local config = {capabilities = updated_capabilities}
 
     if server.name == "sourcekit" then
         config.filetypes = {"swift", "objective-c", "objective-cpp"}; -- we don't want c and cpp!
@@ -221,8 +201,6 @@ local opts = {
     -- these override the defaults set by rust-tools.nvim
     -- see https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#rust_analyzer
     server = {
-        -- on_attach is a callback called when the language server attachs to the buffer
-        -- on_attach = on_attach,
         settings = {
             -- to enable rust-analyzer settings visit:
             -- https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/user/generated_config.adoc
