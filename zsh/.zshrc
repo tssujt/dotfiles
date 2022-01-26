@@ -1,59 +1,12 @@
 # zmodload zsh/zprof
 
-export ZSH=$HOME/.oh-my-zsh
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
 
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="steeef"
-
-plugins=(
-    adb
-    autojump
-    autopep8
-    brew
-    colored-man-pages
-    common-aliases
-    cp
-    dash
-    docker
-    docker-compose
-    dotenv
-    emoji
-    extract
-    fzf
-    git
-    git-extras
-    github
-    gitignore
-    golang
-    gulp
-    history
-    httpie
-    macos
-    man
-    mosh
-    npm
-    pep8
-    pip
-    pyenv
-    pylint
-    python
-    redis-cli
-    ripgrep
-    rust
-    rsync
-    sudo
-    supervisor
-    thefuck
-    tmux
-    vscode
-    web-search
-    xcode
-    yarn
-)
-
-source $ZSH/oh-my-zsh.sh
+autoload -Uz compinit
+compinit
 
 alias vi='nvim'
 alias vim='nvim'
@@ -184,6 +137,8 @@ klogs () {
 alias wip='git add . && git commit --no-verify -m "wip"'
 
 [[ -s "~/.gvm/scripts/gvm" ]] && source "~/.gvm/scripts/gvm"
+
+eval "$(starship init zsh)"
 
 # zprof
 
