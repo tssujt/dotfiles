@@ -91,6 +91,8 @@ return packer.startup(function(use)
 
     use 'folke/which-key.nvim'
 
+    use 'nvim-lua/lsp-status.nvim'
+    use 'arkav/lualine-lsp-progress'
     use 'neovim/nvim-lspconfig'
     use 'williamboman/nvim-lsp-installer'
     use 'tami5/lspsaga.nvim'
@@ -120,7 +122,6 @@ return packer.startup(function(use)
         'nvim-lualine/lualine.nvim',
         requires = {'kyazdani42/nvim-web-devicons', opt = true}
     }
-    use 'nvim-lua/lsp-status.nvim'
     use 'danymat/neogen'
 
     -- nav
