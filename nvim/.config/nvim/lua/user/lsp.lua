@@ -160,6 +160,9 @@ lsp_installer.on_server_ready(function(server)
             }
         }
     end
+    if server.name == 'pyright' then
+        config.settings = {python = {analysis = {typeCheckingMode = "off"}}}
+    end
 
     server:setup(config)
     vim.cmd [[ do User LspAttachBuffers ]]
