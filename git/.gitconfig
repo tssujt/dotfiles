@@ -1,6 +1,6 @@
 [user]
 	name = tssujt
-	email = contactxjw@gmail.com
+	email = github@tssujt.xyz
 [core]
 	excludesfile = ~/.gitignore_global
 	editor = nvim
