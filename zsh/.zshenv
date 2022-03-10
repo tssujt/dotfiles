@@ -21,7 +21,6 @@ export ANDROID_HOME=/usr/local/opt/android-sdk
 
 # Rust
 source "$HOME/.cargo/env"
-export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 
 export LD_LIBRARY_PATH="${HOME}/.rustup/toolchains/nightly-x86_64-apple-darwin/lib:${HOME}/.rustup/toolchains/nightly-x86_64-apple-darwin/lib:"
 
@@ -50,4 +49,4 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 export PATH="$PATH:${HOME}/.local/bin"
 
 export PATH="/usr/local/sbin:$PATH"
-if [ -e /Users/imperat0r/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/imperat0r/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+if [ -e ${HOME}/.nix-profile/etc/profile.d/nix.sh ]; then . ${HOME}/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer

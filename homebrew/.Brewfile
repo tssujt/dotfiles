@@ -1,9 +1,7 @@
 tap "buo/cask-upgrade"
-tap "cantino/mcfly", "https://github.com/cantino/mcfly"
 tap "charmbracelet/tap"
 tap "domt4/autoupdate"
 tap "github/gh"
-tap "gphotosuploader/tap"
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
@@ -11,9 +9,8 @@ tap "homebrew/core"
 tap "homebrew/services"
 tap "khanhas/tap"
 tap "samuelmeuli/tap"
-tap "zaquestion/tap"
-brew "openssl@1.1"
 brew "autojump"
+brew "python@3.9"
 brew "awscli@1"
 brew "bat"
 brew "binaryen"
@@ -21,8 +18,6 @@ brew "black"
 brew "brew-gem"
 brew "buildkit"
 brew "caddy"
-brew "gettext"
-brew "pkg-config"
 brew "clisp"
 brew "cmake"
 brew "code-minimap"
@@ -37,9 +32,6 @@ brew "deno"
 brew "dive"
 brew "django-completion"
 brew "dnsmasq", restart_service: true
-brew "docker", link: false
-brew "docker-compose", link: false
-brew "docker-compose-completion"
 brew "doitlive"
 brew "dos2unix"
 brew "efm-langserver"
@@ -56,14 +48,13 @@ brew "fontforge"
 brew "frpc", restart_service: true
 brew "fzf"
 brew "gawk"
-brew "gdb"
-brew "go"
 brew "gh"
 brew "gifsicle"
+brew "git"
 brew "git-extras"
 brew "git-lfs"
 brew "gitlab-runner"
-brew "graphviz"
+brew "go"
 brew "haproxy"
 brew "helm"
 brew "htop"
@@ -78,10 +69,8 @@ brew "kubernetes-cli"
 brew "launchctl-completion"
 brew "libmagic"
 brew "libsecret"
-brew "libxml2"
 brew "llvm"
 brew "lsd"
-brew "luajit", args: ["HEAD"]
 brew "magic-wormhole"
 brew "mariadb-connector-c"
 brew "mas"
@@ -125,6 +114,7 @@ brew "rust-analyzer"
 brew "rustc-completion"
 brew "shellcheck"
 brew "spark"
+brew "starship"
 brew "stern"
 brew "stow"
 brew "streamlink"
@@ -134,6 +124,7 @@ brew "thefuck"
 brew "tig"
 brew "tldr"
 brew "tmux"
+brew "trash"
 brew "tree"
 brew "watch"
 brew "websocat"
@@ -142,42 +133,41 @@ brew "wifi-password"
 brew "yarn"
 brew "yarn-completion"
 brew "youtube-dl"
+brew "z"
 brew "zsh-autosuggestions"
 brew "zsh-completions"
-brew "cantino/mcfly/mcfly"
-brew "samuelmeuli/tap/tmignore"
-brew "zaquestion/tap/lab"
 cask "aerial"
 cask "alacritty"
 cask "android-platform-tools"
 cask "background-music"
 cask "bleunlock"
 cask "cakebrew"
-cask "docker"
+cask "karabiner-elements"
+cask "lark"
 cask "mysql-connector-python"
-cask "soundflower"
+cask "paw"
+cask "shottr"
 cask "soundflowerbed"
-cask "squirrel"
 cask "timemachineeditor"
+cask "tunnelblick"
 cask "wireshark"
 mas "1Password 7", id: 1333542190
-mas "iMazing HEIC Converter", id: 1292198261
+mas "GarageBand", id: 682658836
+mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
-mas "Kindle", id: 405399194
-mas "LastPass", id: 926036361
-mas "Medis", id: 1579200037
 mas "Microsoft Excel", id: 462058435
 mas "Microsoft Outlook", id: 985367838
 mas "Microsoft PowerPoint", id: 462062816
-mas "Microsoft Remote Desktop", id: 1295203466
 mas "Microsoft To Do", id: 1274495053
 mas "Microsoft Word", id: 462054704
 mas "Numbers", id: 409203825
 mas "OneDrive", id: 823766827
 mas "Pages", id: 409201541
 mas "QQ", id: 451108668
+mas "Slack", id: 803453959
 mas "Tailscale", id: 1475387142
+mas "Telegram", id: 747648890
 mas "The Unarchiver", id: 425424353
-mas "Tweetbot", id: 1384080005
+mas "Trello", id: 1278508951
 mas "WeChat", id: 836500024
 mas "Xcode", id: 497799835

@@ -26,8 +26,6 @@ alias ssh="TERM=xterm ssh"
 # Python
 # eval "`pip3 completion --zsh`"
 
-eval "$(mcfly init zsh)"
-
 # https://github.com/davidparsson/zsh-pyenv-lazy
 # Try to find pyenv, if it's not on the path
 export PYENV_ROOT="${PYENV_ROOT:=${HOME}/.pyenv}"
@@ -90,11 +88,11 @@ if [[ "$TERMINAL_EMULATOR" == "JetBrains-JediTerm" ]]; then
     bindkey "∂" delete-word   # Option-d
 fi
 
+. /opt/homebrew/etc/profile.d/z.sh
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
-
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 fpath+=~/.zfunc
 
