@@ -26,6 +26,9 @@ alias ssh="TERM=xterm ssh"
 # Python
 # eval "`pip3 completion --zsh`"
 
+# kubectl
+export PATH="${PATH}:${HOME}/.krew/bin"
+
 # https://github.com/davidparsson/zsh-pyenv-lazy
 # Try to find pyenv, if it's not on the path
 export PYENV_ROOT="${PYENV_ROOT:=${HOME}/.pyenv}"
