@@ -45,8 +45,6 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
-[commit]
-	template = ~/.stCommitMsg
 [credential]
 	helper = store
 [includeIf "gitdir:~/Workspace/"]
