@@ -13,6 +13,7 @@ alias vim='nvim'
 
 alias aws='/usr/local/opt/awscli@1/bin/aws'
 alias ssh="TERM=xterm ssh"
+alias tig='TERM=xterm-256color tig'
 
 # if [ -f ~/.config/exercism/exercism_completion.zsh ]; then
 #     . ~/.config/exercism/exercism_completion.zsh
