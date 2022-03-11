@@ -32,6 +32,7 @@ brew "deno"
 brew "dive"
 brew "django-completion"
 brew "dnsmasq", restart_service: true
+brew "docker"
 brew "doitlive"
 brew "dos2unix"
 brew "efm-langserver"
@@ -75,6 +76,7 @@ brew "magic-wormhole"
 brew "mariadb-connector-c"
 brew "mas"
 brew "maven"
+brew "minikube"
 brew "mosh"
 brew "mtr"
 brew "mycli"
@@ -93,7 +95,6 @@ brew "pdm"
 brew "pip-completion"
 brew "pipx"
 brew "plantuml"
-brew "podman"
 brew "poetry"
 brew "pre-commit"
 brew "procs"
@@ -153,6 +154,7 @@ cask "tunnelblick"
 cask "wireshark"
 mas "1Password 7", id: 1333542190
 mas "GarageBand", id: 682658836
+mas "iMazing HEIC Converter", id: 1292198261
 mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
 mas "Microsoft Excel", id: 462058435
