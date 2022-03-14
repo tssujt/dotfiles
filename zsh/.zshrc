@@ -15,9 +15,8 @@ alias aws='/usr/local/opt/awscli@1/bin/aws'
 alias ssh="TERM=xterm ssh"
 alias tig='TERM=xterm-256color tig'
 
-# if [ -f ~/.config/exercism/exercism_completion.zsh ]; then
-#     . ~/.config/exercism/exercism_completion.zsh
-# fi
+alias rm='trash'
+alias k='kubectl'
 
 # eval "$(thefuck --alias)"
 
@@ -92,7 +91,7 @@ if [[ "$TERMINAL_EMULATOR" == "JetBrains-JediTerm" ]]; then
     bindkey "∂" delete-word   # Option-d
 fi
 
-. /opt/homebrew/etc/profile.d/z.sh
+[ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -116,11 +115,6 @@ function proxy_on() {
 }
 
 # proxy_on
-
-alias rm='trash'
-alias k='kubectl'
-
-# alias leetcode='docker run -it --rm -v ~/Sources/leetcode-data:/root skygragon/leetcode-cli'
 
 source <(stern --completion=zsh)
 
