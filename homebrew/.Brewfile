@@ -12,11 +12,9 @@ tap "samuelmeuli/tap"
 # Shell extension to jump to frequently used directories
 brew "autojump"
 # Interpreted, interactive, object-oriented programming language
-brew "python@3.9"
+brew "python"
 # Official Amazon AWS command-line interface
 brew "awscli@1"
-# Clone of cat(1) with syntax highlighting and Git integration
-brew "bat"
 # Compiler infrastructure and toolchain library for WebAssembly
 brew "binaryen"
 # Python code formatter
@@ -37,10 +35,6 @@ brew "code-minimap"
 brew "freetds"
 # NaCl networking and cryptography library
 brew "libsodium"
-# General-purpose scripting language
-brew "php"
-# Dependency Manager for PHP
-brew "composer"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
 # Tunnel SSH through HTTP proxies
@@ -171,8 +165,6 @@ brew "neovim"
 brew "netcat"
 # HTTP(S) server and reverse proxy, and IMAP/POP3 proxy server
 brew "nginx"
-# Package for scientific computing with Python
-brew "numpy"
 # Bash completion for open
 brew "open-completion"
 # Simplified-traditional Chinese conversion tool
@@ -225,8 +217,6 @@ brew "rust-analyzer"
 brew "rustc-completion"
 # Static analysis and lint tool, for (ba)sh scripts
 brew "shellcheck"
-# Sparklines for the shell
-brew "spark"
 # Cross-shell prompt for astronauts
 brew "starship"
 # Tail multiple Kubernetes pods & their containers
@@ -237,8 +227,6 @@ brew "stow"
 brew "streamlink"
 # User interface to the TELNET protocol
 brew "telnet"
-# Code-search similar to ack
-brew "the_silver_searcher"
 # Programmatically correct mistyped console commands
 brew "thefuck"
 # Text interface for Git repositories
@@ -261,16 +249,10 @@ brew "wget"
 brew "wifi-password"
 # JavaScript package manager
 brew "yarn"
-# Bash completion for Yarn
-brew "yarn-completion"
-# Download YouTube videos from the command-line
-brew "youtube-dl"
 # Fish-like fast/unobtrusive autosuggestions for zsh
 brew "zsh-autosuggestions"
 # Additional completion definitions for zsh
 brew "zsh-completions"
-# Apple TV Aerial screensaver
-cask "aerial"
 # GPU-accelerated terminal emulator
 cask "alacritty"
 # Android SDK component
@@ -283,8 +265,6 @@ cask "bleunlock"
 cask "cakebrew"
 # Keyboard customizer
 cask "karabiner-elements"
-# Project management software
-cask "lark"
 # Self-contained Python driver for communicating with MySQL servers
 cask "mysql-connector-python"
 # HTTP client that helps testing and describing APIs
@@ -300,9 +280,6 @@ cask "tunnelblick"
 # Network protocol analyzer
 cask "wireshark"
 mas "1Password 7", id: 1333542190
-mas "GarageBand", id: 682658836
-mas "iMazing HEIC Converter", id: 1292198261
-mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
 mas "Microsoft Excel", id: 462058435
 mas "Microsoft Outlook", id: 985367838
@@ -313,10 +290,8 @@ mas "Numbers", id: 409203825
 mas "OneDrive", id: 823766827
 mas "Pages", id: 409201541
 mas "QQ", id: 451108668
-mas "Slack", id: 803453959
 mas "Tailscale", id: 1475387142
 mas "Telegram", id: 747648890
 mas "The Unarchiver", id: 425424353
-mas "Trello", id: 1278508951
 mas "WeChat", id: 836500024
 mas "Xcode", id: 497799835
