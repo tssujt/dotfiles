@@ -11,7 +11,6 @@ compinit
 alias vi='nvim'
 alias vim='nvim'
 
-alias aws='/usr/local/opt/awscli@1/bin/aws'
 alias ssh="TERM=xterm ssh"
 alias tig='TERM=xterm-256color tig'
 
@@ -66,8 +65,6 @@ rmvirtualenv () {
     rmvirtualenv "$@"
 }
 
-fpath=(/usr/local/share/zsh-completions $fpath)
-
 if [[ -x $(which exa) ]]; then
   export EXA_COLORS="da=32"
   alias l="exa -lbF"
@@ -96,8 +93,6 @@ fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-fpath+=~/.zfunc
 
 # Proxy
 function proxy_off() {
