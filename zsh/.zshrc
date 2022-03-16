@@ -17,18 +17,6 @@ alias ssh="TERM=xterm ssh"
 alias tig='TERM=xterm-256color tig'
 
 alias rm='trash'
-alias k='kubectl'
-
-# eval "$(thefuck --alias)"
-
-# Ruby
-# eval "$(rbenv init -)"
-
-# Python
-# eval "`pip3 completion --zsh`"
-
-# kubectl
-export PATH="${PATH}:${HOME}/.krew/bin"
 
 # https://github.com/davidparsson/zsh-pyenv-lazy
 # Try to find pyenv, if it's not on the path
@@ -90,12 +78,6 @@ if [[ "$TERMINAL_EMULATOR" == "JetBrains-JediTerm" ]]; then
     bindkey "∂" delete-word   # Option-d
 fi
 
-[ -f ${BREW_PREFIX}/etc/profile.d/autojump.sh ] && . ${BREW_PREFIX}/etc/profile.d/autojump.sh
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-source ${BREW_PREFIX}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
 # Proxy
 function proxy_off() {
     unset http_proxy;
@@ -113,7 +95,19 @@ function proxy_on() {
 
 # proxy_on
 
+# Completion
 source <(stern --completion=zsh)
+[ -f ${BREW_PREFIX}/etc/profile.d/autojump.sh ] && . ${BREW_PREFIX}/etc/profile.d/autojump.sh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source ${BREW_PREFIX}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ${BREW_PREFIX}/share/zsh/site-functions/aws_zsh_completer.sh
+eval "`pip3 completion --zsh`"
+eval "$(starship init zsh)"
+[[ -s "~/.gvm/scripts/gvm" ]] && source "~/.gvm/scripts/gvm"
+
+# kubectl
+alias k='kubectl'
+export PATH="${PATH}:${HOME}/.krew/bin"
 
 kx () {
     local cmd=${2:-"bash"}
@@ -128,10 +122,6 @@ klogs () {
 }
 
 alias wip='git add . && git commit --no-verify -m "wip"'
-
-[[ -s "~/.gvm/scripts/gvm" ]] && source "~/.gvm/scripts/gvm"
-
-eval "$(starship init zsh)"
 
 # zprof
 
