@@ -8,6 +8,8 @@ fi
 autoload -Uz compinit
 compinit
 
+export BREW_PREFIX="$(command brew --prefix)"
+
 alias vi='nvim'
 alias vim='nvim'
 
@@ -88,11 +90,11 @@ if [[ "$TERMINAL_EMULATOR" == "JetBrains-JediTerm" ]]; then
     bindkey "∂" delete-word   # Option-d
 fi
 
-[ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
+[ -f ${BREW_PREFIX}/etc/profile.d/autojump.sh ] && . ${BREW_PREFIX}/etc/profile.d/autojump.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ${BREW_PREFIX}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Proxy
 function proxy_off() {
