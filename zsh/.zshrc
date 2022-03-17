@@ -103,7 +103,7 @@ source ${BREW_PREFIX}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ${BREW_PREFIX}/share/zsh/site-functions/aws_zsh_completer.sh
 eval "`pip3 completion --zsh`"
 eval "$(starship init zsh)"
-[[ -s "~/.gvm/scripts/gvm" ]] && source "~/.gvm/scripts/gvm"
+eval "$(goenv init -)"
 
 # kubectl
 alias k='kubectl'
