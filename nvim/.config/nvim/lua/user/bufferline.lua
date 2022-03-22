@@ -1,5 +1,6 @@
 require('bufferline').setup {
     options = {
+        mode = "tabs",
         offsets = {{filetype = "NvimTree", text = " Explorer", padding = 1}},
         buffer_close_icon = "",
         modified_icon = "",
