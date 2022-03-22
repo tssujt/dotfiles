@@ -12,9 +12,11 @@ tap "samuelmeuli/tap"
 # Shell extension to jump to frequently used directories
 brew "autojump"
 # Interpreted, interactive, object-oriented programming language
-brew "python"
+brew "python@3.9"
 # Official Amazon AWS command-line interface
-brew "awscli@1"
+brew "awscli"
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
 # Compiler infrastructure and toolchain library for WebAssembly
 brew "binaryen"
 # Python code formatter
@@ -31,10 +33,6 @@ brew "clisp"
 brew "cmake"
 # High performance code minimap generator
 brew "code-minimap"
-# Libraries to talk to Microsoft SQL Server and Sybase databases
-brew "freetds"
-# NaCl networking and cryptography library
-brew "libsodium"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
 # Tunnel SSH through HTTP proxies
@@ -69,6 +67,8 @@ brew "guile"
 brew "gnutls"
 # OpenType text shaping engine
 brew "harfbuzz"
+# NaCl networking and cryptography library
+brew "libsodium"
 # Low-level access to audio, keyboard, mouse, joystick, and graphics
 brew "sdl2"
 # Compression/decompression library aiming for high speed
@@ -99,6 +99,8 @@ brew "git-lfs"
 brew "gitlab-runner"
 # Open source programming language to build simple/reliable/efficient software
 brew "go"
+# Go version management
+brew "goenv", args: ["HEAD"]
 # Library to render SVG files using Cairo
 brew "librsvg"
 # Reliable, high performance TCP/HTTP load balancer
@@ -263,12 +265,18 @@ cask "background-music"
 cask "bleunlock"
 # GUI app for Homebrew
 cask "cakebrew"
+# Voice and text chat software
+cask "discord"
 # Keyboard customizer
 cask "karabiner-elements"
+# Project management software
+cask "lark"
 # Self-contained Python driver for communicating with MySQL servers
 cask "mysql-connector-python"
 # HTTP client that helps testing and describing APIs
 cask "paw"
+# PDF reader, editor and annotator
+cask "pdf-expert"
 # Screenshot measurement and annotation tool
 cask "shottr"
 # Taps into Soundflower channels and route them to an audio device
@@ -279,6 +287,8 @@ cask "timemachineeditor"
 cask "tunnelblick"
 # Network protocol analyzer
 cask "wireshark"
+# Collect, organize, cite, and share research sources
+cask "zotero"
 mas "1Password 7", id: 1333542190
 mas "Keynote", id: 409183694
 mas "Microsoft Excel", id: 462058435
@@ -290,8 +300,10 @@ mas "Numbers", id: 409203825
 mas "OneDrive", id: 823766827
 mas "Pages", id: 409201541
 mas "QQ", id: 451108668
+mas "Slack", id: 803453959
 mas "Tailscale", id: 1475387142
 mas "Telegram", id: 747648890
 mas "The Unarchiver", id: 425424353
+mas "Trello", id: 1278508951
 mas "WeChat", id: 836500024
 mas "Xcode", id: 497799835
