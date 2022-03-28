@@ -5,7 +5,7 @@ require'nvim-treesitter.configs'.setup {
         additional_vim_regex_highlighting = true
         -- disable = { "c", "rust" }
     },
-    indent = {enable = true, disable = {"yaml"}},
+    indent = {enable = true, disable = {"yaml", "python"}},
     autopairs = {enable = true},
     context_commentstring = {enable = true, enable_autocmd = false}
 }
