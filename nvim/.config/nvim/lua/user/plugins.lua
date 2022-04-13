@@ -48,6 +48,8 @@ return packer.startup(function(use)
     -- speed up neovim!
     use 'nathom/filetype.nvim'
 
+    use 'raimon49/requirements.txt.vim'
+
     use 'antoinemadec/FixCursorHold.nvim'
 
     -- 自动补全单引号，双引号等
