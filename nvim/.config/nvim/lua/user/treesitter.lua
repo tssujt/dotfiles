@@ -1,10 +1,10 @@
 require'nvim-treesitter.configs'.setup {
-    ensure_installed = "maintained",
-    highlight = {
-        enable = true,
-        additional_vim_regex_highlighting = true
-        -- disable = { "c", "rust" }
+    ensure_installed = {
+        "bash", "c", "comment", "commonlisp", "dockerfile", "go", "gomod",
+        "gowork", "html", "http", "java", "javascript", "json", "json5", "lua",
+        "python", "rust", "toml", "vim", "yaml"
     },
+    highlight = {enable = true, additional_vim_regex_highlighting = true},
     indent = {enable = true, disable = {"yaml", "python"}},
     autopairs = {enable = true},
     context_commentstring = {enable = true, enable_autocmd = false}
