@@ -112,7 +112,7 @@ lsp_installer.settings {
 }
 
 local servers = {
-    "rust_analyzer", "clangd", "html", "jsonls", "sumneko_lua", "pyright"
+    "rust_analyzer", "clangd", "html", "jsonls", "sumneko_lua", "pyright", "efm"
 }
 
 for _, lang in pairs(servers) do
