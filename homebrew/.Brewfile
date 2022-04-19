@@ -9,6 +9,10 @@ tap "homebrew/core"
 tap "homebrew/services"
 tap "khanhas/tap"
 tap "samuelmeuli/tap"
+# GNU File, Shell, and Text utilities
+brew "coreutils"
+# Extendable version manager with support for Ruby, Node.js, Erlang & more
+brew "asdf"
 # Shell extension to jump to frequently used directories
 brew "autojump"
 # Interpreted, interactive, object-oriented programming language
@@ -27,14 +31,16 @@ brew "brew-gem"
 brew "buildkit"
 # Powerful, enterprise-ready, open source web server with automatic HTTPS
 brew "caddy"
+# Core application library for C
+brew "glib"
 # GNU CLISP, a Common Lisp implementation
 brew "clisp"
 # Cross-platform make
 brew "cmake"
+# Documentation for CMake
+brew "cmake-docs"
 # High performance code minimap generator
 brew "code-minimap"
-# GNU File, Shell, and Text utilities
-brew "coreutils"
 # Tunnel SSH through HTTP proxies
 brew "corkscrew"
 # Reimplementation of ctags(1)
@@ -121,10 +127,6 @@ brew "httpie"
 brew "hub"
 # Tools and libraries to manipulate images in many formats
 brew "imagemagick"
-# Platform built on V8 to build network applications
-brew "node"
-# High precision scientific calculator with support for physical units
-brew "insect"
 # CLI wrapper for basic network utilities on macOS - ip command
 brew "iproute2mac"
 # Terminal Client for Redis with AutoCompletion and Syntax Highlighting
@@ -177,6 +179,8 @@ brew "neovim"
 brew "netcat"
 # HTTP(S) server and reverse proxy, and IMAP/POP3 proxy server
 brew "nginx"
+# Platform built on V8 to build network applications
+brew "node"
 # Bash completion for open
 brew "open-completion"
 # Simplified-traditional Chinese conversion tool
@@ -297,6 +301,8 @@ cask "soundflowerbed"
 cask "timemachineeditor"
 # Free and open-source OpenVPN client
 cask "tunnelblick"
+# Open-source code editor
+cask "visual-studio-code"
 # Network protocol analyzer
 cask "wireshark"
 # Collect, organize, cite, and share research sources

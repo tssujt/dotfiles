@@ -101,6 +101,7 @@ source <(stern --completion=zsh)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source ${BREW_PREFIX}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ${BREW_PREFIX}/share/zsh/site-functions/aws_zsh_completer.sh
+source ${BREW_PREFIX}/opt/asdf/libexec/asdf.sh
 eval "`pip3 completion --zsh`"
 eval "$(starship init zsh)"
 eval "$(goenv init -)"
