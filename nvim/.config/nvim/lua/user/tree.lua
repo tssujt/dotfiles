@@ -48,8 +48,10 @@ require'nvim-tree'.setup {
     filters = {
         dotfiles = false,
         custom = {
-            '.git', 'node_modules', '.cache', '.vscode', '.idea', '__pycache__'
-        }
+            '^.git$', 'node_modules', '.cache', '.vscode', '.idea',
+            '__pycache__'
+        },
+        exclude = {'.env'}
     },
     git = {ignore = true}
 }
@@ -100,4 +102,3 @@ vim.g.nvim_tree_icons = {
     },
     lsp = {hint = "", info = "", warning = "", error = ""}
 }
-vim.api.nvim_set_keymap('n', '<C-n>', ':NvimTreeToggle<CR>', {noremap = true})
