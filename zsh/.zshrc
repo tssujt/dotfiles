@@ -104,7 +104,13 @@ source ${BREW_PREFIX}/share/zsh/site-functions/aws_zsh_completer.sh
 source ${BREW_PREFIX}/opt/asdf/libexec/asdf.sh
 eval "`pip3 completion --zsh`"
 eval "$(starship init zsh)"
+
+# goenv
+export GOENV_ROOT="$HOME/.goenv"
+export PATH="$GOENV_ROOT/bin:$PATH"
 eval "$(goenv init -)"
+export PATH="$GOROOT/bin:$PATH"
+export PATH="$PATH:$GOPATH/bin"
 
 # kubectl
 alias k='kubectl'
