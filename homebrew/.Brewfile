@@ -109,8 +109,6 @@ brew "git-extras"
 brew "git-lfs"
 # Official GitLab CI runner
 brew "gitlab-runner"
-# Open source programming language to build simple/reliable/efficient software
-brew "go"
 # Go version management
 brew "goenv", args: ["HEAD"]
 # Library to render SVG files using Cairo
@@ -243,6 +241,8 @@ brew "stern"
 brew "stow"
 # CLI for extracting streams from various websites to a video player
 brew "streamlink"
+# Tools for market analysis
+brew "ta-lib"
 # User interface to the TELNET protocol
 brew "telnet"
 # Programmatically correct mistyped console commands
@@ -279,6 +279,8 @@ cask "android-platform-tools"
 cask "background-music"
 # Lock/unlock Apple computers using the proximity of a bluetooth low energy device
 cask "bleunlock"
+# Translation application for text, pictures, and manual input
+cask "bob"
 # GUI app for Homebrew
 cask "cakebrew"
 # Voice and text chat software
@@ -301,6 +303,8 @@ cask "soundflowerbed"
 cask "timemachineeditor"
 # Free and open-source OpenVPN client
 cask "tunnelblick"
+# GUI for the Neovim text editor
+cask "vimr"
 # Open-source code editor
 cask "visual-studio-code"
 # Network protocol analyzer
@@ -314,6 +318,7 @@ mas "Microsoft Outlook", id: 985367838
 mas "Microsoft PowerPoint", id: 462062816
 mas "Microsoft To Do", id: 1274495053
 mas "Microsoft Word", id: 462054704
+mas "moomoo", id: 1482713641
 mas "Numbers", id: 409203825
 mas "OneDrive", id: 823766827
 mas "Pages", id: 409201541
