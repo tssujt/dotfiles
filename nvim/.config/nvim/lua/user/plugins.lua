@@ -45,6 +45,16 @@ return packer.startup(function(use)
     use 'L3MON4D3/LuaSnip'
     use 'saadparwaiz1/cmp_luasnip'
 
+    use {"github/copilot.vim"}
+    use {
+        "zbirenbaum/copilot.lua",
+        event = {"VimEnter"},
+        config = function()
+            vim.defer_fn(function() require("copilot").setup() end, 100)
+        end
+    }
+    use {"zbirenbaum/copilot-cmp", after = {"copilot.lua", "nvim-cmp"}}
+
     -- speed up neovim!
     use 'nathom/filetype.nvim'
 
@@ -98,6 +108,7 @@ return packer.startup(function(use)
     use 'neovim/nvim-lspconfig'
     use 'williamboman/nvim-lsp-installer'
     use 'tami5/lspsaga.nvim'
+    use {"ray-x/lsp_signature.nvim"}
     use 'simrat39/rust-tools.nvim'
 
     use 'nvim-lua/plenary.nvim'

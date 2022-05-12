@@ -7,6 +7,7 @@ cmp.setup {
         format = require("lspkind").cmp_format({
             with_text = true,
             menu = ({
+                copilot = "[ Copilot]",
                 buffer = "[﬘ Buf]",
                 nvim_lsp = "[ LSP]",
                 luasnip = "[ LSnip]",
@@ -37,7 +38,7 @@ cmp.setup {
         })
     },
     sources = {
-        {name = 'nvim_lsp'}, {
+        {name = 'copilot'}, {name = 'nvim_lsp'}, {
             name = 'tmux',
             option = {
                 all_panes = false,
@@ -112,7 +113,8 @@ lsp_installer.settings {
 }
 
 local servers = {
-    "rust_analyzer", "clangd", "html", "jsonls", "sumneko_lua", "pyright", "efm"
+    "bashls", "clangd", "dockerls", "efm", "gopls", "grammarly", "html", "jsonls", "lemminx",
+    "pyright", "rust_analyzer", "sumneko_lua", "vimls", "yamlls"
 }
 
 for _, lang in pairs(servers) do
@@ -128,6 +130,7 @@ end
 lsp_installer.on_server_ready(function(server)
     local config = {capabilities = updated_capabilities}
 
+    if server.name == "gopls" then config.filetypes = {"go"}; end
     if server.name == "sourcekit" then
         config.filetypes = {"swift", "objective-c", "objective-cpp"}; -- we don't want c and cpp!
     end
@@ -185,6 +188,7 @@ saga.setup {
 }
 
 require("trouble").setup {}
+require"lsp_signature".setup()
 
 local opts = {
     tools = {
