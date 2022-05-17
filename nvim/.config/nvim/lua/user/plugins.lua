@@ -57,6 +57,11 @@ return packer.startup(function(use)
 
     -- speed up neovim!
     use 'nathom/filetype.nvim'
+    use {
+        'iamcco/markdown-preview.nvim',
+        ft = 'markdown',
+        run = 'cd app && yarn install'
+    }
 
     use 'raimon49/requirements.txt.vim'
 

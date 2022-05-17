@@ -80,7 +80,10 @@ local mappings = {
     ["a"] = {"<cmd>Alpha<cr>", "Alpha"},
     ["e"] = {"<cmd>NvimTreeToggle<cr>", "Explorer"},
     ["w"] = {"<cmd>w!<CR>", "Save"},
-    ["q"] = {"<cmd>lua require('close_buffers').wipe({ type = 'all', force = true })<CR><bar><cmd>q!<CR>", "Quit"},
+    ["q"] = {
+        "<cmd>lua require('close_buffers').wipe({ type = 'all', force = true })<CR><bar><cmd>q!<CR>",
+        "Quit"
+    },
     ["t"] = {"<cmd>TagbarToggle<CR>", "Tagbar"},
     ["h"] = {"<cmd>nohlsearch<CR>", "No Highlight"},
     ["F"] = {
@@ -191,6 +194,12 @@ local mappings = {
             "<cmd>lua require('lspsaga.signaturehelp').signature_help()<cr>",
             "Signature Help"
         }
+    },
+    m = {
+        name = "Markdown Preview",
+        p = {"<cmd>MarkdownPreview<cr>", "Markdown Preview"},
+        s = {"<cmd>MarkdownPreviewStop<cr>", "Markdown Preview Stop"},
+        t = {"<cmd>MarkdownPreviewToggle<cr>", "Markdown Preview Toggle"}
     },
     s = {
         name = "Search",

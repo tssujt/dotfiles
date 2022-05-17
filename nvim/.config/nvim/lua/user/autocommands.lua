@@ -14,7 +14,7 @@ vim.cmd [[
     autocmd FileType python set tabstop=4 shiftwidth=4 expandtab ai
     autocmd FileType ruby,javascript,html,css,xml set tabstop=2 shiftwidth=2 softtabstop=2 expandtab ai
     autocmd FileType qf nnoremap <buffer> <Enter> <C-W><Enter><C-W>T
-    autocmd BufRead,BufNewFile *.md,*.mkd,*.markdown set filetype=markdown.mkd
+    autocmd BufRead,BufNewFile *.md,*.mkd,*.markdown set filetype=markdown
     autocmd BufRead,BufNewFile *.part set filetype=html
     autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript tabstop=2 shiftwidth=2 softtabstop=2 expandtab ai
 
