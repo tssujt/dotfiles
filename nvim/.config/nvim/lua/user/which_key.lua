@@ -81,6 +81,7 @@ local mappings = {
     ["e"] = {"<cmd>NvimTreeToggle<cr>", "Explorer"},
     ["w"] = {"<cmd>w!<CR>", "Save"},
     ["q"] = {"<cmd>lua require('close_buffers').wipe({ type = 'all', force = true })<CR><bar><cmd>q!<CR>", "Quit"},
+    ["t"] = {"<cmd>TagbarToggle<CR>", "Tagbar"},
     ["h"] = {"<cmd>nohlsearch<CR>", "No Highlight"},
     ["F"] = {
         "<cmd>lua require('telescope').extensions.live_grep_raw.live_grep_raw() theme=ivy<cr>",

@@ -1,5 +1,3 @@
-vim.api.nvim_set_keymap("", "<F9>", ":TagbarToggle<CR>", {silent = true})
-
 vim.g.tagbar_autofocus = 1
 vim.g.tagbar_autoshowtag = 1
 vim.g.tagbar_show_visibility = 1
