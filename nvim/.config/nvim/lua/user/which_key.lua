@@ -94,6 +94,7 @@ local mappings = {
         "<cmd>lua require('telescope').extensions.projects.projects()<cr>",
         "Projects"
     },
+    ["u"] = {"<cmd>cd %:h<cr>", "Set Working Directory to Current File"},
 
     b = {
         name = "Buffers",
