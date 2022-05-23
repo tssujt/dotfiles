@@ -54,3 +54,5 @@
 	diff = false
 [init]
 	defaultBranch = main
+[hub]
+	protocol = https
