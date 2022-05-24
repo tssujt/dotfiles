@@ -56,3 +56,4 @@ export PATH="/usr/local/sbin:$PATH"
 if [ -e ${HOME}/.nix-profile/etc/profile.d/nix.sh ]; then . ${HOME}/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 export HOMEBREW_BUNDLE_FILE="${HOME}/.Brewfile"
+source "$HOME/.cargo/env"
