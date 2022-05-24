@@ -9,10 +9,18 @@ tap "homebrew/core"
 tap "homebrew/services"
 tap "khanhas/tap"
 tap "samuelmeuli/tap"
+# Library for manipulating PNG images
+brew "libpng"
+# Image format providing lossless and lossy compression for web images
+brew "webp"
+# Companion library to apr, the Apache Portable Runtime library
+brew "apr-util"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
 # Extendable version manager with support for Ruby, Node.js, Erlang & more
 brew "asdf"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.10"
 # Shell extension to jump to frequently used directories
 brew "autojump"
 # Interpreted, interactive, object-oriented programming language
@@ -33,6 +41,8 @@ brew "buildkit"
 brew "caddy"
 # Core application library for C
 brew "glib"
+# Manage compile and link flags for libraries
+brew "pkg-config"
 # GNU CLISP, a Common Lisp implementation
 brew "clisp"
 # Cross-platform make
@@ -45,6 +55,10 @@ brew "code-minimap"
 brew "corkscrew"
 # Reimplementation of ctags(1)
 brew "ctags"
+# Open source suite of directory software
+brew "openldap"
+# Get a file from an HTTP, HTTPS or FTP server
+brew "curl"
 # Secure runtime for JavaScript and TypeScript
 brew "deno"
 # Tool for exploring each layer in a docker image
@@ -123,12 +137,16 @@ brew "htop"
 brew "httpie"
 # Add GitHub support to git on the command-line
 brew "hub"
+# Database of common MIME types
+brew "shared-mime-info"
 # Tools and libraries to manipulate images in many formats
 brew "imagemagick"
 # CLI wrapper for basic network utilities on macOS - ip command
 brew "iproute2mac"
 # Terminal Client for Redis with AutoCompletion and Syntax Highlighting
 brew "iredis"
+# JPEG image codec that aids compression and decompression
+brew "jpeg-turbo"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
 # Network authentication protocol
@@ -137,10 +155,16 @@ brew "krb5"
 brew "kubernetes-cli"
 # Bash completion for Launchctl
 brew "launchctl-completion"
+# Provides library functionality for FIDO U2F & FIDO 2.0, including USB
+brew "libfido2"
 # Implementation of the file(1) command
 brew "libmagic"
+# Postgres C API library
+brew "libpq"
 # Library for storing/retrieving passwords and other secrets
 brew "libsecret"
+# General purpose TCP-IP emulator
+brew "libslirp"
 # Next-gen compiler infrastructure
 brew "llvm"
 # Clone of ls with colorful output, file type icons, and more
@@ -193,8 +217,12 @@ brew "pip-completion"
 brew "pipx"
 # Draw UML diagrams
 brew "plantuml"
+# 📦🚀 Fast, disk space efficient package manager
+brew "pnpm"
 # Python package management tool
 brew "poetry"
+# Cross-platform application and UI framework
+brew "qt"
 # Framework for managing multi-language pre-commit hooks
 brew "pre-commit"
 # Modern replacement for ps written by Rust
@@ -209,8 +237,6 @@ brew "pyenv-virtualenvwrapper"
 brew "qcachegrind"
 # Emulator for x86 and PowerPC
 brew "qemu"
-# Cross-platform application and UI framework
-brew "qt"
 # Ruby version manager
 brew "rbenv"
 # Adds basic gemset support to rbenv
@@ -225,8 +251,6 @@ brew "ripgrep"
 brew "roswell"
 # Powerful, clean, object-oriented scripting language
 brew "ruby"
-# Safe, concurrent, practical language
-brew "rust"
 # Experimental Rust compiler front-end for IDEs
 brew "rust-analyzer"
 # Bash completion for rustc
@@ -257,6 +281,8 @@ brew "tmux"
 brew "trash"
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
+# Image processing library
+brew "vips"
 # Executes a program periodically, showing output fullscreen
 brew "watch"
 # Command-line client for WebSockets
@@ -267,6 +293,8 @@ brew "wget"
 brew "wifi-password"
 # JavaScript package manager
 brew "yarn"
+# General-purpose lossless data-compression library
+brew "zlib"
 # Fish-like fast/unobtrusive autosuggestions for zsh
 brew "zsh-autosuggestions"
 # Additional completion definitions for zsh
@@ -275,7 +303,7 @@ brew "zsh-completions"
 cask "alacritty"
 # Android SDK component
 cask "android-platform-tools"
-# Audio Utility
+# Audio utility
 cask "background-music"
 # Lock/unlock Apple computers using the proximity of a bluetooth low energy device
 cask "bleunlock"
@@ -299,6 +327,8 @@ cask "pdf-expert"
 cask "shottr"
 # Taps into Soundflower channels and route them to an audio device
 cask "soundflowerbed"
+# Music streaming service
+cask "spotify"
 # Utility to change the default backup interval of Time Machine
 cask "timemachineeditor"
 # Free and open-source OpenVPN client
@@ -327,6 +357,7 @@ mas "Slack", id: 803453959
 mas "Tailscale", id: 1475387142
 mas "Telegram", id: 747648890
 mas "The Unarchiver", id: 425424353
+mas "TickTick", id: 966085870
 mas "Trello", id: 1278508951
 mas "WeChat", id: 836500024
 mas "Xcode", id: 497799835
