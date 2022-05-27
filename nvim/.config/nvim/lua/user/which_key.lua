@@ -177,7 +177,7 @@ local mappings = {
         d = {"<cmd>lua vim.lsp.buf.declaration()<cr>", "Declaration"},
         D = {"<cmd>lua vim.lsp.buf.definition()<cr>", "Definition"},
         w = {
-            "<cmd>Telescope lsp_workspace_diagnostics<cr>",
+            "<cmd>Telescope diagnostics<cr>",
             "Workspace Diagnostics"
         },
         f = {"<cmd>lua vim.lsp.buf.formatting()<cr>", "Format"},
@@ -188,7 +188,7 @@ local mappings = {
             "Hover Doc"
         },
         l = {"<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action"},
-        q = {"<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix"},
+        q = {"<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix"},
         r = {"<cmd>lua require'lspsaga.provider'.lsp_finder()<cr>", "Finder"},
         R = {"<cmd>lua require('lspsaga.rename').rename()<cr>", "Rename"},
         s = {
