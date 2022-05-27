@@ -1,4 +1,5 @@
 require "user.autocommands"
+require "user.autopairs"
 require "user.bufferline"
 require "user.comment"
 require "user.easymotion"

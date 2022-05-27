@@ -45,10 +45,9 @@ return packer.startup(function(use)
     use 'L3MON4D3/LuaSnip'
     use 'saadparwaiz1/cmp_luasnip'
 
-    use {"github/copilot.vim"}
     use {
         "zbirenbaum/copilot.lua",
-        event = {"VimEnter"},
+        after = 'bufferline.nvim',
         config = function()
             vim.defer_fn(function() require("copilot").setup() end, 100)
         end
@@ -67,15 +66,14 @@ return packer.startup(function(use)
 
     use 'antoinemadec/FixCursorHold.nvim'
 
-    -- 自动补全单引号，双引号等
-    use 'Raimondi/delimitMate'
-
     use 'numToStr/Comment.nvim'
 
     -- 快速加入修改环绕字符
     -- for repeat -> enhance surround.vim, . to repeat command
     use 'tpope/vim-repeat'
     use 'tpope/vim-surround'
+
+    use 'windwp/nvim-autopairs'
 
     use 'ntpeters/vim-better-whitespace'
 
@@ -108,8 +106,10 @@ return packer.startup(function(use)
 
     use 'folke/which-key.nvim'
 
+    -- lsp status progess
     use 'nvim-lua/lsp-status.nvim'
     use 'arkav/lualine-lsp-progress'
+
     use 'neovim/nvim-lspconfig'
     use 'williamboman/nvim-lsp-installer'
     use 'tami5/lspsaga.nvim'

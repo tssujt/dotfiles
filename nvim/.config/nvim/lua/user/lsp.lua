@@ -17,26 +17,20 @@ cmp.setup {
             })
         })
     },
-    mapping = {
+    mapping = cmp.mapping.preset.insert({
         ['<C-n>'] = cmp.mapping.select_next_item({
             behavior = cmp.SelectBehavior.Insert
         }),
         ['<C-p>'] = cmp.mapping.select_prev_item({
             behavior = cmp.SelectBehavior.Insert
         }),
-        ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), {'i', 'c'}),
-        ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), {'i', 'c'}),
-        ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), {'i', 'c'}),
-        ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
-        ['<C-e>'] = cmp.mapping({
-            i = cmp.mapping.abort(),
-            c = cmp.mapping.close()
-        }),
-        ['<CR>'] = cmp.mapping.confirm({
-            behavior = cmp.ConfirmBehavior.Insert,
+        ['<C-y>'] = cmp.mapping.confirm({
+            behavior = cmp.ConfirmBehavior.Replace,
             select = true
-        })
-    },
+        }),
+        ['<CR>'] = function(fallback) fallback() end,
+        ['<C-e>'] = function(fallback) fallback() end
+    }),
     sources = {
         {name = 'copilot'}, {name = 'nvim_lsp'}, {
             name = 'tmux',
@@ -57,6 +51,10 @@ cmp.setup.cmdline('/', {sources = {{name = 'buffer'}}})
 cmp.setup.cmdline(':', {
     sources = cmp.config.sources({{name = 'path'}}, {{name = 'cmdline'}})
 })
+
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+cmp.event:on('confirm_done',
+             cmp_autopairs.on_confirm_done({map_char = {tex = ''}}))
 
 local nvim_status = require "lsp-status"
 
@@ -113,8 +111,9 @@ lsp_installer.settings {
 }
 
 local servers = {
-    "bashls", "clangd", "dockerls", "efm", "gopls", "grammarly", "html", "jsonls", "lemminx",
-    "pyright", "rust_analyzer", "sumneko_lua", "vimls", "yamlls"
+    "bashls", "clangd", "dockerls", "efm", "gopls", "grammarly", "html",
+    "jsonls", "lemminx", "pyright", "rust_analyzer", "sumneko_lua", "vimls",
+    "yamlls"
 }
 
 for _, lang in pairs(servers) do
