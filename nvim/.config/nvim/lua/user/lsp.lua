@@ -40,7 +40,8 @@ cmp.setup {
                 trigger_characters = {'.'},
                 trigger_characters_ft = {} -- { filetype = { '.' } }
             }
-        }, {name = 'luasnip'}, {name = 'buffer'}, {name = 'path'}, {name = 'rg'}
+        }, {name = 'luasnip'}, {name = 'buffer'}, {name = 'path'},
+        {name = 'rg'}, {name = 'spell'}, {name = 'treesitter'}
     },
     experimental = {ghost_text = true}
 }

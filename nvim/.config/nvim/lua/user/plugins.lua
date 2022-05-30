@@ -40,7 +40,9 @@ return packer.startup(function(use)
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/cmp-cmdline'
     use 'hrsh7th/cmp-path'
-    use "lukas-reineke/cmp-rg"
+    use 'f3fora/cmp-spell'
+    use 'lukas-reineke/cmp-rg'
+    use 'ray-x/cmp-treesitter'
     use {'hrsh7th/nvim-cmp', requires = {'onsails/lspkind-nvim'}}
     use 'L3MON4D3/LuaSnip'
     use 'saadparwaiz1/cmp_luasnip'
@@ -133,6 +135,9 @@ return packer.startup(function(use)
         tag = 'release' -- To use the latest release
     }
     use {'TimUntersberger/neogit'}
+
+    -- terminal
+    use "akinsho/toggleterm.nvim"
 
     -- undo tree visualizer
     use "simnalamburt/vim-mundo"

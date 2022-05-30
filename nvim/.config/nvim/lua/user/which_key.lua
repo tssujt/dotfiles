@@ -82,6 +82,7 @@ local mappings = {
     ["w"] = {"<cmd>w!<CR>", "Save"},
     ["q"] = {"<cmd>qa<CR>", "Quit"},
     ["t"] = {"<cmd>TagbarToggle<CR>", "Tagbar"},
+    ["T"] = {"<cmd>ToggleTerm<CR>", "Terminal"},
     ["h"] = {"<cmd>nohlsearch<CR>", "No Highlight"},
     ["F"] = {
         "<cmd>lua require('telescope').extensions.live_grep_raw.live_grep_raw() theme=ivy<cr>",
