@@ -53,8 +53,6 @@ brew "cmake-docs"
 brew "code-minimap"
 # Tunnel SSH through HTTP proxies
 brew "corkscrew"
-# Reimplementation of ctags(1)
-brew "ctags"
 # Open source suite of directory software
 brew "openldap"
 # Get a file from an HTTP, HTTPS or FTP server
@@ -281,6 +279,8 @@ brew "tmux"
 brew "trash"
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
+# Maintained ctags implementation
+brew "universal-ctags"
 # Image processing library
 brew "vips"
 # Executes a program periodically, showing output fullscreen
