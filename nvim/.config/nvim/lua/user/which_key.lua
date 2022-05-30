@@ -80,10 +80,7 @@ local mappings = {
     ["a"] = {"<cmd>Alpha<cr>", "Alpha"},
     ["e"] = {"<cmd>NvimTreeToggle<cr>", "Explorer"},
     ["w"] = {"<cmd>w!<CR>", "Save"},
-    ["q"] = {
-        "<cmd>lua require('close_buffers').wipe({ type = 'all', force = true })<CR><bar><cmd>q!<CR>",
-        "Quit"
-    },
+    ["q"] = {"<cmd>qa<CR>", "Quit"},
     ["t"] = {"<cmd>TagbarToggle<CR>", "Tagbar"},
     ["h"] = {"<cmd>nohlsearch<CR>", "No Highlight"},
     ["F"] = {
@@ -176,10 +173,7 @@ local mappings = {
         },
         d = {"<cmd>lua vim.lsp.buf.declaration()<cr>", "Declaration"},
         D = {"<cmd>lua vim.lsp.buf.definition()<cr>", "Definition"},
-        w = {
-            "<cmd>Telescope diagnostics<cr>",
-            "Workspace Diagnostics"
-        },
+        w = {"<cmd>Telescope diagnostics<cr>", "Workspace Diagnostics"},
         f = {"<cmd>lua vim.lsp.buf.formatting()<cr>", "Format"},
         i = {"<cmd>LspInfo<cr>", "Info"},
         I = {"<cmd>LspInstallInfo<cr>", "Installer Info"},

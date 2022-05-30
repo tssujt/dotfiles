@@ -123,6 +123,7 @@ return packer.startup(function(use)
     }
     use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'}
     use 'ahmedkhalf/project.nvim'
+    use "Shatur/neovim-session-manager"
 
     use 'lambdalisue/suda.vim'
 

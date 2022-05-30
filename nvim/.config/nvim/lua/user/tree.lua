@@ -59,7 +59,15 @@ require'nvim-tree'.setup {
         },
         exclude = {'.env'}
     },
-    git = {ignore = true}
+    renderer = {
+        indent_markers = {
+            enable = false,
+            icons = {corner = "└ ", edge = "│ ", none = "  "}
+        },
+        icons = {webdev_colors = true}
+    },
+    git = {ignore = true},
+    trash = {cmd = "trash", require_confirm = true}
 }
 
 vim.g.nvim_tree_auto_ignore_ft = {'startify', 'dashboard'}
@@ -97,14 +105,11 @@ vim.g.nvim_tree_icons = {
         ignored = "◌"
     },
     folder = {
-        arrow_open = "",
-        arrow_closed = "",
         default = "",
         open = "",
         empty = "",
         empty_open = "",
-        symlink = "",
-        symlink_open = ""
+        symlink = ""
     },
     lsp = {hint = "", info = "", warning = "", error = ""}
 }
