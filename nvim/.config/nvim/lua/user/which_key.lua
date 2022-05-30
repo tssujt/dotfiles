@@ -79,11 +79,12 @@ local opts = {
 local mappings = {
     ["a"] = {"<cmd>Alpha<cr>", "Alpha"},
     ["e"] = {"<cmd>NvimTreeToggle<cr>", "Explorer"},
-    ["w"] = {"<cmd>w!<CR>", "Save"},
-    ["q"] = {"<cmd>qa<CR>", "Quit"},
-    ["t"] = {"<cmd>TagbarToggle<CR>", "Tagbar"},
-    ["T"] = {"<cmd>ToggleTerm<CR>", "Terminal"},
     ["h"] = {"<cmd>nohlsearch<CR>", "No Highlight"},
+    ["o"] = {"<cmd>SymbolsOutline<CR>", "Outline"},
+    ["q"] = {"<cmd>qa<CR>", "Quit"},
+    ["t"] = {"<cmd>ToggleTerm<CR>", "Terminal"},
+    ["u"] = {"<cmd>cd %:h<cr>", "Set Working Directory to Current File"},
+    ["w"] = {"<cmd>w!<CR>", "Save"},
     ["F"] = {
         "<cmd>lua require('telescope').extensions.live_grep_raw.live_grep_raw() theme=ivy<cr>",
         "Find Text"
@@ -92,7 +93,6 @@ local mappings = {
         "<cmd>lua require('telescope').extensions.projects.projects()<cr>",
         "Projects"
     },
-    ["u"] = {"<cmd>cd %:h<cr>", "Set Working Directory to Current File"},
 
     b = {
         name = "Buffers",

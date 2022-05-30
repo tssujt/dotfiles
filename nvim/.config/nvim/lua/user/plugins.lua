@@ -151,7 +151,8 @@ return packer.startup(function(use)
     -- nav
     use 'mhinz/vim-startify'
     -- tagbar
-    use 'majutsushi/tagbar'
+    use 'simrat39/symbols-outline.nvim'
+
     use 'dstein64/nvim-scrollview'
 
     use 'kyazdani42/nvim-web-devicons'
