@@ -1,8 +1,9 @@
+local status_luasnip_ok, luasnip = pcall(require, "luasnip")
+if not status_luasnip_ok then return end
+
 local cmp = require 'cmp'
 cmp.setup {
-    snippet = {
-        expand = function(args) require('luasnip').lsp_expand(args.body) end
-    },
+    snippet = {expand = function(args) luasnip.lsp_expand(args.body) end},
     formatting = {
         format = require("lspkind").cmp_format({
             with_text = true,
@@ -17,20 +18,20 @@ cmp.setup {
             })
         })
     },
-    mapping = cmp.mapping.preset.insert({
-        ['<C-n>'] = cmp.mapping.select_next_item({
+    mapping = cmp.mapping.preset.insert {
+        ['<C-n>'] = cmp.mapping(cmp.mapping.select_next_item({
             behavior = cmp.SelectBehavior.Insert
-        }),
-        ['<C-p>'] = cmp.mapping.select_prev_item({
+        }), {'i', 'c'}),
+        ['<C-p>'] = cmp.mapping(cmp.mapping.select_prev_item({
             behavior = cmp.SelectBehavior.Insert
-        }),
+        }), {'i', 'c'}),
         ['<C-y>'] = cmp.mapping.confirm({
             behavior = cmp.ConfirmBehavior.Replace,
             select = true
         }),
         ['<CR>'] = function(fallback) fallback() end,
         ['<C-e>'] = function(fallback) fallback() end
-    }),
+    },
     sources = {
         {name = 'copilot'}, {name = 'nvim_lsp'}, {
             name = 'tmux',
@@ -43,7 +44,11 @@ cmp.setup {
         }, {name = 'luasnip'}, {name = 'buffer'}, {name = 'path'},
         {name = 'rg'}, {name = 'spell'}, {name = 'treesitter'}
     },
-    experimental = {ghost_text = true}
+    experimental = {ghost_text = true},
+    window = {
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered()
+    }
 }
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline('/', {sources = {{name = 'buffer'}}})
