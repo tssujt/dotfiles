@@ -117,7 +117,7 @@ require("filetype").setup({
     overrides = {}
 })
 
-vim.cmd "set mouse="
+vim.cmd "set mouse=nv"
 vim.cmd "set nrformats=" -- 00x增减数字时使用十进制
 vim.cmd "set t_ut=" -- 防止 tmux 下 vim 的背景色显示异常 http://sunaku.github.io/vim-256color-bce.html
 vim.cmd "set t_vb=" -- 去掉输入错误的提示声音
