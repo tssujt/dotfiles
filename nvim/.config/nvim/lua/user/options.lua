@@ -112,12 +112,6 @@ require('kanagawa').setup({
     }
 })
 
-require("filetype").setup({
-    -- overrides the filetype or function for filetype
-    -- See https://github.com/nathom/filetype.nvim#customization
-    overrides = {}
-})
-
 vim.cmd "set mouse=nv"
 vim.cmd "set nrformats=" -- 00x增减数字时使用十进制
 vim.cmd "set t_ut=" -- 防止 tmux 下 vim 的背景色显示异常 http://sunaku.github.io/vim-256color-bce.html
