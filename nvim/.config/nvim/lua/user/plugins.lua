@@ -115,7 +115,7 @@ return packer.startup(function(use)
     use 'neovim/nvim-lspconfig'
     use 'williamboman/nvim-lsp-installer'
     use 'tami5/lspsaga.nvim'
-    use {"ray-x/lsp_signature.nvim"}
+    use 'ray-x/lsp_signature.nvim'
     use 'simrat39/rust-tools.nvim'
 
     use 'nvim-lua/plenary.nvim'
