@@ -1,0 +1,16 @@
+augroup
+autocmd
+cjk
+en
+eof
+exe
+menuone
+mkdir
+mnt
+monospace
+noselect
+nvim
+unix
+unnamedplus
+utf8
+treesitter
