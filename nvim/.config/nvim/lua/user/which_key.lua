@@ -78,12 +78,13 @@ local opts = {
 
 local mappings = {
     ["a"] = {"<cmd>Alpha<cr>", "Alpha"},
+    ["d"] = {"<cmd>cd %:h<cr>", "Set Working Directory to Current File"},
     ["e"] = {"<cmd>NvimTreeToggle<cr>", "Explorer"},
     ["h"] = {"<cmd>nohlsearch<CR>", "No Highlight"},
     ["o"] = {"<cmd>SymbolsOutline<CR>", "Outline"},
     ["q"] = {"<cmd>qa<CR>", "Quit"},
     ["t"] = {"<cmd>ToggleTerm<CR>", "Terminal"},
-    ["u"] = {"<cmd>cd %:h<cr>", "Set Working Directory to Current File"},
+    ["u"] = {"<cmd>MundoToggle<CR>", "Toggle Undo Tree"},
     ["w"] = {"<cmd>w!<CR>", "Save"},
     ["F"] = {
         "<cmd>lua require('telescope').extensions.live_grep_raw.live_grep_raw() theme=ivy<cr>",
@@ -117,14 +118,13 @@ local mappings = {
     },
 
     f = {
-        name = "Find Text",
+        name = "Find",
         a = {"<cmd>Telescope grep_string<CR>", "Grep String"},
         f = {
             "<cmd>lua require('telescope.builtin').find_files({ find_command = {'rg', '--files', '--hidden', '-g', '!.git' }})<cr>",
             "Find files"
         },
         r = {"<cmd>Telescope oldfiles<cr>", "Open Recent File"},
-        u = {"<cmd>MundoToggle<CR>", "Toggle Undo Tree"}
     },
 
     p = {
