@@ -95,6 +95,8 @@ function proxy_on() {
 
 # proxy_on
 
+export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
+
 # Completion
 source <(stern --completion=zsh)
 [ -f ${BREW_PREFIX}/etc/profile.d/autojump.sh ] && . ${BREW_PREFIX}/etc/profile.d/autojump.sh

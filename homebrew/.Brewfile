@@ -121,6 +121,8 @@ brew "git-extras"
 brew "git-lfs"
 # Official GitLab CI runner
 brew "gitlab-runner"
+# GNU implementation of the famous stream editor
+brew "gnu-sed"
 # Go version management
 brew "goenv", args: ["HEAD"]
 # Library to render SVG files using Cairo
