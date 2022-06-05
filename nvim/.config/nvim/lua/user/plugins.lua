@@ -126,6 +126,7 @@ return packer.startup(function(use)
     use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'}
     use 'ahmedkhalf/project.nvim'
     use "Shatur/neovim-session-manager"
+    use "ethanholz/nvim-lastplace" -- auto return back to the last modified position when open a file
 
     use 'lambdalisue/suda.vim'
 
