@@ -20,9 +20,6 @@ keymap("", "<Up>", "", opts)
 keymap("", "<Down>", "", opts)
 keymap("", "<Space>", "<Nop>", opts)
 
--- Select all
-keymap("", "<Leader>sa", "ggVG", opts)
-
 -- Normal --
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
@@ -46,11 +43,6 @@ keymap("n", "`", "'", opts)
 
 -- Remap U to <C-r> for easier redo
 keymap("n", "U", "<C-r>", opts)
-
--- Quickly edit/reload the vimrc file
-keymap("n", "<leader>ev", ":vsp $MYVIMRC<CR>", opts)
-keymap("n", "<leader>ez", ":vsp ~/.zshrc<CR>", opts)
-keymap("n", "<leader>sv", ":source $MYVIMRC<CR>", opts)
 
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
