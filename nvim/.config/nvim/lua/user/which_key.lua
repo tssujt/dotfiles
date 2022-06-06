@@ -77,7 +77,6 @@ local opts = {
 }
 
 local mappings = {
-    ["a"] = {"<cmd>Alpha<cr>", "Alpha"},
     ["d"] = {"<cmd>cd %:h<cr>", "Set Working Directory to Current File"},
     ["e"] = {"<cmd>NvimTreeToggle<cr>", "Explorer"},
     ["h"] = {"<cmd>nohlsearch<CR>", "No Highlight"},
