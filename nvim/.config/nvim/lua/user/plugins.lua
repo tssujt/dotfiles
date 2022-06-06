@@ -179,6 +179,9 @@ return packer.startup(function(use)
     -- use 'romgrk/nvim-treesitter-context'
 
     use "rebelot/kanagawa.nvim"
+
+    -- Speed up loading Lua modules
+    use "lewis6991/impatient.nvim"
     use 'dstein64/vim-startuptime'
 
     if PACKER_BOOTSTRAP then require("packer").sync() end

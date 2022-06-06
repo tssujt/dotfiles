@@ -10,3 +10,11 @@ vim.cmd [[
         return 'v:lua.webDevIcons(absolute_path) . " " . entry_path'
     endfunction
 ]]
+
+
+local status_ok, impatient = pcall(require, "impatient")
+if not status_ok then
+  return
+end
+
+impatient.enable_profile()
