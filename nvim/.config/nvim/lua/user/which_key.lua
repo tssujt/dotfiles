@@ -86,7 +86,7 @@ local mappings = {
     ["u"] = {"<cmd>MundoToggle<CR>", "Toggle Undo Tree"},
     ["w"] = {"<cmd>w!<CR>", "Save"},
     ["F"] = {
-        "<cmd>lua require('telescope').extensions.live_grep_raw.live_grep_raw() theme=ivy<cr>",
+        "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args() theme=ivy<cr>",
         "Find Text"
     },
     ["P"] = {
