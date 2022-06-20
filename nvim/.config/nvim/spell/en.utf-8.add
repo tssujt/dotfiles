@@ -2,6 +2,7 @@ augroup
 autocmd
 cjk
 en
+enum
 eof
 exe
 menuone
@@ -9,6 +10,7 @@ mkdir
 mnt
 monospace
 noselect
+null
 nvim
 unix
 unnamedplus
