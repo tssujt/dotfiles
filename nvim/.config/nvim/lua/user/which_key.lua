@@ -96,11 +96,7 @@ local mappings = {
 
     b = {
         name = "Buffers",
-        -- Cannot close last window https://github.com/dstein64/nvim-scrollview/issues/10
-        d = {
-            "<cmd>silent! ScrollViewDisable | bdelete | silent! ScrollViewEnable<cr>",
-            "Delete Current Buffer"
-        },
+        d = {"<cmd>bdelete<cr>", "Delete Current Buffer"},
         l = {
             "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
             "Buffer List"
@@ -123,7 +119,7 @@ local mappings = {
             "<cmd>lua require('telescope.builtin').find_files({ find_command = {'rg', '--files', '--hidden', '-g', '!.git' }})<cr>",
             "Find files"
         },
-        r = {"<cmd>Telescope oldfiles<cr>", "Open Recent File"},
+        r = {"<cmd>Telescope oldfiles<cr>", "Open Recent File"}
     },
 
     p = {
