@@ -131,10 +131,7 @@ return packer.startup(function(use)
     use 'lambdalisue/suda.vim'
 
     -- git
-    use {
-        'lewis6991/gitsigns.nvim',
-        tag = 'release' -- To use the latest release
-    }
+    use 'lewis6991/gitsigns.nvim'
     use {'TimUntersberger/neogit'}
 
     -- terminal
