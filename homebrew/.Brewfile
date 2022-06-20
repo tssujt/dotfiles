@@ -67,6 +67,8 @@ brew "django-completion"
 brew "dnsmasq", restart_service: true
 # Pack, ship and run any application as a lightweight container
 brew "docker"
+# Platform keystore credential helper for Docker
+brew "docker-credential-helper"
 # Replay stored shell commands for live presentations
 brew "doitlive"
 # Convert text between DOS, UNIX, and Mac formats
@@ -313,12 +315,16 @@ cask "bleunlock"
 cask "bob"
 # GUI app for Homebrew
 cask "cakebrew"
+# API documentation browser and code snippet manager
+cask "dash"
 # Voice and text chat software
 cask "discord"
 # Keyboard customizer
 cask "karabiner-elements"
 # Project management software
 cask "lark"
+# Privacy-first, open-source platform for knowledge sharing and management
+cask "logseq"
 # Self-contained Python driver for communicating with MySQL servers
 cask "mysql-connector-python"
 # HTTP client that helps testing and describing APIs
@@ -331,6 +337,8 @@ cask "shottr"
 cask "soundflowerbed"
 # Music streaming service
 cask "spotify"
+# Native GUI tool for relational databases
+cask "tableplus"
 # Utility to change the default backup interval of Time Machine
 cask "timemachineeditor"
 # Free and open-source OpenVPN client
