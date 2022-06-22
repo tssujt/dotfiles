@@ -47,15 +47,6 @@ return packer.startup(function(use)
     use 'L3MON4D3/LuaSnip'
     use 'saadparwaiz1/cmp_luasnip'
 
-    use {
-        "zbirenbaum/copilot.lua",
-        after = 'bufferline.nvim',
-        config = function()
-            vim.defer_fn(function() require("copilot").setup() end, 100)
-        end
-    }
-    use {"zbirenbaum/copilot-cmp", after = {"copilot.lua", "nvim-cmp"}}
-
     -- speed up neovim!
     use 'nathom/filetype.nvim'
     use {

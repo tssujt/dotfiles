@@ -8,7 +8,6 @@ cmp.setup {
         format = require("lspkind").cmp_format({
             with_text = true,
             menu = ({
-                copilot = "[ Copilot]",
                 buffer = "[﬘ Buf]",
                 nvim_lsp = "[ LSP]",
                 luasnip = "[ LSnip]",
@@ -33,7 +32,7 @@ cmp.setup {
         ['<C-e>'] = function(fallback) fallback() end
     },
     sources = {
-        {name = 'copilot'}, {name = 'nvim_lsp'}, {
+        {name = 'nvim_lsp'}, {
             name = 'tmux',
             option = {
                 all_panes = false,
