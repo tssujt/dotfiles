@@ -104,9 +104,9 @@ local misspell = {
 
 local lsp_installer = require("nvim-lsp-installer")
 
--- Provide settings first!
 lsp_installer.settings {
     ui = {
+        check_outdated_servers_on_open = true,
         icons = {
             server_installed = "✓",
             server_pending = "➜",
