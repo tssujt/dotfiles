@@ -143,7 +143,7 @@ return packer.startup(function(use)
     use 'simrat39/symbols-outline.nvim'
 
     -- scrollbar
-    use 'lewis6991/satellite.nvim'
+    -- use 'lewis6991/satellite.nvim'
 
     use 'kyazdani42/nvim-web-devicons'
     use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
