@@ -27,7 +27,7 @@ if not status_ok then return end
 packer.init {
     display = {
         open_fn = function()
-            return require("packer.util").float {border = "rounded"}
+            return require("packer.util").float { border = "rounded" }
         end
     }
 }
@@ -43,7 +43,7 @@ return packer.startup(function(use)
     use 'f3fora/cmp-spell'
     use 'lukas-reineke/cmp-rg'
     use 'ray-x/cmp-treesitter'
-    use {'hrsh7th/nvim-cmp', requires = {'onsails/lspkind-nvim'}}
+    use { 'hrsh7th/nvim-cmp', requires = { 'onsails/lspkind-nvim' } }
     use 'L3MON4D3/LuaSnip'
     use 'saadparwaiz1/cmp_luasnip'
 
@@ -112,9 +112,9 @@ return packer.startup(function(use)
     use 'nvim-lua/plenary.nvim'
     use {
         'nvim-telescope/telescope.nvim',
-        requires = {{'nvim-telescope/telescope-live-grep-args.nvim'}}
+        requires = { { 'nvim-telescope/telescope-live-grep-args.nvim' } }
     }
-    use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'}
+    use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
     use 'ahmedkhalf/project.nvim'
     use "Shatur/neovim-session-manager"
     use "ethanholz/nvim-lastplace" -- auto return back to the last modified position when open a file
@@ -123,7 +123,7 @@ return packer.startup(function(use)
 
     -- git
     use 'lewis6991/gitsigns.nvim'
-    use {'TimUntersberger/neogit'}
+    use { 'TimUntersberger/neogit' }
 
     -- terminal
     use "akinsho/toggleterm.nvim"
@@ -133,7 +133,7 @@ return packer.startup(function(use)
 
     use {
         'nvim-lualine/lualine.nvim',
-        requires = {'kyazdani42/nvim-web-devicons', opt = true}
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
     use 'danymat/neogen'
 
@@ -146,7 +146,7 @@ return packer.startup(function(use)
     -- use 'lewis6991/satellite.nvim'
 
     use 'kyazdani42/nvim-web-devicons'
-    use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
+    use { 'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons' }
     use 'kazhala/close-buffers.nvim'
     use 'kyazdani42/nvim-tree.lua'
     use 'folke/trouble.nvim'
@@ -161,7 +161,7 @@ return packer.startup(function(use)
 
     use 'ConradIrwin/vim-bracketed-paste'
 
-    use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     use 'JoosepAlviste/nvim-ts-context-commentstring'
     use 'nvim-treesitter/nvim-treesitter-refactor' -- this provides "go to def--etc
     use 'folke/twilight.nvim'

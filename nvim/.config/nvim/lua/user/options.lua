@@ -6,7 +6,7 @@ local options = {
     backup = false, -- creates a backup file
     clipboard = "unnamedplus", -- allows neovim to access the system clipboard
     cmdheight = 1, -- more space in the neovim command line for displaying messages
-    completeopt = {"menu", "menuone", "noselect"}, -- https://github.com/hrsh7th/nvim-cmp
+    completeopt = { "menu", "menuone", "noselect" }, -- https://github.com/hrsh7th/nvim-cmp
     conceallevel = 0, -- so that `` is visible in markdown files
     cursorcolumn = true,
     cursorline = true, -- highlight the current line
@@ -45,7 +45,7 @@ local options = {
     smarttab = true, -- insert tabs on the start of a line according to shiftwidth, not tabstop
     softtabstop = 4, -- 按退格键时可以一次删掉 4 个空格
     spell = true,
-    spelllang = {"en", "cjk"},
+    spelllang = { "en", "cjk" },
     splitbelow = true, -- force all horizontal splits to go below current window
     splitright = true, -- force all vertical splits to go to the right of current window
     swapfile = false, -- creates a swapfile
@@ -89,25 +89,25 @@ for k, v in pairs(options) do vim.opt[k] = v end
 local default = require('kanagawa.colors').setup()
 require('kanagawa').setup({
     undercurl = true, -- enable undercurls
-    commentStyle = {italic = true},
-    functionStyle = {bold = true},
-    keywordStyle = {italic = true},
-    statementStyle = {bold = true},
-    typeStyle = {bold = true},
-    variablebuiltinStyle = {italic = true},
+    commentStyle = { italic = true },
+    functionStyle = { bold = true },
+    keywordStyle = { italic = true },
+    statementStyle = { bold = true },
+    typeStyle = { bold = true },
+    variablebuiltinStyle = { italic = true },
     specialReturn = true, -- special highlight for the return keyword
     specialException = true, -- special highlight for exception handling keywords
     transparent = false, -- do not set background color
     colors = {},
     overrides = {
-        LazygitBackground = {bg = default.sumilnk3},
-        FTermBackground = {bg = default.sumilnk3},
-        htmlH1 = {fg = default.peachRed, bold = true},
-        htmlH2 = {fg = default.roninYellow, bold = true},
-        htmlH3 = {fg = default.autumnYellow, bold = true},
-        htmlH4 = {fg = default.autumnGreen, bold = true},
-        Todo = {fg = default.fujiWhite, bg = default.samuraiRed, bold = true},
-        NormalFloat = {fg = default.fujiWhite, bg = default.winterBlue}
+        LazygitBackground = { bg = default.sumilnk3 },
+        FTermBackground = { bg = default.sumilnk3 },
+        htmlH1 = { fg = default.peachRed, bold = true },
+        htmlH2 = { fg = default.roninYellow, bold = true },
+        htmlH3 = { fg = default.autumnYellow, bold = true },
+        htmlH4 = { fg = default.autumnGreen, bold = true },
+        Todo = { fg = default.fujiWhite, bg = default.samuraiRed, bold = true },
+        NormalFloat = { fg = default.fujiWhite, bg = default.winterBlue }
     }
 })
 

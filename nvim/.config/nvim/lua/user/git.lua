@@ -9,15 +9,15 @@ neogit.setup {
     auto_refresh = true,
     disable_builtin_notifications = false,
     use_magit_keybindings = false,
-    commit_popup = {kind = "split"},
+    commit_popup = { kind = "split" },
     -- Change the default way of opening neogit
     kind = "tab",
     -- customize displayed signs
     signs = {
         -- { CLOSED, OPENED }
-        section = {">", "v"},
-        item = {">", "v"},
-        hunk = {"", ""}
+        section = { ">", "v" },
+        item = { ">", "v" },
+        hunk = { "", "" }
     },
     integrations = {
         -- Neogit only provides inline diffs. If you want a more traditional way to look at diffs, you can use `sindrets/diffview.nvim`.
@@ -36,13 +36,13 @@ neogit.setup {
     },
     -- Setting any section to `false` will make the section not render at all
     sections = {
-        untracked = {folded = false},
-        unstaged = {folded = false},
-        staged = {folded = false},
-        stashes = {folded = true},
-        unpulled = {folded = true},
-        unmerged = {folded = false},
-        recent = {folded = true}
+        untracked = { folded = false },
+        unstaged = { folded = false },
+        staged = { folded = false },
+        stashes = { folded = true },
+        unpulled = { folded = true },
+        unmerged = { folded = false },
+        recent = { folded = true }
     },
     -- override/add mappings
     mappings = {}

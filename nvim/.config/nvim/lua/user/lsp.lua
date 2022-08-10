@@ -3,7 +3,7 @@ if not status_luasnip_ok then return end
 
 local cmp = require 'cmp'
 cmp.setup {
-    snippet = {expand = function(args) luasnip.lsp_expand(args.body) end},
+    snippet = { expand = function(args) luasnip.lsp_expand(args.body) end },
     formatting = {
         format = require("lspkind").cmp_format({
             with_text = true,
@@ -20,10 +20,10 @@ cmp.setup {
     mapping = cmp.mapping.preset.insert {
         ['<C-n>'] = cmp.mapping(cmp.mapping.select_next_item({
             behavior = cmp.SelectBehavior.Insert
-        }), {'i', 'c'}),
+        }), { 'i', 'c' }),
         ['<C-p>'] = cmp.mapping(cmp.mapping.select_prev_item({
             behavior = cmp.SelectBehavior.Insert
-        }), {'i', 'c'}),
+        }), { 'i', 'c' }),
         ['<C-y>'] = cmp.mapping.confirm({
             behavior = cmp.ConfirmBehavior.Replace,
             select = true
@@ -32,65 +32,65 @@ cmp.setup {
         ['<C-e>'] = function(fallback) fallback() end
     },
     sources = {
-        {name = 'nvim_lsp'}, {
+        { name = 'nvim_lsp' }, {
             name = 'tmux',
             option = {
                 all_panes = false,
                 label = '[tmux]',
-                trigger_characters = {'.'},
+                trigger_characters = { '.' },
                 trigger_characters_ft = {} -- { filetype = { '.' } }
             }
-        }, {name = 'luasnip'}, {name = 'buffer'}, {name = 'path'},
-        {name = 'rg'}, {name = 'spell'}, {name = 'treesitter'}
+        }, { name = 'luasnip' }, { name = 'buffer' }, { name = 'path' },
+        { name = 'rg' }, { name = 'spell' }, { name = 'treesitter' }
     },
-    experimental = {ghost_text = true},
+    experimental = { ghost_text = true },
     window = {
         completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered()
     }
 }
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline('/', {sources = {{name = 'buffer'}}})
+cmp.setup.cmdline('/', { sources = { { name = 'buffer' } } })
 
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline(':', {
-    sources = cmp.config.sources({{name = 'path'}}, {{name = 'cmdline'}})
+    sources = cmp.config.sources({ { name = 'path' } }, { { name = 'cmdline' } })
 })
 
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 cmp.event:on('confirm_done',
-             cmp_autopairs.on_confirm_done({map_char = {tex = ''}}))
+    cmp_autopairs.on_confirm_done({ map_char = { tex = '' } }))
 
 local nvim_status = require "lsp-status"
 
 require("user.statusline").activate()
 
 local updated_capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp
-                                                                             .protocol
-                                                                             .make_client_capabilities())
-updated_capabilities.textDocument.codeLens = {dynamicRegistration = false}
+    .protocol
+    .make_client_capabilities())
+updated_capabilities.textDocument.codeLens = { dynamicRegistration = false }
 updated_capabilities = vim.tbl_deep_extend("keep", updated_capabilities,
-                                           nvim_status.capabilities)
+    nvim_status.capabilities)
 updated_capabilities.textDocument.completion.completionItem.snippetSupport =
-    false
+false
 updated_capabilities.textDocument.completion.completionItem.resolveSupport = {
-    properties = {"documentation", "detail", "additionalTextEdits"}
+    properties = { "documentation", "detail", "additionalTextEdits" }
 }
 
 vim.fn.sign_define("LspDiagnosticsSignError",
-                   {text = "", numhl = "LspDiagnosticsDefaultError"})
+    { text = "", numhl = "LspDiagnosticsDefaultError" })
 vim.fn.sign_define("LspDiagnosticsSignWarning",
-                   {text = "", numhl = "LspDiagnosticsDefaultWarning"})
+    { text = "", numhl = "LspDiagnosticsDefaultWarning" })
 vim.fn.sign_define("LspDiagnosticsSignInformation",
-                   {text = "", numhl = "LspDiagnosticsDefaultInformation"})
+    { text = "", numhl = "LspDiagnosticsDefaultInformation" })
 vim.fn.sign_define("LspDiagnosticsSignHint",
-                   {text = "", numhl = "LspDiagnosticsDefaultHint"})
+    { text = "", numhl = "LspDiagnosticsDefaultHint" })
 
 local flake8 = {
     lintCommand = "flake8 --max-line-length 160 --format '%(path)s:%(row)d:%(col)d: %(code)s %(code)s %(text)s' --stdin-display-name ${INPUT} -",
     lintStdin = true,
     lintIgnoreExitCode = true,
-    lintFormats = {"%f:%l:%c: %t%n%n%n %m"},
+    lintFormats = { "%f:%l:%c: %t%n%n%n %m" },
     lintSource = "flake8"
 }
 
@@ -108,7 +108,7 @@ local misspell = {
     lintCommand = "misspell",
     lintIgnoreExitCode = true,
     lintStdin = true,
-    lintFormats = {"%f:%l:%c: %m"},
+    lintFormats = { "%f:%l:%c: %m" },
     lintSource = "misspell"
 }
 
@@ -142,31 +142,31 @@ for _, lang in pairs(servers) do
 end
 
 lsp_installer.on_server_ready(function(server)
-    local config = {capabilities = updated_capabilities}
+    local config = { capabilities = updated_capabilities }
 
-    if server.name == "gopls" then config.filetypes = {"go"}; end
+    if server.name == "gopls" then config.filetypes = { "go" }; end
     if server.name == "sourcekit" then
-        config.filetypes = {"swift", "objective-c", "objective-cpp"}; -- we don't want c and cpp!
+        config.filetypes = { "swift", "objective-c", "objective-cpp" };  -- we don't want c and cpp!
     end
     if server.name == "clangd" then
-        config.filetypes = {"c", "cpp"}; -- we don't want objective-c and objective-cpp!
+        config.filetypes = { "c", "cpp" };  -- we don't want objective-c and objective-cpp!
     end
     if server.name == "efm" then
-        config.filetypes = {"python"}
-        config.init_options = {documentFormatting = true};
+        config.filetypes = { "python" }
+        config.init_options = { documentFormatting = true };
         config.root_dir = vim.loop.cwd;
         config.settings = {
-            rootMarkers = {".git/"},
+            rootMarkers = { ".git/" },
             languages = {
-                ["="] = {misspell},
-                python = {flake8, isort, black},
+                ["="] = { misspell },
+                python = { flake8, isort, black },
             }
         }
     end
     if server.name == "sumneko_lua" then
         config.settings = {
             Lua = {
-                diagnostics = {globals = {"vim"}},
+                diagnostics = { globals = { "vim" } },
                 workspace = {
                     library = {
                         [vim.fn.expand("$VIMRUNTIME/lua")] = true,
@@ -184,7 +184,7 @@ lsp_installer.on_server_ready(function(server)
         }
     end
     if server.name == 'pyright' then
-        config.settings = {python = {analysis = {typeCheckingMode = "off"}}}
+        config.settings = { python = { analysis = { typeCheckingMode = "off" } } }
     end
 
     server:setup(config)
@@ -202,13 +202,13 @@ saga.setup {
         scroll_down = "<C-f>",
         scroll_up = "<C-b>"
     },
-    code_action_keys = {quit = "q", exec = "<CR>"},
-    rename_action_keys = {quit = "<C-c>", exec = "<CR>"},
+    code_action_keys = { quit = "q", exec = "<CR>" },
+    rename_action_keys = { quit = "<C-c>", exec = "<CR>" },
     rename_prompt_prefix = "➤"
 }
 
 require("trouble").setup {}
-require"lsp_signature".setup()
+require "lsp_signature".setup()
 
 local opts = {
     tools = {
@@ -233,7 +233,7 @@ local opts = {
             -- https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/user/generated_config.adoc
             ["rust-analyzer"] = {
                 -- enable clippy on save
-                checkOnSave = {command = "clippy"}
+                checkOnSave = { command = "clippy" }
             }
         }
     }

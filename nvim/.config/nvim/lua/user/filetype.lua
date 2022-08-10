@@ -7,7 +7,6 @@ require("filetype").setup({
             ["conf/requirements/.*.in"] = "requirements",
             [".*git/config"] = "gitconfig"
         },
-        literal = {[".env"] = "config"}
+        literal = { [".env"] = "config" }
     }
 })
-

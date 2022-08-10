@@ -1,29 +1,29 @@
-require'lualine'.setup {
+require 'lualine'.setup {
     options = {
         icons_enabled = true,
         theme = 'kanagawa',
-        component_separators = {'', ''},
-        section_separators = {'', ''},
+        component_separators = { '', '' },
+        section_separators = { '', '' },
         disabled_filetypes = {}
     },
     sections = {
-        lualine_a = {'mode'},
-        lualine_b = {'branch'},
-        lualine_c = {'lsp_progress'},
-        lualine_x = {'encoding', 'fileformat', 'filetype'},
-        lualine_y = {'progress'},
-        lualine_z = {'location'}
+        lualine_a = { 'mode' },
+        lualine_b = { 'branch' },
+        lualine_c = { 'lsp_progress' },
+        lualine_x = { 'encoding', 'fileformat', 'filetype' },
+        lualine_y = { 'progress' },
+        lualine_z = { 'location' }
     },
     inactive_sections = {
         lualine_a = {},
         lualine_b = {},
-        lualine_c = {'filename'},
-        lualine_x = {'location'},
+        lualine_c = { 'filename' },
+        lualine_x = { 'location' },
         lualine_y = {},
         lualine_z = {}
     },
     tabline = {},
-    extensions = {'quickfix', 'fugitive', 'nvim-tree'}
+    extensions = { 'quickfix', 'fugitive', 'nvim-tree' }
 }
 
 local nvim_status = require "lsp-status"

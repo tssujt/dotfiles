@@ -5,9 +5,9 @@ require('satellite').setup {
     excluded_filetypes = {},
     width = 4,
     handlers = {
-        search = {enable = true},
-        diagnostic = {enable = true},
-        gitsigns = {enable = true},
+        search = { enable = true },
+        diagnostic = { enable = true },
+        gitsigns = { enable = true },
         marks = {
             enable = true,
             show_builtins = false -- shows the builtin marks like [ ] < >

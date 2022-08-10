@@ -43,18 +43,18 @@ local setup = {
     window = {
         border = "rounded", -- none, single, double, shadow
         position = "bottom", -- bottom, top
-        margin = {1, 0, 1, 0}, -- extra window margin [top, right, bottom, left]
-        padding = {2, 2, 2, 2}, -- extra window padding [top, right, bottom, left]
+        margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
+        padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
         winblend = 0
     },
     layout = {
-        height = {min = 4, max = 25}, -- min and max height of the columns
-        width = {min = 20, max = 50}, -- min and max width of the columns
+        height = { min = 4, max = 25 }, -- min and max height of the columns
+        width = { min = 20, max = 50 }, -- min and max width of the columns
         spacing = 3, -- spacing between columns
         align = "left" -- align columns left, center or right
     },
     ignore_missing = true, -- enable this to hide mappings for which you didn't specify a label
-    hidden = {"<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ "}, -- hide mapping boilerplate
+    hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
     show_help = true, -- show help message on the command line when the popup is visible
     triggers = "auto", -- automatically setup triggers
     -- triggers = {"<leader>"} -- or specify a list manually
@@ -62,8 +62,8 @@ local setup = {
         -- list of mode / prefixes that should never be hooked by WhichKey
         -- this is mostly relevant for key maps that start with a native binding
         -- most people should not need to change this
-        i = {"j", "k"},
-        v = {"j", "k"}
+        i = { "j", "k" },
+        v = { "j", "k" }
     }
 }
 
@@ -77,14 +77,14 @@ local opts = {
 }
 
 local mappings = {
-    ["d"] = {"<cmd>cd %:h<cr>", "Set Working Directory to Current File"},
-    ["e"] = {"<cmd>NvimTreeToggle<cr>", "Explorer"},
-    ["h"] = {"<cmd>nohlsearch<CR>", "No Highlight"},
-    ["o"] = {"<cmd>SymbolsOutline<CR>", "Outline"},
-    ["q"] = {"<cmd>qa<CR>", "Quit"},
-    ["t"] = {"<cmd>ToggleTerm<CR>", "Terminal"},
-    ["u"] = {"<cmd>MundoToggle<CR>", "Toggle Undo Tree"},
-    ["w"] = {"<cmd>w!<CR>", "Save"},
+    ["d"] = { "<cmd>cd %:h<cr>", "Set Working Directory to Current File" },
+    ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
+    ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
+    ["o"] = { "<cmd>SymbolsOutline<CR>", "Outline" },
+    ["q"] = { "<cmd>qa<CR>", "Quit" },
+    ["t"] = { "<cmd>ToggleTerm<CR>", "Terminal" },
+    ["u"] = { "<cmd>MundoToggle<CR>", "Toggle Undo Tree" },
+    ["w"] = { "<cmd>w!<CR>", "Save" },
     ["F"] = {
         "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args() theme=ivy<cr>",
         "Find Text"
@@ -96,7 +96,7 @@ local mappings = {
 
     b = {
         name = "Buffers",
-        d = {"<cmd>bdelete<cr>", "Delete Current Buffer"},
+        d = { "<cmd>bdelete<cr>", "Delete Current Buffer" },
         l = {
             "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
             "Buffer List"
@@ -105,7 +105,7 @@ local mappings = {
             "<cmd>lua require('close_buffers').wipe({ type = 'other' })<cr>",
             "Wipe Other Buffers"
         },
-        p = {"<cmd>BufferLinePick<cr>", "Pick Buffer"},
+        p = { "<cmd>BufferLinePick<cr>", "Pick Buffer" },
         w = {
             "<cmd>lua require('close_buffers').wipe({ type = 'all', force = true })<cr>",
             "Wipe All Buffers"
@@ -114,27 +114,27 @@ local mappings = {
 
     f = {
         name = "Find",
-        a = {"<cmd>Telescope grep_string<CR>", "Grep String"},
+        a = { "<cmd>Telescope grep_string<CR>", "Grep String" },
         f = {
             "<cmd>lua require('telescope.builtin').find_files({ find_command = {'rg', '--files', '--hidden', '-g', '!.git' }})<cr>",
             "Find files"
         },
-        r = {"<cmd>Telescope oldfiles<cr>", "Open Recent File"}
+        r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" }
     },
 
     p = {
         name = "Packer",
-        c = {"<cmd>PackerCompile<cr>", "Compile"},
-        i = {"<cmd>PackerInstall<cr>", "Install"},
-        s = {"<cmd>PackerSync<cr>", "Sync"},
-        S = {"<cmd>PackerStatus<cr>", "Status"},
-        u = {"<cmd>PackerUpdate<cr>", "Update"}
+        c = { "<cmd>PackerCompile<cr>", "Compile" },
+        i = { "<cmd>PackerInstall<cr>", "Install" },
+        s = { "<cmd>PackerSync<cr>", "Sync" },
+        S = { "<cmd>PackerStatus<cr>", "Status" },
+        u = { "<cmd>PackerUpdate<cr>", "Update" }
     },
 
     j = {
         name = '+Jump',
-        j = {'<Plug>(easymotion-s)', 'Jump to char'},
-        l = {'<Plug>(easymotion-bd-jk)', 'Jump to line'},
+        j = { '<Plug>(easymotion-s)', 'Jump to char' },
+        l = { '<Plug>(easymotion-bd-jk)', 'Jump to line' },
         i = {
             "<cmd>lua require('telescope.builtin').lsp_document_symbols()<cr>",
             'Jump to symbol'
@@ -143,22 +143,22 @@ local mappings = {
 
     g = {
         name = "Git",
-        m = {"<cmd>Neogit<cr>", "Magit"},
-        j = {"<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk"},
-        k = {"<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk"},
-        l = {"<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame"},
-        p = {"<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk"},
-        r = {"<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk"},
-        R = {"<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer"},
-        s = {"<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk"},
+        m = { "<cmd>Neogit<cr>", "Magit" },
+        j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
+        k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
+        l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
+        p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
+        r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
+        R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
+        s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
         u = {
             "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
             "Undo Stage Hunk"
         },
-        o = {"<cmd>Telescope git_status<cr>", "Open changed file"},
-        b = {"<cmd>Telescope git_branches<cr>", "Checkout branch"},
-        c = {"<cmd>Telescope git_commits<cr>", "Checkout commit"},
-        d = {"<cmd>Gitsigns diffthis HEAD<cr>", "Diff"}
+        o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
+        b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
+        c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
+        d = { "<cmd>Gitsigns diffthis HEAD<cr>", "Diff" }
     },
 
     l = {
@@ -167,20 +167,20 @@ local mappings = {
             "<cmd>lua require('lspsaga.codeaction').code_action()<cr>",
             "Code Action"
         },
-        d = {"<cmd>lua vim.lsp.buf.declaration()<cr>", "Declaration"},
-        D = {"<cmd>lua vim.lsp.buf.definition()<cr>", "Definition"},
-        w = {"<cmd>Telescope diagnostics<cr>", "Workspace Diagnostics"},
-        f = {"<cmd>lua vim.lsp.buf.formatting()<cr>", "Format"},
-        i = {"<cmd>LspInfo<cr>", "Info"},
-        I = {"<cmd>LspInstallInfo<cr>", "Installer Info"},
+        d = { "<cmd>lua vim.lsp.buf.declaration()<cr>", "Declaration" },
+        D = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Definition" },
+        w = { "<cmd>Telescope diagnostics<cr>", "Workspace Diagnostics" },
+        f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
+        i = { "<cmd>LspInfo<cr>", "Info" },
+        I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
         h = {
             "<cmd>lua require('lspsaga.hover').render_hover_doc()<cr>",
             "Hover Doc"
         },
-        l = {"<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action"},
-        q = {"<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix"},
-        r = {"<cmd>lua require'lspsaga.provider'.lsp_finder()<cr>", "Finder"},
-        R = {"<cmd>lua require('lspsaga.rename').rename()<cr>", "Rename"},
+        l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
+        q = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
+        r = { "<cmd>lua require'lspsaga.provider'.lsp_finder()<cr>", "Finder" },
+        R = { "<cmd>lua require('lspsaga.rename').rename()<cr>", "Rename" },
         s = {
             "<cmd>lua require('lspsaga.signaturehelp').signature_help()<cr>",
             "Signature Help"
@@ -188,20 +188,20 @@ local mappings = {
     },
     m = {
         name = "Markdown Preview",
-        p = {"<cmd>MarkdownPreview<cr>", "Markdown Preview"},
-        s = {"<cmd>MarkdownPreviewStop<cr>", "Markdown Preview Stop"},
-        t = {"<cmd>MarkdownPreviewToggle<cr>", "Markdown Preview Toggle"}
+        p = { "<cmd>MarkdownPreview<cr>", "Markdown Preview" },
+        s = { "<cmd>MarkdownPreviewStop<cr>", "Markdown Preview Stop" },
+        t = { "<cmd>MarkdownPreviewToggle<cr>", "Markdown Preview Toggle" }
     },
     s = {
         name = "Search",
-        a = {"ggVG", "Select All"},
-        b = {"<cmd>Telescope git_branches<cr>", "Checkout branch"},
-        c = {"<cmd>Telescope colorscheme<cr>", "Colorscheme"},
-        h = {"<cmd>Telescope help_tags<cr>", "Find Help"},
-        M = {"<cmd>Telescope man_pages<cr>", "Man Pages"},
-        R = {"<cmd>Telescope registers<cr>", "Registers"},
-        k = {"<cmd>Telescope keymaps<cr>", "Keymaps"},
-        C = {"<cmd>Telescope commands<cr>", "Commands"}
+        a = { "ggVG", "Select All" },
+        b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
+        c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
+        h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
+        M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
+        R = { "<cmd>Telescope registers<cr>", "Registers" },
+        k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
+        C = { "<cmd>Telescope commands<cr>", "Commands" }
     }
 }
 
