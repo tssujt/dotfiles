@@ -1,5 +1,6 @@
 tap "buo/cask-upgrade"
 tap "charmbracelet/tap"
+tap "daipeihust/tap"
 tap "domt4/autoupdate"
 tap "github/gh"
 tap "homebrew/bundle"
@@ -9,6 +10,8 @@ tap "homebrew/core"
 tap "homebrew/services"
 tap "khanhas/tap"
 tap "samuelmeuli/tap"
+# JPEG image codec that aids compression and decompression
+brew "jpeg-turbo"
 # Library for manipulating PNG images
 brew "libpng"
 # Image format providing lossless and lossy compression for web images
@@ -23,8 +26,6 @@ brew "asdf"
 brew "python@3.10"
 # Shell extension to jump to frequently used directories
 brew "autojump"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.9"
 # Official Amazon AWS command-line interface
 brew "awscli"
 # Clone of cat(1) with syntax highlighting and Git integration
@@ -43,6 +44,8 @@ brew "caddy"
 brew "glib"
 # Manage compile and link flags for libraries
 brew "pkg-config"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.9"
 # GNU CLISP, a Common Lisp implementation
 brew "clisp"
 # Cross-platform make
@@ -85,10 +88,10 @@ brew "fd"
 brew "guile"
 # GNU Transport Layer Security (TLS) Library
 brew "gnutls"
-# Generate introspection data for GObject libraries
-brew "gobject-introspection"
 # OpenType text shaping engine
 brew "harfbuzz"
+# Generate introspection data for GObject libraries
+brew "gobject-introspection"
 # NaCl networking and cryptography library
 brew "libsodium"
 # Low-level access to audio, keyboard, mouse, joystick, and graphics
@@ -111,6 +114,8 @@ brew "fzf"
 brew "gawk"
 # Toolkit for image loading and pixel buffer manipulation
 brew "gdk-pixbuf"
+# WebDriver <-> Marionette proxy
+brew "geckodriver"
 # GitHub command-line tool
 brew "gh"
 # GIF image/animation creator/editor
@@ -147,8 +152,6 @@ brew "imagemagick"
 brew "iproute2mac"
 # Terminal Client for Redis with AutoCompletion and Syntax Highlighting
 brew "iredis"
-# JPEG image codec that aids compression and decompression
-brew "jpeg-turbo"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
 # Network authentication protocol
@@ -171,6 +174,8 @@ brew "libslirp"
 brew "llvm"
 # Clone of ls with colorful output, file type icons, and more
 brew "lsd"
+# Language Server for the Lua language
+brew "lua-language-server"
 # Package manager for the Lua programming language
 brew "luarocks"
 # Securely transfers data between computers
@@ -189,6 +194,8 @@ brew "mosh"
 brew "mtr"
 # CLI for MySQL with auto-completion and syntax highlighting
 brew "mycli"
+# General-purpose lossless data-compression library
+brew "zlib"
 # Open source relational database management system
 brew "mysql", restart_service: true
 # Open source relational database management system
@@ -223,8 +230,6 @@ brew "plantuml"
 brew "pnpm"
 # Python package management tool
 brew "poetry"
-# Cross-platform application and UI framework
-brew "qt"
 # Framework for managing multi-language pre-commit hooks
 brew "pre-commit"
 # Modern replacement for ps written by Rust
@@ -239,6 +244,8 @@ brew "pyenv-virtualenvwrapper"
 brew "qcachegrind"
 # Emulator for x86 and PowerPC
 brew "qemu"
+# Cross-platform application and UI framework
+brew "qt"
 # Ruby version manager
 brew "rbenv"
 # Adds basic gemset support to rbenv
@@ -297,12 +304,12 @@ brew "wget"
 brew "wifi-password"
 # JavaScript package manager
 brew "yarn"
-# General-purpose lossless data-compression library
-brew "zlib"
 # Fish-like fast/unobtrusive autosuggestions for zsh
 brew "zsh-autosuggestions"
 # Additional completion definitions for zsh
 brew "zsh-completions"
+# Password manager that keeps all passwords secure behind one password
+cask "1password"
 # GPU-accelerated terminal emulator
 cask "alacritty"
 # Android SDK component
@@ -311,18 +318,18 @@ cask "android-platform-tools"
 cask "background-music"
 # Lock/unlock Apple computers using the proximity of a bluetooth low energy device
 cask "bleunlock"
-# Translation application for text, pictures, and manual input
-cask "bob"
 # GUI app for Homebrew
 cask "cakebrew"
 # API documentation browser and code snippet manager
 cask "dash"
 # Voice and text chat software
 cask "discord"
+# Project management software
+cask "feishu"
+# Grammarly for desktop
+cask "grammarly-desktop"
 # Keyboard customizer
 cask "karabiner-elements"
-# Project management software
-cask "lark"
 # Privacy-first, open-source platform for knowledge sharing and management
 cask "logseq"
 # Self-contained Python driver for communicating with MySQL servers
@@ -351,7 +358,7 @@ cask "visual-studio-code"
 cask "wireshark"
 # Collect, organize, cite, and share research sources
 cask "zotero"
-mas "1Password 7", id: 1333542190
+mas "Bob", id: 1630034110
 mas "Keynote", id: 409183694
 mas "Microsoft Excel", id: 462058435
 mas "Microsoft Outlook", id: 985367838
