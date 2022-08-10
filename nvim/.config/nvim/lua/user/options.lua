@@ -15,7 +15,6 @@ local options = {
     exrc = true,
     ffs = "unix,dos,mac", -- Use Unix as the standard file type
     fileencoding = "utf-8", -- the encoding written to a file
-    guifont = "monospace:h17", -- the font used in graphical neovim applications
     helplang = "cn",
     hidden = true, -- A buffer becomes hidden when it is abandoned
     hlsearch = true, -- highlight all matches on previous search pattern

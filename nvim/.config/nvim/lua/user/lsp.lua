@@ -94,6 +94,16 @@ local flake8 = {
     lintSource = "flake8"
 }
 
+local isort = {
+    formatCommand = "isort --stdout --profile black -",
+    formatStdin = true,
+}
+
+local black = {
+    formatCommand = "black --fast -",
+    formatStdin = true,
+}
+
 local misspell = {
     lintCommand = "misspell",
     lintIgnoreExitCode = true,
@@ -142,15 +152,14 @@ lsp_installer.on_server_ready(function(server)
         config.filetypes = {"c", "cpp"}; -- we don't want objective-c and objective-cpp!
     end
     if server.name == "efm" then
-        config.filetypes = {"c", "cpp", "python", "lua"}
+        config.filetypes = {"python"}
         config.init_options = {documentFormatting = true};
         config.root_dir = vim.loop.cwd;
         config.settings = {
             rootMarkers = {".git/"},
             languages = {
                 ["="] = {misspell},
-                python = {flake8},
-                lua = {{formatCommand = "lua-format -i", formatStdin = true}}
+                python = {flake8, isort, black},
             }
         }
     end
@@ -163,7 +172,14 @@ lsp_installer.on_server_ready(function(server)
                         [vim.fn.expand("$VIMRUNTIME/lua")] = true,
                         [vim.fn.stdpath("config") .. "/lua"] = true
                     }
-                }
+                },
+                format = {
+                    enable = true,
+                    defaultConfig = {
+                        indent_style = "space",
+                        indent_size = "2",
+                    }
+                },
             }
         }
     end
