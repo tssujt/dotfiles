@@ -188,6 +188,8 @@ brew "mas"
 brew "maven"
 # Run a Kubernetes cluster locally
 brew "minikube"
+# Intercept, modify, replay, save HTTP/S traffic
+brew "mitmproxy"
 # Remote terminal application
 brew "mosh"
 # 'traceroute' and 'ping' in a single tool
@@ -320,6 +322,8 @@ cask "background-music"
 cask "bleunlock"
 # GUI app for Homebrew
 cask "cakebrew"
+# Download and manage your addons and mods
+cask "curseforge"
 # API documentation browser and code snippet manager
 cask "dash"
 # Voice and text chat software
