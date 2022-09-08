@@ -179,7 +179,7 @@ local mappings = {
         },
         l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
         q = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
-        r = { "<cmd>lua require'lspsaga.provider'.lsp_finder()<cr>", "Finder" },
+        r = { "<cmd>Trouble lsp_references<cr>", "References" },
         R = { "<cmd>lua require('lspsaga.rename').rename()<cr>", "Rename" },
         s = {
             "<cmd>lua require('lspsaga.signaturehelp').signature_help()<cr>",
