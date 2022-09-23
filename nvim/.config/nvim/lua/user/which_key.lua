@@ -172,7 +172,7 @@ local mappings = {
         w = { "<cmd>Telescope diagnostics<cr>", "Workspace Diagnostics" },
         f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
         i = { "<cmd>LspInfo<cr>", "Info" },
-        I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
+        m = { "<cmd>Mason<cr>", "Mason Status" },
         h = {
             "<cmd>lua require('lspsaga.hover').render_hover_doc()<cr>",
             "Hover Doc"

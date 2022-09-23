@@ -1,6 +1,9 @@
 local status_luasnip_ok, luasnip = pcall(require, "luasnip")
 if not status_luasnip_ok then return end
 
+local status_lspconfig_ok, lspconfig = pcall(require, "lspconfig")
+if not status_lspconfig_ok then return end
+
 local cmp = require 'cmp'
 cmp.setup {
     snippet = { expand = function(args) luasnip.lsp_expand(args.body) end },
@@ -112,84 +115,106 @@ local misspell = {
     lintSource = "misspell"
 }
 
-local lsp_installer = require("nvim-lsp-installer")
-
-lsp_installer.settings {
+require("mason").setup({
     ui = {
-        check_outdated_servers_on_open = true,
+        check_outdated_packages_on_open = true,
         icons = {
-            server_installed = "✓",
-            server_pending = "➜",
-            server_uninstalled = "✗"
+            package_installed = "✓",
+            package_pending = "➜",
+            package_uninstalled = "✗"
         }
     }
-}
+})
 
-local servers = {
-    "bashls", "clangd", "dockerls", "efm", "gopls", "grammarly", "html",
-    "jsonls", "lemminx", "pyright", "rust_analyzer", "sumneko_lua", "vimls",
-    "yamlls"
-}
+require("mason-lspconfig").setup({
+    ensure_installed = {
+        "dockerls", "efm", "gopls", "html", "jsonls", "lemminx",
+        "pyright", "rust_analyzer", "sumneko_lua", "vimls", "yamlls"
+    }
+})
 
-for _, lang in pairs(servers) do
-    local ok, server = lsp_installer.get_server(lang)
-    if ok then
-        if not server:is_installed() then
-            print("Installing " .. lang)
-            server:install()
-        end
-    end
-end
-
-lsp_installer.on_server_ready(function(server)
-    local config = { capabilities = updated_capabilities }
-
-    if server.name == "gopls" then config.filetypes = { "go" }; end
-    if server.name == "sourcekit" then
-        config.filetypes = { "swift", "objective-c", "objective-cpp" };  -- we don't want c and cpp!
-    end
-    if server.name == "clangd" then
-        config.filetypes = { "c", "cpp" };  -- we don't want objective-c and objective-cpp!
-    end
-    if server.name == "efm" then
-        config.filetypes = { "python" }
-        config.init_options = { documentFormatting = true };
-        config.root_dir = vim.loop.cwd;
-        config.settings = {
-            rootMarkers = { ".git/" },
-            languages = {
-                ["="] = { misspell },
-                python = { flake8, isort, black },
+require("mason-lspconfig").setup_handlers({
+    -- The first entry (without a key) will be the default handler
+    -- and will be called for each installed server that doesn't have
+    -- a dedicated handler.
+    function(server_name) -- default handler (optional)
+        require("lspconfig")[server_name].setup {
+            capabilities = updated_capabilities
+        };
+        vim.cmd [[ do User LspAttachBuffers ]]
+    end,
+    ["efm"] = function()
+        lspconfig.efm.setup {
+            filetypes = { "python" },
+            init_options = { documentFormatting = true },
+            root_dir = vim.loop.cwd,
+            settings = {
+                rootMarkers = { ".git/" },
+                languages = {
+                    ["="] = { misspell },
+                    python = { flake8, isort, black },
+                }
             }
         }
-    end
-    if server.name == "sumneko_lua" then
-        config.settings = {
-            Lua = {
-                diagnostics = { globals = { "vim" } },
-                workspace = {
-                    library = {
-                        [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-                        [vim.fn.stdpath("config") .. "/lua"] = true
+    end,
+    ["pyright"] = function()
+        lspconfig.pyright.setup {
+            settings = { python = { analysis = { typeCheckingMode = "off" } } }
+        }
+    end,
+    ["rust_analyzer"] = function()
+        local opts = {
+            tools = {
+                autoSetHints = true,
+                -- runnables = {
+                -- use_telescope = true
+                -- },
+                inlay_hints = {
+                    show_parameter_hints = false,
+                    parameter_hints_prefix = "",
+                    other_hints_prefix = ""
+                }
+            },
+
+            -- all the opts to send to nvim-lspconfig
+            -- these override the defaults set by rust-tools.nvim
+            -- see https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#rust_analyzer
+            server = {
+                settings = {
+                    -- to enable rust-analyzer settings visit:
+                    -- https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/user/generated_config.adoc
+                    ["rust-analyzer"] = {
+                        -- enable clippy on save
+                        checkOnSave = { command = "clippy" }
                     }
-                },
-                format = {
-                    enable = true,
-                    defaultConfig = {
-                        indent_style = "space",
-                        indent_size = "2",
-                    }
-                },
+                }
             }
         }
-    end
-    if server.name == 'pyright' then
-        config.settings = { python = { analysis = { typeCheckingMode = "off" } } }
-    end
-
-    server:setup(config)
-    vim.cmd [[ do User LspAttachBuffers ]]
-end)
+        require("rust-tools").setup(opts)
+    end,
+    ["sumneko_lua"] = function()
+        lspconfig.sumneko_lua.setup {
+            settings = {
+                Lua = {
+                    diagnostics = { globals = { "vim" } },
+                    workspace = {
+                        library = {
+                            [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+                            [vim.fn.stdpath("config") .. "/lua"] = true
+                        }
+                    },
+                    format = {
+                        enable = true,
+                        defaultConfig = {
+                            indent_style = "space",
+                            indent_size = "2",
+                        }
+                    },
+                }
+            }
+        }
+    end,
+})
 
 local saga = require 'lspsaga'
 saga.init_lsp_saga()
@@ -210,33 +235,4 @@ saga.setup {
 require("trouble").setup {}
 require "lsp_signature".setup()
 
-local opts = {
-    tools = {
-        autoSetHints = true,
-        -- runnables = {
-        -- use_telescope = true
-        -- },
-        inlay_hints = {
-            show_parameter_hints = false,
-            parameter_hints_prefix = "",
-            other_hints_prefix = ""
-        }
-    },
-
-    -- all the opts to send to nvim-lspconfig
-    -- these override the defaults set by rust-tools.nvim
-    -- see https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#rust_analyzer
-    server = {
-        settings = {
-            -- to enable rust-analyzer settings visit:
-            -- https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/user/generated_config.adoc
-            ["rust-analyzer"] = {
-                -- enable clippy on save
-                checkOnSave = { command = "clippy" }
-            }
-        }
-    }
-}
-
-require('rust-tools').setup(opts)
 -- vim.lsp.set_log_level("debug")
