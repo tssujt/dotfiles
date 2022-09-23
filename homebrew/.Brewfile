@@ -354,8 +354,8 @@ cask "tableplus"
 cask "timemachineeditor"
 # Free and open-source OpenVPN client
 cask "tunnelblick"
-# GUI for the Neovim text editor
-cask "vimr"
+# Development environment
+cask "vagrant"
 # Open-source code editor
 cask "visual-studio-code"
 # Network protocol analyzer
