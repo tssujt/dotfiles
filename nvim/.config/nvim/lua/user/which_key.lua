@@ -170,7 +170,7 @@ local mappings = {
         d = { "<cmd>lua vim.lsp.buf.declaration()<cr>", "Declaration" },
         D = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Definition" },
         w = { "<cmd>Telescope diagnostics<cr>", "Workspace Diagnostics" },
-        f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
+        f = { "<cmd>lua vim.lsp.buf.format { async = true }<cr>", "Format" },
         i = { "<cmd>LspInfo<cr>", "Info" },
         m = { "<cmd>Mason<cr>", "Mason Status" },
         h = {
