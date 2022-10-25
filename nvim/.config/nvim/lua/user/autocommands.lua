@@ -1,4 +1,11 @@
 vim.cmd [[
+    autocmd VimEnter * set winminheight=0
+    autocmd SourcePre Session.vim set winminheight=0
+    autocmd SessionLoadPost * set winminheight=5
+]]
+
+
+vim.cmd [[
     " In the quickfix window, <CR> is used to jump to the error under the
     " cursor, so undefine the mapping there.
     autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
@@ -21,7 +28,4 @@ vim.cmd [[
     " Highlight TODO, FIXME, NOTE, etc.
     autocmd Syntax * call matchadd('Todo',  '\W\zs\(TODO\|FIXME\|CHANGED\|DONE\|XXX\|BUG\|HACK\)')
     autocmd Syntax * call matchadd('Debug', '\W\zs\(NOTE\|INFO\|IDEA\|NOTICE\)')
-
-    au FileType python let b:delimitMate_nesting_quotes = ['"']
-    au FileType php let delimitMate_matchpairs = "(:),[:],{:}"
 ]]
