@@ -70,6 +70,12 @@ require 'nvim-tree'.setup {
     trash = { cmd = "trash", require_confirm = true }
 }
 
+
+vim.cmd([[ highlight NvimTreeIndentMarker guifg=#3FC5FF ]])
+
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 vim.g.nvim_tree_auto_ignore_ft = { 'startify', 'dashboard' }
 vim.g.nvim_tree_quit_on_open = 1
 vim.g.nvim_tree_indent_markers = 1
