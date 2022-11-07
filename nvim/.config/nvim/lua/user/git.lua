@@ -1,4 +1,6 @@
-require('gitsigns').setup {}
+require('gitsigns').setup {
+    current_line_blame = true,
+}
 local neogit = require("neogit")
 
 neogit.setup {
