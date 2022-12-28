@@ -5,6 +5,8 @@ local status_lspconfig_ok, lspconfig = pcall(require, "lspconfig")
 if not status_lspconfig_ok then return end
 
 local cmp = require 'cmp'
+local util = require 'lspconfig/util'
+
 cmp.setup {
     snippet = { expand = function(args) luasnip.lsp_expand(args.body) end },
     formatting = {
@@ -155,6 +157,21 @@ require("mason-lspconfig").setup_handlers({
                     python = { flake8, isort, black },
                 }
             }
+        }
+    end,
+    ["gopls"] = function()
+        lspconfig.gopls.setup {
+            cmd = { "gopls", "serve" },
+            filetypes = { "go", "gomod" },
+            root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+            settings = {
+                gopls = {
+                    analyses = {
+                        unusedparams = true,
+                    },
+                    staticcheck = true,
+                },
+            },
         }
     end,
     ["pyright"] = function()
