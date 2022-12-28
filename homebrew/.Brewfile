@@ -90,8 +90,6 @@ brew "guile"
 brew "gnutls"
 # OpenType text shaping engine
 brew "harfbuzz"
-# Generate introspection data for GObject libraries
-brew "gobject-introspection"
 # NaCl networking and cryptography library
 brew "libsodium"
 # Low-level access to audio, keyboard, mouse, joystick, and graphics
@@ -130,6 +128,8 @@ brew "git-lfs"
 brew "gitlab-runner"
 # GNU implementation of the famous stream editor
 brew "gnu-sed"
+# Generate introspection data for GObject libraries
+brew "gobject-introspection"
 # Go version management
 brew "goenv", args: ["HEAD"]
 # Library to render SVG files using Cairo
@@ -220,7 +220,7 @@ brew "open-completion"
 brew "opencc"
 # Swiss-army knife of markup format conversion
 brew "pandoc"
-# Modern Python package manager with PEP 582 support
+# Modern Python package and dependency manager supporting the latest PEP standards
 brew "pdm"
 # Bash completion for Pip
 brew "pip-completion"
@@ -322,8 +322,6 @@ cask "background-music"
 cask "bleunlock"
 # GUI app for Homebrew
 cask "cakebrew"
-# Download and manage your addons and mods
-cask "curseforge"
 # API documentation browser and code snippet manager
 cask "dash"
 # Voice and text chat software
@@ -334,22 +332,34 @@ cask "feishu"
 cask "grammarly-desktop"
 # Keyboard customizer
 cask "karabiner-elements"
+# GPU-based terminal emulator
+cask "kitty"
 # Privacy-first, open-source platform for knowledge sharing and management
 cask "logseq"
+# Full TeX Live distribution with GUI applications
+cask "mactex"
 # Self-contained Python driver for communicating with MySQL servers
 cask "mysql-connector-python"
 # HTTP client that helps testing and describing APIs
 cask "paw"
 # PDF reader, editor and annotator
 cask "pdf-expert"
+# Open source virtual/remote desktop application
+cask "rustdesk"
 # Screenshot measurement and annotation tool
 cask "shottr"
 # Taps into Soundflower channels and route them to an audio device
 cask "soundflowerbed"
 # Music streaming service
 cask "spotify"
+# Video game digital distribution service
+cask "steam"
 # Native GUI tool for relational databases
 cask "tableplus"
+# Mesh VPN based on Wireguard
+cask "tailscale"
+# Voice communication client
+cask "teamspeak-client"
 # Utility to change the default backup interval of Time Machine
 cask "timemachineeditor"
 # Free and open-source OpenVPN client
@@ -360,10 +370,14 @@ cask "vagrant"
 cask "visual-studio-code"
 # Network protocol analyzer
 cask "wireshark"
+# HTML to PDF renderer
+cask "wkhtmltopdf"
 # Collect, organize, cite, and share research sources
 cask "zotero"
 mas "Bob", id: 1630034110
+mas "iMazing Converter", id: 1292198261
 mas "Keynote", id: 409183694
+mas "Kindle", id: 405399194
 mas "Microsoft Excel", id: 462058435
 mas "Microsoft Outlook", id: 985367838
 mas "Microsoft PowerPoint", id: 462062816
@@ -375,10 +389,8 @@ mas "OneDrive", id: 823766827
 mas "Pages", id: 409201541
 mas "QQ", id: 451108668
 mas "Slack", id: 803453959
-mas "Tailscale", id: 1475387142
 mas "Telegram", id: 747648890
 mas "The Unarchiver", id: 425424353
 mas "TickTick", id: 966085870
-mas "Trello", id: 1278508951
 mas "WeChat", id: 836500024
 mas "Xcode", id: 497799835
