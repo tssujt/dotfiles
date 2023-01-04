@@ -96,12 +96,12 @@ brew "libsodium"
 brew "sdl2"
 # Compression/decompression library aiming for high speed
 brew "snappy"
+# Framework for layout and rendering of i18n text
+brew "pango"
 # High-performance, asynchronous messaging library
 brew "zeromq"
 # Play, record, convert, and stream audio and video
 brew "ffmpeg"
-# Framework for layout and rendering of i18n text
-brew "pango"
 # Command-line outline and bitmap font editor/converter
 brew "fontforge"
 # Client app of fast reverse proxy to expose a local server to the internet
@@ -356,8 +356,6 @@ cask "spotify"
 cask "steam"
 # Native GUI tool for relational databases
 cask "tableplus"
-# Mesh VPN based on Wireguard
-cask "tailscale"
 # Voice communication client
 cask "teamspeak-client"
 # Utility to change the default backup interval of Time Machine
@@ -389,6 +387,7 @@ mas "OneDrive", id: 823766827
 mas "Pages", id: 409201541
 mas "QQ", id: 451108668
 mas "Slack", id: 803453959
+mas "Tailscale", id: 1475387142
 mas "Telegram", id: 747648890
 mas "The Unarchiver", id: 425424353
 mas "TickTick", id: 966085870
