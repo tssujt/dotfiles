@@ -118,6 +118,10 @@ export PATH="$PATH:$GOPATH/bin"
 alias k='kubectl'
 export PATH="${PATH}:${HOME}/.krew/bin"
 
+# Hishtory Config:
+export PATH="$PATH:${HOME}/.hishtory"
+source ~/.hishtory/config.zsh
+
 kx () {
     local cmd=${2:-"bash"}
 
