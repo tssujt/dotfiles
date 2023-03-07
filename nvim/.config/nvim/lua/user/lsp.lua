@@ -23,18 +23,18 @@ cmp.setup {
         })
     },
     mapping = cmp.mapping.preset.insert {
-        ['<C-n>'] = cmp.mapping(cmp.mapping.select_next_item({
+            ['<C-n>'] = cmp.mapping(cmp.mapping.select_next_item({
             behavior = cmp.SelectBehavior.Insert
         }), { 'i', 'c' }),
-        ['<C-p>'] = cmp.mapping(cmp.mapping.select_prev_item({
+            ['<C-p>'] = cmp.mapping(cmp.mapping.select_prev_item({
             behavior = cmp.SelectBehavior.Insert
         }), { 'i', 'c' }),
-        ['<C-y>'] = cmp.mapping.confirm({
+            ['<C-y>'] = cmp.mapping.confirm({
             behavior = cmp.ConfirmBehavior.Replace,
             select = true
         }),
-        ['<CR>'] = function(fallback) fallback() end,
-        ['<C-e>'] = function(fallback) fallback() end
+            ['<CR>'] = function(fallback) fallback() end,
+            ['<C-e>'] = function(fallback) fallback() end
     },
     sources = {
         { name = 'nvim_lsp' }, {
@@ -81,7 +81,7 @@ local updated_capabilities = require('cmp_nvim_lsp').default_capabilities(vim.ls
     .make_client_capabilities())
 updated_capabilities.textDocument.codeLens = { dynamicRegistration = false }
 updated_capabilities = vim.tbl_deep_extend("keep", updated_capabilities,
-        nvim_status.capabilities)
+    nvim_status.capabilities)
 updated_capabilities.textDocument.completion.completionItem.snippetSupport =
     false
 updated_capabilities.textDocument.completion.completionItem.resolveSupport = {
@@ -98,7 +98,8 @@ vim.fn.sign_define("LspDiagnosticsSignHint",
     { text = "", numhl = "LspDiagnosticsDefaultHint" })
 
 local flake8 = {
-    lintCommand = "flake8 --max-line-length 160 --format '%(path)s:%(row)d:%(col)d: %(code)s %(code)s %(text)s' --stdin-display-name ${INPUT} -",
+    lintCommand =
+    "flake8 --max-line-length 160 --format '%(path)s:%(row)d:%(col)d: %(code)s %(code)s %(text)s' --stdin-display-name ${INPUT} -",
     lintStdin = true,
     lintIgnoreExitCode = true,
     lintFormats = { "%f:%l:%c: %t%n%n%n %m" },
@@ -136,8 +137,8 @@ require("mason").setup({
 
 require("mason-lspconfig").setup({
     ensure_installed = {
-        "dockerls", "efm", "gopls", "html", "jsonls", "lemminx",
-        "pyright", "rust_analyzer", "sumneko_lua", "vimls", "yamlls"
+        "dockerls", "efm", "gopls", "html", "jsonls", "lemminx", "lua_ls",
+        "pyright", "rust_analyzer", "vimls", "yamlls"
     }
 })
 
@@ -151,7 +152,7 @@ require("mason-lspconfig").setup_handlers({
         };
         vim.cmd [[ do User LspAttachBuffers ]]
     end,
-    ["efm"] = function()
+        ["efm"] = function()
         lspconfig.efm.setup {
             filetypes = { "python" },
             init_options = { documentFormatting = true },
@@ -159,13 +160,13 @@ require("mason-lspconfig").setup_handlers({
             settings = {
                 rootMarkers = { ".git/" },
                 languages = {
-                    ["="] = { misspell },
+                        ["="] = { misspell },
                     python = { flake8, isort, black },
                 }
             }
         }
     end,
-    ["gopls"] = function()
+        ["gopls"] = function()
         lspconfig.gopls.setup {
             cmd = { "gopls", "serve" },
             filetypes = { "go", "gomod" },
@@ -180,12 +181,12 @@ require("mason-lspconfig").setup_handlers({
             },
         }
     end,
-    ["pyright"] = function()
+        ["pyright"] = function()
         lspconfig.pyright.setup {
             settings = { python = { analysis = { typeCheckingMode = "off" } } }
         }
     end,
-    ["rust_analyzer"] = function()
+        ["rust_analyzer"] = function()
         local opts = {
             tools = {
                 autoSetHints = true,
@@ -205,7 +206,7 @@ require("mason-lspconfig").setup_handlers({
                 settings = {
                     -- to enable rust-analyzer settings visit:
                     -- https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/user/generated_config.adoc
-                    ["rust-analyzer"] = {
+                        ["rust-analyzer"] = {
                         -- enable clippy on save
                         checkOnSave = { command = "clippy" }
                     }
@@ -214,7 +215,7 @@ require("mason-lspconfig").setup_handlers({
         }
         require("rust-tools").setup(opts)
     end,
-    ["sumneko_lua"] = function()
+        ["lua_ls"] = function()
         lspconfig.lua_ls.setup {
             settings = {
                 Lua = {
