@@ -202,6 +202,12 @@ local mappings = {
         R = { "<cmd>Telescope registers<cr>", "Registers" },
         k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
         C = { "<cmd>Telescope commands<cr>", "Commands" }
+    },
+    S = {
+        name = "Scratch",
+        c = { "<cmd>ScratchEditConfig<cr>", "Edit Config" },
+        o = { "<cmd>ScratchOpen<cr>", "Open" },
+        n = { "<cmd>Scratch<cr>", "New" },
     }
 }
 
