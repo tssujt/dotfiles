@@ -23,6 +23,7 @@ vim.cmd [[
     autocmd FileType qf nnoremap <buffer> <Enter> <C-W><Enter><C-W>T
     autocmd BufRead,BufNewFile *.md,*.mkd,*.markdown set filetype=markdown
     autocmd BufRead,BufNewFile *.part set filetype=html
+    autocmd BufRead,BufNewFile *.c,*.h set filetype=c
     autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript tabstop=2 shiftwidth=2 softtabstop=2 expandtab ai
 
     " Highlight TODO, FIXME, NOTE, etc.

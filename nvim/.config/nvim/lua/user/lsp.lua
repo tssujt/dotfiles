@@ -137,7 +137,7 @@ require("mason").setup({
 
 require("mason-lspconfig").setup({
     ensure_installed = {
-        "dockerls", "efm", "gopls", "html", "jsonls", "lemminx", "lua_ls",
+        "clangd", "dockerls", "efm", "gopls", "html", "jsonls", "lemminx", "lua_ls",
         "pyright", "rust_analyzer", "vimls", "yamlls"
     }
 })
