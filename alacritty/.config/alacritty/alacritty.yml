@@ -9,7 +9,7 @@ window:
 font:
   normal:
     family: OperatorMono Nerd Font
-    style: Light
+    style: Regular
 
   bold:
     family: OperatorMono Nerd Font
