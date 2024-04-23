@@ -1,6 +1,3 @@
-local utils = require "astrocore"
-local is_available = utils.is_available
-
 -- Mapping data with "desc" stored directly by vim.keymap.set().
 --
 -- Please use this mappings table to set keyboard mapping since this is the
@@ -13,57 +10,44 @@ local maps = {
     -- mappings seen under group name "Buffer"
     ["]g"] = false,
     ["[g"] = false,
-    ["<leader>/"] = false,
-    ["<leader>bd"] = { function() require("astrocore.buffer").close(0, true) end, desc = "Close current buffer" },
-    ["<leader>bD"] = {
+    ["<Leader>/"] = false,
+    ["<Leader>bd"] = { function() require("astrocore.buffer").close(0, true) end, desc = "Close current buffer" },
+    ["<Leader>bD"] = {
       function()
-        require("astroui.status").heirline.buffer_picker(
-          function(bufnr) require("astrocore.buffer").close(bufnr) end
-        )
+        require("astroui.status").heirline.buffer_picker(function(bufnr) require("astrocore.buffer").close(bufnr) end)
       end,
       desc = "Pick to close",
     },
-    ["<leader>c"] = false,
-    ["<leader>C"] = false,
-    ["<leader>fl"] = { "<cmd>Neotree reveal reveal_force_cwd<cr>", desc = "Explorer Find File Location" },
-    ["<leader>fa"] = { function() require("telescope.builtin").grep_string() end, desc = "Find word under cursor" },
-    ["<leader>fc"] = {
+    ["<Leader>c"] = false,
+    ["<Leader>C"] = false,
+    ["<Leader>fl"] = { "<cmd>Neotree reveal reveal_force_cwd<cr>", desc = "Explorer Find File Location" },
+    ["<Leader>fa"] = { function() require("telescope.builtin").grep_string() end, desc = "Find word under cursor" },
+    ["<Leader>fc"] = {
       function()
-        local cwd = vim.fn.stdpath "config" .. "/.."
-        local search_dirs = {}
-        for _, dir in ipairs(astronvim.supported_configs) do -- search all supported config locations
-          if dir == astronvim.install.home then dir = dir .. "/lua/user" end -- don't search the astronvim core files
-          if vim.fn.isdirectory(dir) == 1 then table.insert(search_dirs, dir) end -- add directory to search if exists
-        end
-        if vim.tbl_isempty(search_dirs) then -- if no config folders found, show warning
-          utils.notify("No user configuration files found", vim.log.levels.WARN)
-        else
-          if #search_dirs == 1 then cwd = search_dirs[1] end -- if only one directory, focus cwd
-          require("telescope.builtin").find_files {
-            prompt_title = "Config Files",
-            search_dirs = search_dirs,
-            cwd = cwd,
-          } -- call telescope
-        end
+        require("telescope.builtin").find_files {
+          prompt_title = "Config Files",
+          cwd = vim.fn.stdpath "config",
+          follow = true,
+        }
       end,
       desc = "Find AstroNvim config files",
     },
-    ["<leader>fN"] = { "<cmd>Telescope noice<cr>", desc = "Find noice" },
-    ["<leader>fp"] = { function() require("telescope").extensions.projects.projects {} end, desc = "Find projects" },
-    ["<leader>fs"] = {
+    ["<Leader>fN"] = { "<cmd>Telescope noice<cr>", desc = "Find noice" },
+    ["<Leader>fp"] = { function() require("telescope").extensions.projects.projects {} end, desc = "Find projects" },
+    ["<Leader>fs"] = {
       function() require("sg.extensions.telescope").fuzzy_search_results() end,
       desc = "Find SourceGraph",
     },
-    ["<leader>fT"] = { "<cmd>TodoTelescope<cr>", desc = "Find TODOs" },
-    ["<leader>fw"] = {
+    ["<Leader>fT"] = { "<cmd>TodoTelescope<cr>", desc = "Find TODOs" },
+    ["<Leader>fw"] = {
       function() require("telescope").extensions.live_grep_args.live_grep_args() end,
       desc = "Find words",
     },
-    ["<leader>fW"] = false,
-    ["<leader>gj"] = { function() require("gitsigns").next_hunk() end, desc = "Next Git hunk" },
-    ["<leader>gk"] = { function() require("gitsigns").previous_hunk() end, desc = "Previous Git hunk" },
-    ["<leader>tu"] = false,
-    ["<leader>U"] = { "<cmd>Telescope undo<cr>", desc = "Undo" },
+    ["<Leader>fW"] = false,
+    ["<Leader>gj"] = { function() require("gitsigns").next_hunk() end, desc = "Next Git hunk" },
+    ["<Leader>gk"] = { function() require("gitsigns").previous_hunk() end, desc = "Previous Git hunk" },
+    ["<Leader>tu"] = false,
+    ["<Leader>U"] = { "<cmd>Telescope undo<cr>", desc = "Undo" },
     ["<TAB>"] = {
       function() require("astrocore.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end,
       desc = "Next buffer",
@@ -79,100 +63,77 @@ local maps = {
   x = {},
   o = {},
   v = {
-    ["<leader>/"] = false,
-    ["<leader>fr"] = {
+    ["<Leader>/"] = false,
+    ["<Leader>fr"] = {
       "<Esc><cmd>lua require('telescope').extensions.refactoring.refactors()<CR>",
       desc = "Find code refactors",
     },
   },
 }
 
-if is_available "vim-visual-multi" then
-  -- visual multi
-  vim.g.VM_mouse_mappings = 0
-  vim.g.VM_theme = "iceblue"
-  vim.g.VM_maps = {
-    ["Find Under"] = "<C-n>",
-    ["Find Subword Under"] = "<C-n>",
-    ["Add Cursor Up"] = "<C-S-k>",
-    ["Add Cursor Down"] = "<C-S-j>",
-    ["Select All"] = "<C-S-n>",
-    ["Skip Region"] = "<C-x>",
-    Exit = "<C-c>",
-  }
-end
-
 -- refactoring
-if is_available "refactoring.nvim" then
-  maps.n["<leader>r"] = { desc = " Refactor" }
-  maps.v["<leader>r"] = { desc = " Refactor" }
-end
+maps.n["<Leader>r"] = { desc = " Refactor" }
+maps.v["<Leader>r"] = { desc = " Refactor" }
 
 -- copilot
-if is_available "CopilotChat.nvim" then
-  maps.n["<leader>c"] = { name = " Copilot", desc = " Copilot" }
-  maps.n["<leader>ch"] = {
-    function()
-      local actions = require "CopilotChat.actions"
-      require("CopilotChat.integrations.telescope").pick(actions.help_actions())
-    end,
-    desc = "CopilotChat - Help actions",
-  }
-  maps.n["<leader>cp"] = {
-    function()
-      local actions = require "CopilotChat.actions"
-      require("CopilotChat.integrations.telescope").pick(actions.prompt_actions())
-    end,
-    desc = "CopilotChat - Prompt actions",
-  }
-  maps.n["<leader>cr"] = { "<cmd>CopilotChatReset<cr>", desc = "Reset chat history and clear buffer" }
+maps.n["<Leader>c"] = { name = " Copilot", desc = " Copilot" }
+maps.n["<Leader>ch"] = {
+  function()
+    local actions = require "CopilotChat.actions"
+    require("CopilotChat.integrations.telescope").pick(actions.help_actions())
+  end,
+  desc = "CopilotChat - Help actions",
+}
+maps.n["<Leader>cp"] = {
+  function()
+    local actions = require "CopilotChat.actions"
+    require("CopilotChat.integrations.telescope").pick(actions.prompt_actions())
+  end,
+  desc = "CopilotChat - Prompt actions",
+}
+maps.n["<Leader>cr"] = { "<cmd>CopilotChatReset<cr>", desc = "Reset chat history and clear buffer" }
 
-  maps.v["<leader>c"] = { name = " Copilot", desc = " Copilot" }
-  maps.v["<leader>ce"] = { "<cmd>CopilotChatExplain<cr>", desc = "Explain code" }
-  maps.v["<leader>ct"] = { "<cmd>CopilotChatTests<cr>", desc = "Generate tests" }
-  maps.v["<leader>cT"] = { "<cmd>CopilotChatVsplitToggle<cr>", desc = "Toggle vertical split" }
-  maps.v["<leader>cr"] = { "<cmd>CopilotChatReset<cr>", desc = "Reset chat history and clear buffer" }
-  maps.v["<leader>cv"] = { "<cmd>CopilotChatVisual<cr>", desc = "Open in vertical split" }
-  maps.v["<leader>cx"] = { "<cmd>CopilotChatInPlace<cr>", desc = "Run in-place code" }
-end
+maps.v["<Leader>c"] = { name = " Copilot", desc = " Copilot" }
+maps.v["<Leader>ce"] = { "<cmd>CopilotChatExplain<cr>", desc = "Explain code" }
+maps.v["<Leader>ct"] = { "<cmd>CopilotChatTests<cr>", desc = "Generate tests" }
+maps.v["<Leader>cT"] = { "<cmd>CopilotChatVsplitToggle<cr>", desc = "Toggle vertical split" }
+maps.v["<Leader>cr"] = { "<cmd>CopilotChatReset<cr>", desc = "Reset chat history and clear buffer" }
+maps.v["<Leader>cv"] = { "<cmd>CopilotChatVisual<cr>", desc = "Open in vertical split" }
+maps.v["<Leader>cx"] = { "<cmd>CopilotChatInPlace<cr>", desc = "Run in-place code" }
 
 -- trouble
-if is_available "trouble.nvim" then
-  maps.n["<leader>x"] = { desc = " Trouble" }
-  maps.n["<leader>xx"] = { "<cmd>TroubleToggle document_diagnostics<cr>", desc = "Document Diagnostics (Trouble)" }
-  maps.n["<leader>xX"] = { "<cmd>TroubleToggle workspace_diagnostics<cr>", desc = "Workspace Diagnostics (Trouble)" }
-  maps.n["<leader>xl"] = { "<cmd>TroubleToggle loclist<cr>", desc = "Location List (Trouble)" }
-  maps.n["<leader>xq"] = { "<cmd>TroubleToggle quickfix<cr>", desc = "Quickfix List (Trouble)" }
-  maps.n["<leader>xT"] = { "<cmd>TodoTrouble<cr>", desc = "TODOs (Trouble)" }
-end
+maps.n["<Leader>x"] = { desc = " Trouble" }
+maps.n["<Leader>xx"] = { "<cmd>TroubleToggle document_diagnostics<cr>", desc = "Document Diagnostics (Trouble)" }
+maps.n["<Leader>xX"] = { "<cmd>TroubleToggle workspace_diagnostics<cr>", desc = "Workspace Diagnostics (Trouble)" }
+maps.n["<Leader>xl"] = { "<cmd>TroubleToggle loclist<cr>", desc = "Location List (Trouble)" }
+maps.n["<Leader>xq"] = { "<cmd>TroubleToggle quickfix<cr>", desc = "Quickfix List (Trouble)" }
+maps.n["<Leader>xT"] = { "<cmd>TodoTrouble<cr>", desc = "TODOs (Trouble)" }
 
 -- flash
-if is_available "flash.nvim" then
-  maps.n["<leader>s"] = {
-    function() require("flash").jump() end,
-    desc = "Flash",
-  }
-  maps.x["<leader>s"] = {
-    function() require("flash").jump() end,
-    desc = "Flash",
-  }
-  maps.o["<leader>s"] = {
-    function() require("flash").jump() end,
-    desc = "Flash",
-  }
-  maps.n["<leader><leader>s"] = {
-    function() require("flash").treesitter() end,
-    desc = "Flash Treesitter",
-  }
-  maps.x["<leader><leader>s"] = {
-    function() require("flash").treesitter() end,
-    desc = "Flash Treesitter",
-  }
-  maps.o["<leader><leader>s"] = {
-    function() require("flash").treesitter() end,
-    desc = "Flash Treesitter",
-  }
-end
+maps.n["<Leader>s"] = {
+  function() require("flash").jump() end,
+  desc = "Flash",
+}
+maps.x["<Leader>s"] = {
+  function() require("flash").jump() end,
+  desc = "Flash",
+}
+maps.o["<Leader>s"] = {
+  function() require("flash").jump() end,
+  desc = "Flash",
+}
+maps.n["<Leader><Leader>s"] = {
+  function() require("flash").treesitter() end,
+  desc = "Flash Treesitter",
+}
+maps.x["<Leader><Leader>s"] = {
+  function() require("flash").treesitter() end,
+  desc = "Flash Treesitter",
+}
+maps.o["<Leader><Leader>s"] = {
+  function() require("flash").treesitter() end,
+  desc = "Flash Treesitter",
+}
 
 -- AstroCore provides a central place to modify mappings, vim options, autocommands, and more!
 -- Configuration documentation can be found with `:h astrocore`
@@ -254,10 +215,7 @@ return {
             -- Only load the session if nvim was started with no args
             if vim.fn.argc(-1) == 0 then
               -- try to load a directory session using the current working directory
-              require("resession").load(
-                vim.fn.getcwd(),
-                { dir = "dirsession", silence_errors = true }
-              )
+              require("resession").load(vim.fn.getcwd(), { dir = "dirsession", silence_errors = true })
               -- trigger buffer read auto commands on each opened buffer after load
               vim.tbl_map(vim.cmd.doautoall, { "BufReadPre", "BufReadPost" })
             end
