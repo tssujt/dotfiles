@@ -41,15 +41,15 @@ TERM = "xterm-256color"
 size = 16
 
 [font.bold]
-family = "MonaspaceKrypton Nerd Font"
-style = "SemiBold"
+family = "0xProto Nerd Font Propo"
+style = "Regular"
 
 [font.italic]
-family = "MonaspaceRadon Nerd Font"
-style = "Light Italic"
+family = "0xProto Nerd Font Mono"
+style = "Regular"
 
 [font.normal]
-family = "MonaspaceKrypton Nerd Font"
+family = "0xProto Nerd Font"
 style = "Regular"
 
 [window]
