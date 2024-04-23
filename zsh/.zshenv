@@ -8,10 +8,6 @@ export LANG=en_US.UTF-8
 
 export EDITOR=nvim
 
-# PHP
-# export PATH="$PATH:$HOME/.composer/vendor/bin"
-# export PATH="$(brew --prefix php)/bin:$PATH"
-
 # MySQL
 export PATH="/usr/local/opt/mysql-client@5.7/bin:$PATH"
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
@@ -57,3 +53,6 @@ if [ -e ${HOME}/.nix-profile/etc/profile.d/nix.sh ]; then . ${HOME}/.nix-profile
 
 export HOMEBREW_BUNDLE_FILE="${HOME}/.Brewfile"
 source "$HOME/.cargo/env"
+
+export DOCKER_DEFAULT_PLATFORM=linux/amd64
+export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/rc"

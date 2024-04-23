@@ -107,20 +107,20 @@ source ${BREW_PREFIX}/opt/asdf/libexec/asdf.sh
 eval "`pip3 completion --zsh`"
 eval "$(starship init zsh)"
 
-# goenv
-export GOENV_ROOT="$HOME/.goenv"
-export PATH="$GOENV_ROOT/bin:$PATH"
-eval "$(goenv init -)"
-export PATH="$GOROOT/bin:$PATH"
-export PATH="$PATH:$GOPATH/bin"
+# golang
+source ~/.asdf/plugins/golang/set-env.zsh
+
 
 # kubectl
 alias k='kubectl'
 export PATH="${PATH}:${HOME}/.krew/bin"
 
-# Hishtory Config:
-export PATH="$PATH:${HOME}/.hishtory"
-source ~/.hishtory/config.zsh
+eval "$(helm completion zsh)"
+
+eval "$(atuin init zsh)"
+
+eval "$(zoxide init zsh)"
+
 
 kx () {
     local cmd=${2:-"bash"}
@@ -139,7 +139,3 @@ alias wip='git add . && git commit --no-verify -m "wip"'
 # zprof
 
 neofetch
-
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/tssujt/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
