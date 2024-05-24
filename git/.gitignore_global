@@ -5,3 +5,4 @@
 venv/
 *.iml
 zsh-cache
+.tool-versions
