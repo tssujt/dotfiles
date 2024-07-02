@@ -110,7 +110,6 @@ eval "$(starship init zsh)"
 # golang
 source ~/.asdf/plugins/golang/set-env.zsh
 
-
 # kubectl
 alias k='kubectl'
 export PATH="${PATH}:${HOME}/.krew/bin"
@@ -138,4 +137,4 @@ alias wip='git add . && git commit --no-verify -m "wip"'
 
 # zprof
 
-neofetch
+fastfetch
