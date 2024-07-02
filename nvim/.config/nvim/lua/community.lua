@@ -10,4 +10,5 @@ return {
   { import = "astrocommunity.colorscheme.vscode-nvim" },
   { import = "astrocommunity.pack.rust" },
   { import = "astrocommunity.scrolling.nvim-scrollbar" },
+  { import = "astrocommunity.recipes.vscode" },
 }
