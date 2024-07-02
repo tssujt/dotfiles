@@ -9,9 +9,9 @@ return {
   opts = {
     -- Configuration table of features provided by AstroLSP
     features = {
-      autoformat = true, -- enable or disable auto formatting on start
-      codelens = true, -- enable/disable codelens refresh on start
-      inlay_hints = false, -- enable/disable inlay hints on start
+      autoformat = true,      -- enable or disable auto formatting on start
+      codelens = true,        -- enable/disable codelens refresh on start
+      inlay_hints = false,    -- enable/disable inlay hints on start
       semantic_tokens = true, -- enable/disable semantic token highlighting
     },
     -- customize lsp formatting options
@@ -104,13 +104,14 @@ return {
         settings = {
           yaml = {
             schemas = {
-              ["http://json.schemastore.org/github-workflow"] = ".github/workflows/*.{yml,yaml}",
-              ["http://json.schemastore.org/github-action"] = ".github/action.{yml,yaml}",
-              ["http://json.schemastore.org/ansible-stable-2.9"] = "roles/tasks/*.{yml,yaml}",
+              ["https://json.schemastore.org/github-workflow"] = ".github/workflows/*.{yml,yaml}",
+              ["https://json.schemastore.org/github-action"] = ".github/action.{yml,yaml}",
+              ["https://json.schemastore.org/ansible-stable-2.9"] = "roles/tasks/*.{yml,yaml}",
+              ["https://json.schemastore.org/pre-commit-config.json"] = ".pre-commit-config.yaml",
             },
           },
         },
-      }
+      },
     },
     -- customize how language servers are attached
     handlers = {
