@@ -6,6 +6,7 @@ return {
       "c",
       "comment",
       "commonlisp",
+      "diff",
       "dockerfile",
       "go",
       "gomod",
