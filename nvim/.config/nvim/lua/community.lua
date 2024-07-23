@@ -8,6 +8,7 @@ return {
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.colorscheme.kanagawa-nvim" },
   { import = "astrocommunity.colorscheme.vscode-nvim" },
+  { import = "astrocommunity.media.vim-wakatime" },
   { import = "astrocommunity.pack.rust" },
   { import = "astrocommunity.scrolling.nvim-scrollbar" },
   { import = "astrocommunity.recipes.vscode" },
