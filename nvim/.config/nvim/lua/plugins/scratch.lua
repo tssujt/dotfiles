@@ -1,4 +1,5 @@
 return {
   "LintaoAmons/scratch.nvim",
-  event = "VimEnter",
+  tag = "v0.13.2",
+  event = "VeryLazy",
 }
