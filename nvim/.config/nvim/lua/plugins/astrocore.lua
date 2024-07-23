@@ -44,8 +44,13 @@ local maps = {
       desc = "Find words",
     },
     ["<Leader>fW"] = false,
+    ["<Leader>gB"] = { function() require("gitsigns").blame_line { full = true } end, desc = "Blame Line" },
+    ["<Leader>gh"] = { function() require("gitsigns").preview_hunk() end, desc = "Preview Git hunk" },
     ["<Leader>gj"] = { function() require("gitsigns").next_hunk() end, desc = "Next Git hunk" },
     ["<Leader>gk"] = { function() require("gitsigns").previous_hunk() end, desc = "Previous Git hunk" },
+    ["<Leader>go"] = { "<cmd>OpenInGHRepo<cr>", desc = "Open In GitHub Repo" },
+    ["<Leader>gF"] = { "<cmd>OpenInGHFileLines<cr>", desc = "Open In GitHub File Lines" },
+    ["<Leader>gf"] = { "<cmd>OpenInGHFile<CR>", desc = "Open git file in web" },
     ["<Leader>tu"] = false,
     ["<Leader>U"] = { "<cmd>Telescope undo<cr>", desc = "Undo" },
     ["<TAB>"] = {
@@ -76,7 +81,7 @@ maps.n["<Leader>r"] = { desc = " Refactor" }
 maps.v["<Leader>r"] = { desc = " Refactor" }
 
 -- copilot
-maps.n["<Leader>c"] = { name = " Copilot", desc = " Copilot" }
+maps.n["<Leader>c"] = { desc = " Copilot" }
 maps.n["<Leader>ch"] = {
   function()
     local actions = require "CopilotChat.actions"
@@ -93,7 +98,7 @@ maps.n["<Leader>cp"] = {
 }
 maps.n["<Leader>cr"] = { "<cmd>CopilotChatReset<cr>", desc = "Reset chat history and clear buffer" }
 
-maps.v["<Leader>c"] = { name = " Copilot", desc = " Copilot" }
+maps.v["<Leader>c"] = { desc = " Copilot" }
 maps.v["<Leader>ce"] = { "<cmd>CopilotChatExplain<cr>", desc = "Explain code" }
 maps.v["<Leader>ct"] = { "<cmd>CopilotChatTests<cr>", desc = "Generate tests" }
 maps.v["<Leader>cT"] = { "<cmd>CopilotChatVsplitToggle<cr>", desc = "Toggle vertical split" }
@@ -213,7 +218,7 @@ return {
           event = "VimEnter",
           desc = "Restore previous directory session if neovim opened with no arguments",
           callback = function()
-            if require("astrocore").is_available("resession.nvim") then
+            if require("astrocore").is_available "resession.nvim" then
               -- Only load the session if nvim was started with no args
               if vim.fn.argc(-1) == 0 then
                 -- try to load a directory session using the current working directory
@@ -222,7 +227,6 @@ return {
                 vim.tbl_map(vim.cmd.doautoall, { "BufReadPre", "BufReadPost" })
               end
             end
-
           end,
         },
       },

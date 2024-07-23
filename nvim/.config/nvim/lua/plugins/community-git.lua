@@ -29,4 +29,8 @@ return {
       }
     end,
   },
+  {
+    "almo7aya/openingh.nvim",
+    cmd = { "OpenInGHRepo", "OpenInGHFile", "OpenInGHFileLines" },
+  },
 }
