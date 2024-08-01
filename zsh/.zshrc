@@ -55,20 +55,20 @@ rmvirtualenv () {
     rmvirtualenv "$@"
 }
 
-if [[ -x $(which exa) ]]; then
-  export EXA_COLORS="da=32"
-  alias l="exa -lbF"
-  alias ls="exa -a --group-directories-first --color-scale"
-  alias la="exa -alF --group-directories-first --color-scale"
-  alias ll="exa -aFG --group-directories-first --color-scale"
-  alias lg="exa -alFG --group-directories-first --color-scale"
-  alias lr="exa -alr --group-directories-first --color-scale"
-  alias lt="exa -alFs time --color-scale"
-  alias lk="exa -als extension --group-directories-first --color-scale"
-  alias lS="exa -alFs size --group-directories-first --color-scale"
-  alias lR="exa -alFR --group-directories-first --color-scale"
-  alias lT="exa -alFT --color-scale"
-  alias ldot="exa -adl .* --color-scale"
+if [[ -x $(which eza) ]]; then
+  export EZA_COLORS="da=32"
+  alias l="eza -lbF"
+  alias ls="eza -a --group-directories-first"
+  alias la="eza -alF --icons"
+  alias ll="eza -aFG --group-directories-first"
+  alias lg="eza -alFG --group-directories-first"
+  alias lr="eza -alr --group-directories-first"
+  alias lt="eza -alFs time"
+  alias lk="eza -als extension --group-directories-first"
+  alias lS="eza -alFs size --group-directories-first"
+  alias lR="eza -alFR --group-directories-first"
+  alias lT="eza -alFT"
+  alias ldot="eza -adl .*"
 fi
 
 # fix for navigation keys in JetBrains terminal
