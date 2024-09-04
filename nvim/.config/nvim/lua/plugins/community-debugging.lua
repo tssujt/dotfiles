@@ -1,3 +1,3 @@
 return {
-  { import = "astrocommunity.debugging.nvim-bqf" },
+  { import = "astrocommunity.quickfix.nvim-bqf" },
 }

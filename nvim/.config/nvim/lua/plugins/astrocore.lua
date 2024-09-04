@@ -48,6 +48,8 @@ local maps = {
     ["<Leader>gh"] = { function() require("gitsigns").preview_hunk() end, desc = "Preview Git hunk" },
     ["<Leader>gj"] = { function() require("gitsigns").next_hunk() end, desc = "Next Git hunk" },
     ["<Leader>gk"] = { function() require("gitsigns").previous_hunk() end, desc = "Previous Git hunk" },
+    ["<Leader>gr"] = { function() require("gitsigns").reset_hunk() end, desc = "Reset Git hunk" },
+    ["<Leader>gs"] = { function() require("gitsigns").stage_hunk() end, desc = "Stage Git hunk" },
     ["<Leader>go"] = { "<cmd>OpenInGHRepo<cr>", desc = "Open In GitHub Repo" },
     ["<Leader>gF"] = { "<cmd>OpenInGHFileLines<cr>", desc = "Open In GitHub File Lines" },
     ["<Leader>gf"] = { "<cmd>OpenInGHFile<CR>", desc = "Open git file in web" },
@@ -79,32 +81,6 @@ local maps = {
 -- refactoring
 maps.n["<Leader>r"] = { desc = " Refactor" }
 maps.v["<Leader>r"] = { desc = " Refactor" }
-
--- copilot
-maps.n["<Leader>c"] = { desc = " Copilot" }
-maps.n["<Leader>ch"] = {
-  function()
-    local actions = require "CopilotChat.actions"
-    require("CopilotChat.integrations.telescope").pick(actions.help_actions())
-  end,
-  desc = "CopilotChat - Help actions",
-}
-maps.n["<Leader>cp"] = {
-  function()
-    local actions = require "CopilotChat.actions"
-    require("CopilotChat.integrations.telescope").pick(actions.prompt_actions())
-  end,
-  desc = "CopilotChat - Prompt actions",
-}
-maps.n["<Leader>cr"] = { "<cmd>CopilotChatReset<cr>", desc = "Reset chat history and clear buffer" }
-
-maps.v["<Leader>c"] = { desc = " Copilot" }
-maps.v["<Leader>ce"] = { "<cmd>CopilotChatExplain<cr>", desc = "Explain code" }
-maps.v["<Leader>ct"] = { "<cmd>CopilotChatTests<cr>", desc = "Generate tests" }
-maps.v["<Leader>cT"] = { "<cmd>CopilotChatVsplitToggle<cr>", desc = "Toggle vertical split" }
-maps.v["<Leader>cr"] = { "<cmd>CopilotChatReset<cr>", desc = "Reset chat history and clear buffer" }
-maps.v["<Leader>cv"] = { "<cmd>CopilotChatVisual<cr>", desc = "Open in vertical split" }
-maps.v["<Leader>cx"] = { "<cmd>CopilotChatInPlace<cr>", desc = "Run in-place code" }
 
 -- trouble
 maps.n["<Leader>x"] = { desc = " Trouble" }

@@ -6,6 +6,7 @@
 return {
   "AstroNvim/astrocommunity",
   { import = "astrocommunity.pack.lua" },
+  { import = "astrocommunity.bars-and-lines.vim-illuminate" },
   { import = "astrocommunity.colorscheme.kanagawa-nvim" },
   { import = "astrocommunity.colorscheme.vscode-nvim" },
   { import = "astrocommunity.media.vim-wakatime" },

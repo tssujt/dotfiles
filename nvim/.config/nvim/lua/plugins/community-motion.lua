@@ -1,4 +1,5 @@
 return {
+  { "danilamihailov/beacon.nvim" },
   {
     "folke/flash.nvim",
     event = "VeryLazy",

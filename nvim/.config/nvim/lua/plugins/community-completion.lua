@@ -22,35 +22,53 @@ return {
     config = function() require("copilot_cmp").setup() end,
   },
   {
-    "CopilotC-Nvim/CopilotChat.nvim",
-    branch = "canary",
-    dependencies = {
-      { "zbirenbaum/copilot.lua" }, -- or github/copilot.vim
-      { "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
-    },
-    opts = {
-      show_help = "yes", -- Show help text for CopilotChatInPlace, default: yes
-      debug = false, -- Enable or disable debug mode, the log file will be in ~/.local/state/nvim/CopilotChat.nvim.log
-      disable_extra_info = "no", -- Disable extra information (e.g: system prompt) in the response.
-    },
+    "yetone/avante.nvim",
     event = "VeryLazy",
-  },
-  {
-    "Exafunction/codeium.nvim",
-    lazy = false,
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "hrsh7th/nvim-cmp",
+    build = "make", -- This is Optional, only if you want to use tiktoken_core to calculate tokens count
+    opts = {
+      provider = "copilot",
+      mappings = {
+        diff = {
+          ours = "co",
+          theirs = "ct",
+          both = "cb",
+          next = "]x",
+          prev = "[x",
+        },
+        jump = {
+          next = "]]",
+          prev = "[[",
+        },
+        submit = {
+          normal = "<CR>",
+          insert = "<C-s>",
+        },
+        toggle = {
+          debug = "<leader>ad",
+          hint = "<leader>ah",
+        },
+      },
     },
-    config = function()
-        require("codeium").setup({})
-    end
+    dependencies = {
+      "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
+      "stevearc/dressing.nvim",
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+      --- The below is optional, make sure to setup it properly if you have lazy=true
+      {
+        "MeanderingProgrammer/render-markdown.nvim",
+        opts = {
+          file_types = { "markdown", "Avante" },
+        },
+        ft = { "markdown", "Avante" },
+      },
+    },
   },
   {
     "onsails/lspkind.nvim",
     opts = function(_, opts)
       return require("astrocore").extend_tbl(opts, {
-        symbol_map = { Copilot = "", Codeium = "" },
+        symbol_map = { Copilot = "" },
       })
     end,
   },
@@ -69,7 +87,6 @@ return {
           ["<C-a>"] = cmp.mapping.complete {
             config = {
               sources = {
-                { name = "codeium" },
                 { name = "copilot" },
               },
             },
@@ -80,7 +97,6 @@ return {
             with_text = true,
             menu = {
               copilot = "[ Copilot]",
-              codeium = "[ Codeium]",
               buffer = "[ Buf]",
               nvim_lsp = "[ LSP]",
               luasnip = "[ LSnip]",
@@ -90,7 +106,6 @@ return {
         },
         sources = {
           { name = "copilot", priority = 1000 },
-          { name = "codeium", priority = 1000 },
           { name = "nvim_lsp", priority = 1000 },
           { name = "luasnip", priority = 750 },
           { name = "buffer", priority = 500 },

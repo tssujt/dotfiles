@@ -6,6 +6,7 @@ return {
     "debugloop/telescope-undo.nvim",
     "nvim-telescope/telescope-live-grep-args.nvim",
     "nvim-telescope/telescope-project.nvim",
+    "nvim-telescope/telescope-github.nvim",
     { "nvim-telescope/telescope-fzf-native.nvim", enabled = vim.fn.executable "make" == 1, build = "make" },
   },
   opts = function()
@@ -72,6 +73,7 @@ return {
 
     local telescope = require "telescope"
     telescope.load_extension "fzf"
+    telescope.load_extension "gh"
     telescope.load_extension "live_grep_args"
     telescope.load_extension "noice"
     telescope.load_extension "project"
