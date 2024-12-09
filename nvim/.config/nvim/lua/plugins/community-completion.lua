@@ -27,6 +27,9 @@ return {
     build = "make", -- This is Optional, only if you want to use tiktoken_core to calculate tokens count
     opts = {
       provider = "copilot",
+      copilot = {
+        model = "claude-3.5-sonnet",
+      },
       mappings = {
         diff = {
           ours = "co",
@@ -105,10 +108,10 @@ return {
           },
         },
         sources = {
-          { name = "copilot", priority = 1000 },
+          { name = "copilot",  priority = 1000 },
           { name = "nvim_lsp", priority = 1000 },
-          { name = "luasnip", priority = 750 },
-          { name = "buffer", priority = 500 },
+          { name = "luasnip",  priority = 750 },
+          { name = "buffer",   priority = 500 },
         },
       })
     end,
