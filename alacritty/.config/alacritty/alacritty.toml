@@ -41,15 +41,19 @@ TERM = "xterm-256color"
 size = 16
 
 [font.bold]
-family = "0xProto Nerd Font Propo"
-style = "Regular"
+family = "BlexMono Nerd Font"
+style = "SemiBold"
+
+[font.bold_italic]
+family = "BlexMono Nerd Font"
+style = "SemiBold Italic"
 
 [font.italic]
-family = "0xProto Nerd Font Mono"
-style = "Regular"
+family = "BlexMono Nerd Font"
+style = "Italic"
 
 [font.normal]
-family = "0xProto Nerd Font"
+family = "BlexMono Nerd Font"
 style = "Regular"
 
 [window]
