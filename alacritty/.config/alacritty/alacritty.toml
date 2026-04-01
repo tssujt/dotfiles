@@ -41,19 +41,19 @@ TERM = "xterm-256color"
 size = 16
 
 [font.bold]
-family = "BlexMono Nerd Font"
+family = "Lilex Nerd Font Mono"
 style = "SemiBold"
 
 [font.bold_italic]
-family = "BlexMono Nerd Font"
+family = "Lilex Nerd Font Mono"
 style = "SemiBold Italic"
 
 [font.italic]
-family = "BlexMono Nerd Font"
+family = "Lilex Nerd Font Mono"
 style = "Italic"
 
 [font.normal]
-family = "BlexMono Nerd Font"
+family = "Lilex Nerd Font Mono"
 style = "Regular"
 
 [window]
