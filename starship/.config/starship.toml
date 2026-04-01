@@ -1,6 +1,6 @@
 # ~/.config/starship.toml
 
-command_timeout = 10000
+command_timeout = 1000
 
 [battery]
 full_symbol = "🔋"
