@@ -1,0 +1,29 @@
+font-family = "Lilex Nerd Font Mono"
+
+window-colorspace = display-p3
+
+shell-integration = zsh
+shell-integration-features = sudo,title
+link-url = true
+
+theme = ayu
+
+macos-option-as-alt = left
+
+# tmux integration - send save-buffer command
+keybind = cmd+s=text:\x01\x73
+
+# tmux prefix to toggle zoom on current pane
+keybind = cmd+b=text:\x01\x7a
+
+# aesthetics
+background-opacity = 0.85
+background-blur = 16
+background = #000000
+macos-titlebar-style = hidden
+
+# typography
+font-size = 16
+font-thicken = true
+font-thicken-strength = 1
+adjust-cell-height = 1
