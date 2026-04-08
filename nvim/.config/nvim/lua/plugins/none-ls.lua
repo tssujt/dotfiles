@@ -1,19 +1,24 @@
--- Customize None-ls sources
-
----@type LazySpec
 return {
-  "nvimtools/none-ls.nvim",
-  opts = function(_, config)
-    -- config variable is the default configuration table for the setup function call
-    local null_ls = require "null-ls"
+  {
+    "nvimtools/none-ls.nvim",
+    opts = function(_, opts)
+      local null_ls = require "null-ls"
 
-    -- Check supported formatters and linters
-    -- https://github.com/nvimtools/none-ls.nvim/tree/main/lua/null-ls/builtins/formatting
-    -- https://github.com/nvimtools/none-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
-    config.sources = {
-      null_ls.builtins.formatting.prettier,
-      null_ls.builtins.completion.spell,
-    }
-    return config -- return final config table
-  end,
+      opts.sources = require("astrocore").list_insert_unique(opts.sources or {}, {
+        null_ls.builtins.completion.spell,
+        null_ls.builtins.diagnostics.actionlint,
+        null_ls.builtins.formatting.prettier.with {
+          filetypes = { "html", "json", "jsonc", "markdown", "scss", "yaml" },
+        },
+        null_ls.builtins.formatting.shfmt,
+        null_ls.builtins.formatting.stylua,
+      })
+    end,
+  },
+  {
+    "jay-babu/mason-null-ls.nvim",
+    opts = {
+      handlers = {},
+    },
+  },
 }

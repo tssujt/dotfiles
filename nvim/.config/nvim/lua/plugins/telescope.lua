@@ -68,16 +68,12 @@ return {
       },
     }
   end,
-  config = function(...)
-    require "astronvim.plugins.configs.telescope"(...)
-
+  config = function(_, opts)
     local telescope = require "telescope"
-    telescope.load_extension "fzf"
-    telescope.load_extension "gh"
-    telescope.load_extension "live_grep_args"
-    telescope.load_extension "noice"
-    telescope.load_extension "project"
-    telescope.load_extension "refactoring"
-    telescope.load_extension "undo"
+    telescope.setup(opts)
+
+    for _, extension in ipairs { "fzf", "gh", "live_grep_args", "noice", "project", "refactoring", "undo" } do
+      pcall(telescope.load_extension, extension)
+    end
   end,
 }
