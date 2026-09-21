@@ -85,7 +85,14 @@ source ${BREW_PREFIX}/share/zsh/site-functions/aws_zsh_completer.sh
 _cache_source starship starship init zsh
 
 _cache_source mise mise activate zsh
-_cache_source codex codex completion zsh
+# The codex completion script is 230KB (~17ms to source), so load it lazily on
+# the first codex completion. Trade-off: the first Tab does not complete;
+# completion works from the second one on.
+_codex_lazy_completion() {
+  unfunction _codex_lazy_completion 2>/dev/null
+  _cache_source codex codex completion zsh
+}
+(( $+commands[codex] )) && compdef _codex_lazy_completion codex 2>/dev/null
 
 # kubectl
 alias k='kubectl'
@@ -114,7 +121,11 @@ alias wip='git add . && git commit --no-verify -m "wip"'
 
 # zprof
 
-fastfetch
+# fastfetch takes ~66ms, so skip it in editor-embedded terminals
+# (TERM_PROGRAM=vscode for Cursor/VS Code).
+if [[ "$TERM_PROGRAM" != "vscode" ]] && (( $+commands[fastfetch] )); then
+  fastfetch
+fi
 
 export PATH="$BREW_PREFIX/opt/openjdk/bin:$PATH"
 
