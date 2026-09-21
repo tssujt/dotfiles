@@ -16,7 +16,7 @@ export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 export ANDROID_HOME=/usr/local/opt/android-sdk
 
 # Rust
-source "$HOME/.cargo/env"
+[[ -f "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"
 
 export LD_LIBRARY_PATH="${HOME}/.rustup/toolchains/nightly-x86_64-apple-darwin/lib:${HOME}/.rustup/toolchains/nightly-x86_64-apple-darwin/lib:"
 
@@ -39,9 +39,6 @@ export PATH="${HOME}/Library/emsdk-portable:$PATH"
 export EMSDK="${HOME}/Library/emsdk-portable"
 export EM_CONFIG="${HOME}/.emscripten"
 
-export PATH="${HOME}/.emacs.d/bin:$PATH"
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
 export PATH="$PATH:${HOME}/.local/bin"
 export GOENV_ROOT="$HOME/.goenv"
 export PATH="$GOENV_ROOT/bin:$PATH"
@@ -52,7 +49,6 @@ export PATH="/usr/local/sbin:$PATH"
 if [ -e ${HOME}/.nix-profile/etc/profile.d/nix.sh ]; then . ${HOME}/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 export HOMEBREW_BUNDLE_FILE="${HOME}/.Brewfile"
-source "$HOME/.cargo/env"
 
 export DOCKER_DEFAULT_PLATFORM=linux/amd64
 export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/rc"
