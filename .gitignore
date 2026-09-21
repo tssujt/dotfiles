@@ -10,4 +10,5 @@ git/.gitconfig_work
 .netrwhist
 sessions
 black
+htop/.config/htop/htop_history
 nvim/.config/nvim/plugin/packer_compiled.lua
