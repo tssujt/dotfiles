@@ -1,9 +1,15 @@
 # zmodload zsh/zprof
 
+# Homebrew completions must be on fpath before Prezto runs compinit.
+fpath=(/opt/homebrew/share/zsh/site-functions $fpath)
+
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
+
+# fzf-tab must load after compinit (run by Prezto) and is installed via Homebrew.
+[[ -f /opt/homebrew/share/fzf-tab/fzf-tab.zsh ]] && source /opt/homebrew/share/fzf-tab/fzf-tab.zsh
 
 # export GHOSTTY_RESOURCES_DIR="/Applications/Ghostty.app/Contents/Resources/ghostty"
 # source ${GHOSTTY_RESOURCES_DIR}/shell-integration/zsh/ghostty-integration
@@ -78,7 +84,8 @@ _cache_source() {
 }
 
 _cache_source stern stern --completion=zsh
-[ -f ${BREW_PREFIX}/etc/profile.d/autojump.sh ] && . ${BREW_PREFIX}/etc/profile.d/autojump.sh
+# zsh-z: git clone https://github.com/agkozak/zsh-z.git ~/.local/share/zsh-z
+[ -f ~/.local/share/zsh-z/zsh-z.plugin.zsh ] && source ~/.local/share/zsh-z/zsh-z.plugin.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source ${BREW_PREFIX}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ${BREW_PREFIX}/share/zsh/site-functions/aws_zsh_completer.sh

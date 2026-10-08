@@ -8,9 +8,9 @@ export LANG=en_US.UTF-8
 
 export EDITOR=nvim
 
-# MySQL
-export PATH="/usr/local/opt/mysql-client@5.7/bin:$PATH"
-export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+# Homebrew: set here (not only in login shells) so non-interactive SSH
+# commands such as mosh-server can find Homebrew binaries.
+export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
 
 # Android
 export ANDROID_HOME=/usr/local/opt/android-sdk
