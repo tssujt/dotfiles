@@ -1,6 +1,10 @@
 [tools]
+go = "1.27"
+kubectl = "latest"
+mr-boxington = "latest"
 node = "25"
-python = "3.13"
+python = "3.14"
+rust = { version = "latest", mr_boxington = true }
 
 [settings]
 idiomatic_version_file_enable_tools = ["python"]
