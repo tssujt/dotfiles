@@ -7,7 +7,9 @@ vim.g.loaded_ruby_provider = 0
 
 local python3_host_prog = vim.env.NVIM_PYTHON3_HOST_PROG
 if not python3_host_prog and vim.fn.executable "mise" == 1 then
-  python3_host_prog = vim.fn.trim(vim.fn.system { "mise", "which", "python3" })
+  -- MISE_OFFLINE avoids remote version lookups that block startup for seconds
+  local result = vim.system({ "mise", "which", "python3" }, { env = { MISE_OFFLINE = "1" }, text = true }):wait()
+  if result.code == 0 then python3_host_prog = vim.trim(result.stdout) end
 end
 if not python3_host_prog or python3_host_prog == "" then python3_host_prog = vim.fn.exepath "python3" end
 if python3_host_prog ~= "" and uv.fs_stat(python3_host_prog) then vim.g.python3_host_prog = python3_host_prog end
